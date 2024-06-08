@@ -1,0 +1,23 @@
+{
+    "name": "Unilake Docs",
+    "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "20.14.0"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.csdevkit",
+                "ms-dotnettools.vscodeintellicode-csharp"
+            ],
+            "settings": {
+                "editor.formatOnSave": true,
+                "files.exclude": {
+                    "**/LICENSE": true
+                }
+            }
+        }
+    }
+}
