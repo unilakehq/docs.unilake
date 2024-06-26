@@ -13,7 +13,6 @@
                 "ms-dotnettools.vscodeintellicode-csharp"
             ],
             "settings": {
-                "editor.formatOnSave": true,
                 "files.exclude": {
                     "**/LICENSE": true
                 }

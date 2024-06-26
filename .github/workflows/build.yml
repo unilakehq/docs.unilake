@@ -1,18 +1,27 @@
 name: Build
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 on:
   push:
     branches:
       - 'main'
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+  
 jobs:
   build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-22.04
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v2.0.0
 
       - name: setup .net core
@@ -20,8 +29,8 @@ jobs:
         with:
           dotnet-version: '8.0'
 
-      - name: build
-        working-directory: ./docs.unilake
+      - name: Build
+        working-directory: .
         run: dotnet build .
 
       - name: Assign default GitHub URL base path
@@ -46,12 +55,12 @@ jobs:
           fi
 
       - name: Build tailwind
-        working-directory: ./docs.unilake
+        working-directory: ./src
         run: |
           npm run build
 
-      - name: prerender
-        working-directory: ./docs.unilake
+      - name: Prerender Site
+        working-directory: ./src
         run: |
           site_base_href=${{ env.ssg_base_href }}
           site_base_url="https://${{ env.custom_domain }}"
@@ -65,10 +74,12 @@ jobs:
           fi
 
       # Deploy UI to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v5 
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs.unilake/dist
-          user_name: 'GitHub Action'
-          user_email: 'action@github.com'
+          path: ./src/dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
