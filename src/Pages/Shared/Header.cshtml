@@ -1,29 +1,61 @@
 @{
     var menuItems = new (string Href, string Text)[]
     {
-        ("/whatsnew", "What's New"),
-        ("/vue/", "Vue"),
-        ("/creatorkit/", "Creator Kit"),
-        ("/videos", "Videos"),
+        ("/", "Getting Started"),
+        ("/architecture", "Architecture"),
+        ("/platform", "Platform"),
+        ("/reference", "Reference"),
+        ("/integrations", "Integrations"),
+        ("/contribute", "Contribute"),
+        ("/blog", "Blog"),
     };
 }
-<header id="header" class="top-0 fixed z-50 h-14 bg-white dark:bg-black opacity-90 w-full shadow">
-  <nav class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-black">
-    <div class="mx-auto max-w-[100rem] pr-4 sm:pr-6 lg:pr-8">
-      <div class="flex h-16 justify-between">
-        <div class="flex">
-          <div class="flex flex-shrink-0 items-center">
-            <a class="mr-2 lg:mr-8 flex items-center" href="/">
-                <svg class="w-8 h-8 mr-1 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0M3 6v13m9-13v13m9-13v13"/></svg>
-                <span class="hidden sm:block text-2xl font-semibold">docs.unilake</span>
-            </a>
-          </div>
-            <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-4 lg:space-x-8">
+<header id="header" class="top-0 fixed z-50 h-14 bg-white dark:bg-black w-full shadow">
+  <nav class="border-b bg-[#F9F8F6] border-[#DDDFDA] dark:border-gray-700 dark:bg-black">
+    @* <div class="mx-auto max-w-[100rem] pr-4 sm:pr-6 lg:pr-8"> *@
+    @* TODO: Adjust layout like in figma *@
+    <div class="mx-auto container px-3 sm:px-10 md:px-20 py-[24px]">
+      <div class="flex justify-between items-center">
+          <div class="flex gap-0 sm:gap-6 flex-shrink-0">
+          <!-- Mobile menu button -->
+          <div class="flex items-center lg:hidden">
+            <button type="button" v-on:click="open=!open" class="inline-flex items-center justify-center rounded-md dark:bg-black p-2 text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-500 focus:outline-none focus:ring-indigo-500 focus:ring-offset-2 dark:ring-offset-black" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <!-- Menu open: "hidden", Menu closed: "block" -->
+                <svg :class="['h-6 w-6', open ? 'hidden' : 'block']" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 8C3 7.44772 3.44772 7 4 7H28C28.5523 7 29 7.44772 29 8C29 8.55228 28.5523 9 28 9H4C3.44772 9 3 8.55228 3 8ZM3 16C3 15.4477 3.44772 15 4 15H28C28.5523 15 29 15.4477 29 16C29 16.5523 28.5523 17 28 17H4C3.44772 17 3 16.5523 3 16ZM3 24C3 23.4477 3.44772 23 4 23H28C28.5523 23 29 23.4477 29 24C29 24.5523 28.5523 25 28 25H4C3.44772 25 3 24.5523 3 24Z" fill="#252532"/>
+                </svg>
+
+              </svg>
+              <!-- Menu open: "block", Menu closed: "hidden" -->
+              
+             <svg :class="['h-6 w-6', open ? 'block' : 'hidden']" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M8.2045 8.2045C8.64384 7.76517 9.35616 7.76517 9.7955 8.2045L18 16.409L26.2045 8.2045C26.6438 7.76517 27.3562 7.76517 27.7955 8.2045C28.2348 8.64384 28.2348 9.35616 27.7955 9.7955L19.591 18L27.7955 26.2045C28.2348 26.6438 28.2348 27.3562 27.7955 27.7955C27.3562 28.2348 26.6438 28.2348 26.2045 27.7955L18 19.591L9.7955 27.7955C9.35616 28.2348 8.64384 28.2348 8.2045 27.7955C7.76517 27.3562 7.76517 26.6438 8.2045 26.2045L16.409 18L8.2045 9.7955C7.76517 9.35616 7.76517 8.64384 8.2045 8.2045Z" fill="#252532"/>
+              </svg>
+
+            </button>
+        </div>
+            @* LOGO *@
+            @* TODO: Change logo size on mobile screen *@
+        <a href="/" class="self-center mr-2" alt="Main Logo">
+          <picture >
+              <!-- Image for large screens -->
+              <source srcset="/img/logo-xl.png" media="(min-width: 600px)">
+              <!-- Image for small screens -->
+              <img src="/img/logo-sm.png" alt="Responsive Image">
+
+          </picture>
+        </a>
+      </div>
+          @* LINKS *@
+            <div class="hidden lg:flex sm:space-x-4 lg:space-x-8">
+              @* TODO: Add hover effect on links *@
                 <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
                 @{
                     void RenderNavLink(string href, string childContent, string? cls = null)
                     {
-                        <a href="@href" class="@Html.ClassNames("inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium", Html.MatchesPath(href) ? "border-indigo-500 text-gray-900" : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200", cls)">
+                        <a href="@href" class="@Html.ClassNames("inline-flex font-inter items-center  text-base text-[#252532] leading-[175%] font-normal", 
+                        Html.MatchesPath(href) ? "text-[#FF6849]" : "text-[#252532]  hover:text-[#FF6849]", cls)">
                             @Html.Raw(childContent)
                         </a>
                     }
@@ -33,29 +65,46 @@
                     }
                 }
             </div>
+            @* CTA *@
+        <div class="flex items-center gap-6 md:gap-8">
+            @* <dark-mode-toggle class="ml-2 w-10"></dark-mode-toggle> *@
+            <form class="max-w-md  mx-auto font-inter">   
+              <label for="default-search" class="mb-2 text-sm leading-[24px] text-[525D61] sr-only dark:text-white">Search</label>
+              <div class="relative">
+                  <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.833313 7.33334C0.833313 3.74349 3.74346 0.833336 7.33331 0.833336C10.9232 0.833336 13.8333 3.74349 13.8333 7.33334C13.8333 8.94811 13.2439 10.426 12.2695 11.5624L14.3535 13.6464C14.5488 13.8417 14.5488 14.1583 14.3535 14.3536C14.1583 14.5488 13.8417 14.5488 13.6464 14.3536L11.5624 12.2696C10.426 13.244 8.94809 13.8333 7.33331 13.8333C3.74347 13.8333 0.833313 10.9232 0.833313 7.33334ZM11.2224 11.2224C12.2182 10.2266 12.8333 8.85225 12.8333 7.33334C12.8333 4.29577 10.3709 1.83334 7.33331 1.83334C4.29575 1.83334 1.83331 4.29577 1.83331 7.33334C1.83331 10.3709 4.29575 12.8333 7.33331 12.8333C8.85223 12.8333 10.2265 12.2183 11.2224 11.2225C11.2224 11.2225 11.2224 11.2224 11.2224 11.2224Z" fill="#525D61"/>
+                      </svg>
+                  </div>
+                  <input type="search" id="default-search" class="flex items-center w-full px-4 py-2 ps-10 text-sm text-gray-900 border border-[#DDDFDA] self-stretch rounded-lg bg-transparent focus:ring-[#252532] focus:border-[#252532]  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#252532] dark:focus:border-[#252532]" placeholder="Search" required />
+                  
+                  <button type="submit" class="text-gray-400 absolute end-2.5 bottom-2.5 mr-2 bg-transparent focus:ring-4 focus:outline-none leading-[24px] text-xs dark:bg-blue-600">ctrl+k</button>
+                </div>
+            </form>
+            @* buttons *@
+            <div class="hidden sm:flex flex-start gap-3 text-[#252532]">  
+              <a href="#" class="flex">
+                <div class="rounded-full p-2 border cursor-pointer border-[#DDDFDA]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M7.32473 7.10357L3.34554 10.6568C2.93564 10.9793 2.66669 11.5117 2.66669 12.1105C2.66669 13.0884 3.38408 13.8887 4.26089 13.8887H11.7391C12.616 13.8887 13.3334 13.0884 13.3334 12.1105C13.3334 11.1324 12.616 10.3324 11.7391 10.3324H6.07787C5.99393 10.3324 5.94088 10.2318 5.98179 10.15L7.44139 7.22763C7.4947 7.14237 7.39863 7.04023 7.32473 7.10357ZM11.7391 2H4.26089C3.38408 2 2.66669 2.80001 2.66669 3.77817C2.66669 4.75608 3.38408 5.55635 4.26089 5.55635H9.92217C10.0061 5.55635 10.0592 5.65691 10.0182 5.73873L8.55865 8.66109C8.50534 8.74634 8.60141 8.84849 8.67531 8.78514L12.6545 5.23144C13.0644 4.90864 13.3334 4.37653 13.3334 3.77765C13.3334 2.79974 12.616 1.99947 11.7391 2Z" fill="#252532"/>
+                  </svg>
+                </div>
+              </a>
+              <a href="#" class="flex">
+                <div class="rounded-full p-2 border cursor-pointer border-[#DDDFDA]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M8.00065 1.33334C4.31732 1.33334 1.33399 4.31667 1.33399 8C1.33318 9.39944 1.77305 10.7636 2.59119 11.899C3.40933 13.0343 4.56421 13.8833 5.89199 14.3253C6.22532 14.3833 6.35065 14.1833 6.35065 14.008C6.35065 13.85 6.34199 13.3253 6.34199 12.7667C4.66732 13.0753 4.23399 12.3587 4.10065 11.9833C4.02532 11.7913 3.70065 11.2 3.41732 11.0413C3.18399 10.9167 2.85065 10.608 3.40865 10.6C3.93399 10.5913 4.30865 11.0833 4.43399 11.2833C5.03399 12.2913 5.99199 12.008 6.37532 11.8333C6.43399 11.4 6.60865 11.1087 6.80065 10.942C5.31732 10.7753 3.76732 10.2 3.76732 7.65C3.76732 6.92467 4.02532 6.32534 4.45065 5.85867C4.38399 5.692 4.15065 5.00867 4.51732 4.092C4.51732 4.092 5.07532 3.91667 6.35065 4.77467C6.89339 4.62427 7.45413 4.54868 8.01732 4.55C8.58399 4.55 9.15065 4.62467 9.68399 4.77467C10.9593 3.908 11.5173 4.092 11.5173 4.092C11.884 5.00867 11.6507 5.692 11.584 5.85867C12.0087 6.32534 12.2673 6.91667 12.2673 7.65C12.2673 10.2087 10.7093 10.7753 9.22599 10.942C9.46732 11.15 9.67599 11.55 9.67599 12.1753C9.67599 13.0667 9.66732 13.7833 9.66732 14.0087C9.66732 14.1833 9.79265 14.3913 10.126 14.3247C11.4492 13.8778 12.599 13.0272 13.4135 11.8926C14.2281 10.7581 14.6663 9.39666 14.6667 8C14.6667 4.31667 11.6833 1.33334 7.99999 1.33334" fill="#252532"/>
+                  </svg>
+                </div>
+              </a>
+            </div>
         </div>
-        <div class="hidden sm:ml-6 sm:flex sm:items-center">
-            <dark-mode-toggle class="ml-2 w-10"></dark-mode-toggle>
-        </div>
-        <div class="-mr-2 flex items-center sm:hidden">
-          <!-- Mobile menu button -->
-          <button type="button" v-on:click="open=!open" class="inline-flex items-center justify-center rounded-md bg-white dark:bg-black p-2 text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:ring-offset-black" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <!-- Menu open: "hidden", Menu closed: "block" -->
-            <svg :class="['h-6 w-6', open ? 'hidden' : 'block']" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!-- Menu open: "block", Menu closed: "hidden" -->
-            <svg :class="['h-6 w-6', open ? 'block' : 'hidden']" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+        
       </div>
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div v-cloak v-if="open" class="sm:hidden">
+    <div v-cloak v-if="open" class="md:hidden">
         <div class="space-y-1 pb-3 pt-2">
             <!-- Current: "border-indigo-500 bg-indigo-50 text-indigo-700", Default: "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800" -->
             @{
