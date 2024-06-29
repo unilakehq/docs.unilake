@@ -1139,6 +1139,10 @@ select{
   z-index: 50;
 }
 
+.-z-40 {
+  z-index: -40;
+}
+
 .col-span-12 {
   grid-column: span 12 / span 12;
 }
@@ -1157,6 +1161,10 @@ select{
 
 .col-span-6 {
   grid-column: span 6 / span 6;
+}
+
+.clear-both {
+  clear: both;
 }
 
 .-m-2 {
@@ -1360,6 +1368,10 @@ select{
   margin-bottom: -12%;
 }
 
+.me-4 {
+  margin-inline-end: 1rem;
+}
+
 .ml-0 {
   margin-left: 0px;
 }
@@ -1466,6 +1478,10 @@ select{
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mt-52 {
+  margin-top: 13rem;
 }
 
 .block {
@@ -1792,12 +1808,20 @@ select{
   max-width: 640px;
 }
 
+.max-w-screen-xl {
+  max-width: 1280px;
+}
+
 .max-w-xl {
   max-width: 36rem;
 }
 
 .max-w-xs {
   max-width: 20rem;
+}
+
+.max-w-\[1980px\] {
+  max-width: 1980px;
 }
 
 .flex-1 {
@@ -2166,6 +2190,10 @@ select{
   overflow-y: auto;
 }
 
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2340,6 +2368,11 @@ select{
 .border-yellow-400 {
   --tw-border-opacity: 1;
   border-color: rgb(250 204 21 / var(--tw-border-opacity));
+}
+
+.border-\[\#3F4952\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(63 73 82 / var(--tw-border-opacity));
 }
 
 .bg-\[\#F9F8F6\] {
@@ -2526,6 +2559,11 @@ select{
 .bg-yellow-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 252 232 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#252532\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 37 50 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-75 {
@@ -3302,6 +3340,11 @@ select{
 .text-yellow-700 {
   --tw-text-opacity: 1;
   color: rgb(161 98 7 / var(--tw-text-opacity));
+}
+
+.text-\[\#C1C5C0\] {
+  --tw-text-opacity: 1;
+  color: rgb(193 197 192 / var(--tw-text-opacity));
 }
 
 .placeholder-red-300::-moz-placeholder {
@@ -5026,6 +5069,10 @@ select{
     margin-bottom: 4rem;
   }
 
+  .md\:me-6 {
+    margin-inline-end: 1.5rem;
+  }
+
   .md\:mt-24 {
     margin-top: 6rem;
   }
@@ -5052,6 +5099,14 @@ select{
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
   }
 
   .md\:gap-8 {
