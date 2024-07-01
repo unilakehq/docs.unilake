@@ -29,7 +29,7 @@
 <body class="bg-white font-inter dark:bg-black dark:text-white">
 @await Html.PartialAsync("Header")
 
-<div class="min-h-screen">
+<div class="min-h-screen bg-[#F9F8F6]">
     <main role="main" class="pt-16 pb-3">
         @RenderBody()
     </main>
@@ -44,5 +44,6 @@ init()
 
 @await RenderSectionAsync("Scripts", required: false)
 
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>
 </html>

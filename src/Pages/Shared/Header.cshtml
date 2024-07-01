@@ -10,14 +10,14 @@
         ("/blog", "Blog"),
     };
 }
-<header id="header" class="top-0 fixed z-50 h-14 bg-white dark:bg-black w-full shadow">
+<header id="header" class="fixed top-0 z-50 w-full bg-white shadow h-14 dark:bg-black">
   <nav class="border-b bg-[#F9F8F6] border-[#DDDFDA] dark:border-gray-700 dark:bg-black">
-    <div class="mx-auto px-6 sm:px-8 2xl:px-28 py-6">
-      <div class="flex justify-between items-center">
-          <div class="flex gap-0 sm:gap-6 flex-shrink-0">
+    <div class="px-6 py-6 mx-auto sm:px-8 2xl:px-28">
+      <div class="flex items-center justify-between">
+          <div class="flex flex-shrink-0 gap-0 sm:gap-6">
           <!-- Mobile menu button -->
           <div class="flex items-center xl:hidden">
-            <button type="button" v-on:click="open=!open" class="inline-flex items-center justify-center rounded-md dark:bg-black p-2 text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-500 focus:outline-none focus:ring-indigo-500 focus:ring-offset-2 dark:ring-offset-black" aria-controls="mobile-menu" aria-expanded="false">
+            <button type="button" v-on:click="open=!open" class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md dark:bg-black hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-500 focus:outline-none focus:ring-indigo-500 focus:ring-offset-2 dark:ring-offset-black" aria-controls="mobile-menu" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <!-- Menu open: "hidden", Menu closed: "block" -->
                 <svg :class="['h-8 w-8', open ? 'hidden' : 'block']" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -61,19 +61,20 @@
             </div>
             @* CTA *@
         <div class="flex items-center gap-6 md:gap-8">
-            @* <dark-mode-toggle class="ml-2 w-10"></dark-mode-toggle> *@
+            @* <dark-mode-toggle class="w-10 ml-2"></dark-mode-toggle> *@
            <form class="max-w-md mx-auto font-inter hover:cursor-pointer">
               <label for="default-search" class="mb-2 text-sm leading-[24px] sr-only dark:text-white">Search</label>
               <div class="relative w-[158px] sm:w-[193px] border border-[#DDDFDA] rounded-lg hover:bg-[#f0eeeb] hover:border-[#FF6849]">
-                  <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                  <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M0.833313 7.33334C0.833313 3.74349 3.74346 0.833336 7.33331 0.833336C10.9232 0.833336 13.8333 3.74349 13.8333 7.33334C13.8333 8.94811 13.2439 10.426 12.2695 11.5624L14.3535 13.6464C14.5488 13.8417 14.5488 14.1583 14.3535 14.3536C14.1583 14.5488 13.8417 14.5488 13.6464 14.3536L11.5624 12.2696C10.426 13.244 8.94809 13.8333 7.33331 13.8333C3.74347 13.8333 0.833313 10.9232 0.833313 7.33334ZM11.2224 11.2224C12.2182 10.2266 12.8333 8.85225 12.8333 7.33334C12.8333 4.29577 10.3709 1.83334 7.33331 1.83334C4.29575 1.83334 1.83331 4.29577 1.83331 7.33334C1.83331 10.3709 4.29575 12.8333 7.33331 12.8333C8.85223 12.8333 10.2265 12.2183 11.2224 11.2225C11.2224 11.2225 11.2224 11.2224 11.2224 11.2224Z" fill="#525D61"/>
                       </svg>
                   </div>
-                  <input type="search" id="default-search" class="flex cursor-pointer items-center w-full px-4 py-2 ps-10 text-sm text-[#525D61] self-stretch rounded-lg bg-transparent focus:ring-[#FF6849] focus:border-[#FF6849] border-transparent " placeholder="Search" required />
+                  <input type="search" id="default-search" class="flex cursor-pointer items-center w-full px-4 py-2 ps-10 text-sm text-[#525D61] self-stretch rounded-lg bg-transparent focus:ring-[#FF6849] focus:border-[#FF6849] border-transparent" placeholder="Search" required />
                   <button type="submit" class="text-gray-400 absolute end-2.5 bottom-1.5 mr-2 bg-transparent leading-[24px] text-xs">ctrl+k</button>
               </div>
             </form>
+            
             @* buttons *@
             <div class="hidden sm:flex flex-start gap-3  text-[#252532]">  
               <a href="#" class="flex">
@@ -97,8 +98,9 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div v-cloak v-if="open" class="md:hidden">
-        <div class="space-y-1 pb-3 pt-2">
+    @* TODO: Add LEFT & RIGHT MENUs to Mobile menu *@
+    <div v-cloak v-if="open" class="xl:hidden">
+        <div class="pt-2 pb-3 space-y-1">
             @{
                 void RenderMobileLink(string href, string childContent, string? cls = null)
                 {
