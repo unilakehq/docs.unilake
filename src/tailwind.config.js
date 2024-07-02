@@ -1,5 +1,18 @@
 module.exports = {
-  content: ["./**/*.{html,js,mjs,md,cshtml,razor,cs}","./Pages/**/*.{cshtml,razor}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
+      colors: {
+        brand: '#FF6849',
+      },
+    },
+  },
+  content: [
+    './**/*.{html,js,mjs,md,cshtml,razor,cs}',
+    './Pages/**/*.{cshtml,razor}',
+  ],
   darkMode: 'class',
   plugins: [],
 }

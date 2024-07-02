@@ -5,6 +5,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg" href="/img/logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <title>@ViewData["Title"]</title>
     <script>
     if (location.search === "?dark") localStorage.setItem('color-scheme','dark') 
@@ -25,10 +26,10 @@
         ["@servicestack/vue"]    = ("/lib/mjs/servicestack-vue.mjs",    "/lib/mjs/servicestack-vue.min.mjs"),
     })
 </head>
-<body class="bg-white dark:bg-black dark:text-white">
+<body class="bg-white font-inter dark:bg-black dark:text-white">
 @await Html.PartialAsync("Header")
 
-<div class="min-h-screen">
+<div class="min-h-screen bg-[#F9F8F6]">
     <main role="main" class="pt-16 pb-3">
         @RenderBody()
     </main>
@@ -43,5 +44,6 @@ init()
 
 @await RenderSectionAsync("Scripts", required: false)
 
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>
 </html>
