@@ -1268,6 +1268,11 @@ select{
   margin-bottom: 2rem;
 }
 
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 .-mb-px {
   margin-bottom: -1px;
 }
@@ -1362,6 +1367,10 @@ select{
 
 .me-2 {
   margin-inline-end: 0.5rem;
+}
+
+.me-3 {
+  margin-inline-end: 0.75rem;
 }
 
 .ml-0 {
@@ -1480,6 +1489,10 @@ select{
   margin-top: 2rem;
 }
 
+.mb-32 {
+  margin-bottom: 8rem;
+}
+
 .block {
   display: block;
 }
@@ -1556,6 +1569,14 @@ select{
   height: 7rem;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-3\.5 {
+  height: 0.875rem;
+}
+
 .h-32 {
   height: 8rem;
 }
@@ -1616,8 +1637,16 @@ select{
   height: 100%;
 }
 
+.h-px {
+  height: 1px;
+}
+
 .h-screen {
   height: 100vh;
+}
+
+.h-\[264px\] {
+  height: 264px;
 }
 
 .max-h-60 {
@@ -1670,6 +1699,14 @@ select{
 
 .w-28 {
   width: 7rem;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-3\.5 {
+  width: 0.875rem;
 }
 
 .w-32 {
@@ -1742,6 +1779,10 @@ select{
 
 .w-\[327px\] {
   width: 327px;
+}
+
+.w-\[450px\] {
+  width: 450px;
 }
 
 .w-\[50rem\] {
@@ -1996,6 +2037,10 @@ select{
   flex-wrap: wrap;
 }
 
+.content-center {
+  align-content: center;
+}
+
 .items-start {
   align-items: flex-start;
 }
@@ -2172,6 +2217,10 @@ select{
 .divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(55 65 81 / var(--tw-divide-opacity));
+}
+
+.self-start {
+  align-self: flex-start;
 }
 
 .self-center {
@@ -2382,6 +2431,11 @@ select{
 .bg-\[\#252532\] {
   --tw-bg-opacity: 1;
   background-color: rgb(37 37 50 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#DDDFDA\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(221 223 218 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#EFEEEB\] {
@@ -2942,6 +2996,10 @@ select{
   padding-top: 7%;
 }
 
+.pb-32 {
+  padding-bottom: 8rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3159,6 +3217,11 @@ select{
   color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 
+.text-brand {
+  --tw-text-opacity: 1;
+  color: rgb(255 104 73 / var(--tw-text-opacity));
+}
+
 .text-cyan-200 {
   --tw-text-opacity: 1;
   color: rgb(165 243 252 / var(--tw-text-opacity));
@@ -3372,6 +3435,10 @@ select{
 .text-yellow-700 {
   --tw-text-opacity: 1;
   color: rgb(161 98 7 / var(--tw-text-opacity));
+}
+
+.no-underline {
+  text-decoration-line: none;
 }
 
 .placeholder-red-300::-moz-placeholder {
@@ -3899,6 +3966,11 @@ select{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.hover\:text-brand:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 104 73 / var(--tw-text-opacity));
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -4195,6 +4267,11 @@ select{
 .group:hover .group-hover\:text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.group:hover .group-hover\:text-brand {
+  --tw-text-opacity: 1;
+  color: rgb(255 104 73 / var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:text-gray-500 {
@@ -4769,6 +4846,18 @@ select{
     margin-top: 1.25rem;
   }
 
+  .sm\:mt-16 {
+    margin-top: 4rem;
+  }
+
+  .sm\:me-3 {
+    margin-inline-end: 0.75rem;
+  }
+
+  .sm\:ms-2 {
+    margin-inline-start: 0.5rem;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -4811,6 +4900,10 @@ select{
 
   .sm\:w-full {
     width: 100%;
+  }
+
+  .sm\:w-\[450px\] {
+    width: 450px;
   }
 
   .sm\:max-w-3xl {
@@ -4874,10 +4967,18 @@ select{
     gap: 46px;
   }
 
+  .sm\:gap-16 {
+    gap: 4rem;
+  }
+
   .sm\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(1rem * var(--tw-space-x-reverse));
     margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .sm\:self-end {
+    align-self: flex-end;
   }
 
   .sm\:self-stretch {
@@ -4946,6 +5047,11 @@ select{
   .sm\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .sm\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 
   .sm\:pb-0 {
@@ -5349,6 +5455,11 @@ select{
     padding-left: 7rem;
     padding-right: 7rem;
   }
+}
+
+.rtl\:rotate-180:where([dir="rtl"], [dir="rtl"] *) {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .rtl\:space-x-reverse:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]) {
