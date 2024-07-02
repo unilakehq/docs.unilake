@@ -1107,18 +1107,6 @@ select{
   top: 66.666667%;
 }
 
-.top-\[132px\] {
-  top: 132px;
-}
-
-.top-\[100px\] {
-  top: 100px;
-}
-
-.top-\[110px\] {
-  top: 110px;
-}
-
 .top-\[105px\] {
   top: 105px;
 }
@@ -1432,6 +1420,10 @@ select{
   margin-right: 2rem;
 }
 
+.ms-1 {
+  margin-inline-start: 0.25rem;
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -1600,6 +1592,10 @@ select{
   height: 0.58em;
 }
 
+.h-\[16px\] {
+  height: 16px;
+}
+
 .h-\[45em\] {
   height: 45em;
 }
@@ -1728,12 +1724,20 @@ select{
   width: 1px;
 }
 
+.w-\[263px\] {
+  width: 263px;
+}
+
 .w-\[50rem\] {
   width: 50rem;
 }
 
 .w-\[69\.25rem\] {
   width: 69.25rem;
+}
+
+.w-\[87px\] {
+  width: 87px;
 }
 
 .w-auto {
@@ -1746,10 +1750,6 @@ select{
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[263px\] {
-  width: 263px;
 }
 
 .min-w-0 {
@@ -1948,12 +1948,6 @@ select{
   resize: both;
 }
 
-.appearance-none {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -2068,6 +2062,12 @@ select{
 
 .gap-y-5 {
   row-gap: 1.25rem;
+}
+
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -3065,6 +3065,11 @@ select{
   letter-spacing: 0.05em;
 }
 
+.text-\[\#1A76FF\] {
+  --tw-text-opacity: 1;
+  color: rgb(26 118 255 / var(--tw-text-opacity));
+}
+
 .text-\[\#252532\] {
   --tw-text-opacity: 1;
   color: rgb(37 37 50 / var(--tw-text-opacity));
@@ -3941,6 +3946,12 @@ select{
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+.focus\:ring-0:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
 .focus\:ring-\[\#FF6849\]:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(255 104 73 / var(--tw-ring-opacity));
@@ -4131,10 +4142,6 @@ select{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.group:target .group-target\:text-transparent {
-  color: transparent;
-}
-
 .group:hover .group-hover\:block {
   display: block;
 }
@@ -4172,23 +4179,7 @@ select{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.group:hover .group-hover\:text-transparent {
-  color: transparent;
-}
-
-.group:focus .group-focus\:text-transparent {
-  color: transparent;
-}
-
-.group:focus-visible .group-focus-visible\:text-transparent {
-  color: transparent;
-}
-
-.group:active .group-active\:text-transparent {
-  color: transparent;
-}
-
-.group:enabled .group-enabled\:text-transparent {
+.peer:focus ~ .peer-focus\:text-transparent {
   color: transparent;
 }
 
@@ -4765,12 +4756,20 @@ select{
     height: 11rem;
   }
 
+  .sm\:h-\[32px\] {
+    height: 32px;
+  }
+
   .sm\:w-1\/2 {
     width: 50%;
   }
 
   .sm\:w-44 {
     width: 11rem;
+  }
+
+  .sm\:w-\[171px\] {
+    width: 171px;
   }
 
   .sm\:w-\[193px\] {
@@ -4977,6 +4976,10 @@ select{
     margin-bottom: 4rem;
   }
 
+  .md\:ms-2 {
+    margin-inline-start: 0.5rem;
+  }
+
   .md\:mt-24 {
     margin-top: 6rem;
   }
@@ -4993,10 +4996,6 @@ select{
     display: table-cell;
   }
 
-  .md\:hidden {
-    display: none;
-  }
-
   .md\:max-w-xl {
     max-width: 36rem;
   }
@@ -5007,6 +5006,12 @@ select{
 
   .md\:gap-8 {
     gap: 2rem;
+  }
+
+  .md\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .md\:rounded-lg {
@@ -5259,6 +5264,10 @@ select{
     display: none;
   }
 
+  .xl\:h-\[calc\(100vh-180px\)\] {
+    height: calc(100vh - 180px);
+  }
+
   .xl\:max-w-3xl {
     max-width: 48rem;
   }
@@ -5295,4 +5304,8 @@ select{
     padding-left: 7rem;
     padding-right: 7rem;
   }
+}
+
+.rtl\:space-x-reverse:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
 }

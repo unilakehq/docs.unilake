@@ -49,7 +49,7 @@
     
     @* LEFT MENU *@
     <div class="items-start flex-col hidden xl:inline-flex flex-none my-8 pr-[143px] pl-0 gap-2">
-        <div id="left-menu" class="fixed z-40 w-[263px] h-screen overflow-y-auto transition-transform translate-x-0 bg-transparent top-[105px] dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
+        <div id="left-menu" class="fixed z-40 w-[263px] h-screen xl:h-[calc(100vh-180px)] overflow-y-auto transition-transform translate-x-0 bg-transparent top-[105px] dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
         <div class="py-4 overflow-y-auto">
             <ul class="space-y-1">
                 @* MENU ITEM *@
@@ -548,9 +548,44 @@
         </div>
     </div>
         
-        <div id="doc" class="flex mx-auto">
+        <div id="doc" class="flex flex-col mx-auto mt-16">
             @* CONTENT SECTION *@
-            <div class="mx-auto mt-8 prose lg:prose-lg">
+            <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                <li class="inline-flex items-center">
+                <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                        <g clip-path="url(#clip0_444_417)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.23341 0.93064C5.73504 0.79187 6.26495 0.79187 6.76658 0.93064C7.06938 1.01441 7.34331 1.16242 7.64592 1.37013C7.94205 1.57339 8.28539 1.84807 8.72159 2.19703L8.73305 2.2062L9.73306 3.0062C9.74825 3.01836 9.76329 3.03039 9.77816 3.04228C10.2864 3.44879 10.5992 3.69902 10.8277 4.01417C11.0299 4.29302 11.1802 4.60596 11.2717 4.93798C11.3751 5.31331 11.3751 5.71397 11.375 6.36493C11.375 6.38391 11.375 6.40309 11.375 6.4225V9C11.375 10.5878 10.0878 11.875 8.49999 11.875C7.74059 11.875 7.12499 11.2594 7.12499 10.5V8.49995C7.12499 7.87865 6.62133 7.37495 5.99999 7.37495C5.37866 7.37495 4.87499 7.87865 4.87499 8.49995V10.5C4.87499 11.2594 4.25938 11.875 3.49999 11.875C1.91218 11.875 0.624995 10.5878 0.624995 9V6.4225C0.624995 6.4031 0.624992 6.38391 0.62499 6.36494C0.624904 5.71398 0.624851 5.31332 0.728247 4.93799C0.819719 4.60595 0.97011 4.29305 1.17224 4.0142C1.40075 3.69898 1.71366 3.44872 2.22206 3.04211C2.23686 3.03027 2.25182 3.01831 2.26695 3.0062L3.27841 2.19704C3.71461 1.84808 4.05796 1.57339 4.35408 1.37014C4.65669 1.16242 4.93062 1.01441 5.23341 0.93064ZM5.43338 1.65349C5.24168 1.70653 5.04542 1.80528 4.77851 1.98848C4.5077 2.17437 4.18562 2.43174 3.73548 2.79185L2.73548 3.59185C2.16791 4.0459 1.94116 4.23135 1.77948 4.45438C1.63008 4.66049 1.51892 4.89176 1.45131 5.13718C1.37815 5.40275 1.37499 5.69565 1.37499 6.4225V9C1.37499 10.1736 2.32639 11.125 3.49999 11.125C3.84518 11.125 4.12499 10.8452 4.12499 10.5V8.49995C4.12499 7.46445 4.96443 6.62495 5.99999 6.62495C7.03556 6.62495 7.87499 7.46445 7.87499 8.49995V10.5C7.87499 10.8452 8.1548 11.125 8.49999 11.125C9.67359 11.125 10.625 10.1736 10.625 9V6.4225C10.625 5.69565 10.6218 5.40276 10.5487 5.13719C10.481 4.89175 10.3699 4.66046 10.2205 4.45436C10.0588 4.23133 9.83202 4.04587 9.26453 3.59185C9.26453 3.59185 9.26454 3.59185 9.26453 3.59185L8.26454 2.79185C7.81439 2.43174 7.4923 2.17437 7.22149 1.98848C6.95458 1.80528 6.75831 1.70653 6.56661 1.65349M5.43338 1.65349C5.80415 1.55092 6.19584 1.55092 6.56661 1.65349H5.43338Z" fill="#252532"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_444_417">
+                        <rect width="12" height="12" fill="white" transform="translate(0 0.5)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+                </li>
+                <li>
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
+                    </svg>
+                    <a href="#" class="text-sm font-medium text-gray-700 ms-1 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Getting Started</a>
+                </div>
+                </li>
+                <li aria-current="page">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
+                    </svg>
+                    <span class="text-sm font-medium text-[#1A76FF] ms-1 md:ms-2 dark:text-gray-400">Overview</span>
+                </div>
+                </li>
+            </ol>
+            </nav>
+
+            <div class="mx-auto mt-16 prose lg:prose-lg">
                 
                 @if (!Model.HideTitle)
                 {
