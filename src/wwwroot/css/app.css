@@ -1360,6 +1360,10 @@ select{
   margin-bottom: -12%;
 }
 
+.me-2 {
+  margin-inline-end: 0.5rem;
+}
+
 .ml-0 {
   margin-left: 0px;
 }
@@ -1422,6 +1426,10 @@ select{
 
 .ms-1 {
   margin-inline-start: 0.25rem;
+}
+
+.ms-2 {
+  margin-inline-start: 0.5rem;
 }
 
 .mt-1 {
@@ -1728,6 +1736,14 @@ select{
   width: 263px;
 }
 
+.w-\[290px\] {
+  width: 290px;
+}
+
+.w-\[327px\] {
+  width: 327px;
+}
+
 .w-\[50rem\] {
   width: 50rem;
 }
@@ -2012,6 +2028,10 @@ select{
   gap: 0px;
 }
 
+.gap-16 {
+  gap: 4rem;
+}
+
 .gap-2 {
   gap: 0.5rem;
 }
@@ -2030,6 +2050,10 @@ select{
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-\[24px\] {
+  gap: 24px;
 }
 
 .gap-x-2 {
@@ -2226,6 +2250,11 @@ select{
   border-bottom-right-radius: 0.375rem;
 }
 
+.rounded-t-lg {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
 .rounded-tl-none {
   border-top-left-radius: 0px;
 }
@@ -2353,6 +2382,11 @@ select{
 .bg-\[\#252532\] {
   --tw-bg-opacity: 1;
   background-color: rgb(37 37 50 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#EFEEEB\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 238 235 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#F9F8F6\] {
@@ -2606,6 +2640,11 @@ select{
 
 .p-8 {
   padding: 2rem;
+}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .px-1 {
@@ -3946,12 +3985,6 @@ select{
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.focus\:ring-0:focus {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-
 .focus\:ring-\[\#FF6849\]:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(255 104 73 / var(--tw-ring-opacity));
@@ -4821,6 +4854,10 @@ select{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
   .sm\:flex-row-reverse {
     flex-direction: row-reverse;
   }
@@ -4833,10 +4870,18 @@ select{
     gap: 1.5rem;
   }
 
+  .sm\:gap-\[46px\] {
+    gap: 46px;
+  }
+
   .sm\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(1rem * var(--tw-space-x-reverse));
     margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .sm\:self-stretch {
+    align-self: stretch;
   }
 
   .sm\:overflow-hidden {

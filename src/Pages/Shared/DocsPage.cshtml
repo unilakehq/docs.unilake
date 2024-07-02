@@ -44,7 +44,7 @@
         <link rel="stylesheet" href="/pages/@(doc.Slug).css">
     }
 }
-<div class="px-6 py-6 mx-auto sm:px-8 2xl:px-28">
+<div class="px-0 py-6 mx-auto sm:px-8 2xl:px-28">
     <div class="flex flex-wrap">
     
     @* LEFT MENU *@
@@ -548,45 +548,47 @@
         </div>
     </div>
         
-        <div id="doc" class="flex flex-col mx-auto mt-16">
+        <div id="doc" class="flex mx-auto">
             @* CONTENT SECTION *@
-            <nav class="flex" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-                <li class="inline-flex items-center">
-                <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
-                        <g clip-path="url(#clip0_444_417)">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.23341 0.93064C5.73504 0.79187 6.26495 0.79187 6.76658 0.93064C7.06938 1.01441 7.34331 1.16242 7.64592 1.37013C7.94205 1.57339 8.28539 1.84807 8.72159 2.19703L8.73305 2.2062L9.73306 3.0062C9.74825 3.01836 9.76329 3.03039 9.77816 3.04228C10.2864 3.44879 10.5992 3.69902 10.8277 4.01417C11.0299 4.29302 11.1802 4.60596 11.2717 4.93798C11.3751 5.31331 11.3751 5.71397 11.375 6.36493C11.375 6.38391 11.375 6.40309 11.375 6.4225V9C11.375 10.5878 10.0878 11.875 8.49999 11.875C7.74059 11.875 7.12499 11.2594 7.12499 10.5V8.49995C7.12499 7.87865 6.62133 7.37495 5.99999 7.37495C5.37866 7.37495 4.87499 7.87865 4.87499 8.49995V10.5C4.87499 11.2594 4.25938 11.875 3.49999 11.875C1.91218 11.875 0.624995 10.5878 0.624995 9V6.4225C0.624995 6.4031 0.624992 6.38391 0.62499 6.36494C0.624904 5.71398 0.624851 5.31332 0.728247 4.93799C0.819719 4.60595 0.97011 4.29305 1.17224 4.0142C1.40075 3.69898 1.71366 3.44872 2.22206 3.04211C2.23686 3.03027 2.25182 3.01831 2.26695 3.0062L3.27841 2.19704C3.71461 1.84808 4.05796 1.57339 4.35408 1.37014C4.65669 1.16242 4.93062 1.01441 5.23341 0.93064ZM5.43338 1.65349C5.24168 1.70653 5.04542 1.80528 4.77851 1.98848C4.5077 2.17437 4.18562 2.43174 3.73548 2.79185L2.73548 3.59185C2.16791 4.0459 1.94116 4.23135 1.77948 4.45438C1.63008 4.66049 1.51892 4.89176 1.45131 5.13718C1.37815 5.40275 1.37499 5.69565 1.37499 6.4225V9C1.37499 10.1736 2.32639 11.125 3.49999 11.125C3.84518 11.125 4.12499 10.8452 4.12499 10.5V8.49995C4.12499 7.46445 4.96443 6.62495 5.99999 6.62495C7.03556 6.62495 7.87499 7.46445 7.87499 8.49995V10.5C7.87499 10.8452 8.1548 11.125 8.49999 11.125C9.67359 11.125 10.625 10.1736 10.625 9V6.4225C10.625 5.69565 10.6218 5.40276 10.5487 5.13719C10.481 4.89175 10.3699 4.66046 10.2205 4.45436C10.0588 4.23133 9.83202 4.04587 9.26453 3.59185C9.26453 3.59185 9.26454 3.59185 9.26453 3.59185L8.26454 2.79185C7.81439 2.43174 7.4923 2.17437 7.22149 1.98848C6.95458 1.80528 6.75831 1.70653 6.56661 1.65349M5.43338 1.65349C5.80415 1.55092 6.19584 1.55092 6.56661 1.65349H5.43338Z" fill="#252532"/>
-                        </g>
-                        <defs>
-                        <clipPath id="clip0_444_417">
-                        <rect width="12" height="12" fill="white" transform="translate(0 0.5)"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                </a>
-                </li>
-                <li>
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
-                    </svg>
-                    <a href="#" class="text-sm font-medium text-gray-700 ms-1 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Getting Started</a>
-                </div>
-                </li>
-                <li aria-current="page">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
-                    </svg>
-                    <span class="text-sm font-medium text-[#1A76FF] ms-1 md:ms-2 dark:text-gray-400">Overview</span>
-                </div>
-                </li>
-            </ol>
-            </nav>
+            
+            <div class="px-6 py-16 mx-auto">
+                @* breadcrumb *@
+                <nav class="flex mb-16" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                        <li class="inline-flex items-center">
+                        <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                <g clip-path="url(#clip0_444_417)">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.23341 0.93064C5.73504 0.79187 6.26495 0.79187 6.76658 0.93064C7.06938 1.01441 7.34331 1.16242 7.64592 1.37013C7.94205 1.57339 8.28539 1.84807 8.72159 2.19703L8.73305 2.2062L9.73306 3.0062C9.74825 3.01836 9.76329 3.03039 9.77816 3.04228C10.2864 3.44879 10.5992 3.69902 10.8277 4.01417C11.0299 4.29302 11.1802 4.60596 11.2717 4.93798C11.3751 5.31331 11.3751 5.71397 11.375 6.36493C11.375 6.38391 11.375 6.40309 11.375 6.4225V9C11.375 10.5878 10.0878 11.875 8.49999 11.875C7.74059 11.875 7.12499 11.2594 7.12499 10.5V8.49995C7.12499 7.87865 6.62133 7.37495 5.99999 7.37495C5.37866 7.37495 4.87499 7.87865 4.87499 8.49995V10.5C4.87499 11.2594 4.25938 11.875 3.49999 11.875C1.91218 11.875 0.624995 10.5878 0.624995 9V6.4225C0.624995 6.4031 0.624992 6.38391 0.62499 6.36494C0.624904 5.71398 0.624851 5.31332 0.728247 4.93799C0.819719 4.60595 0.97011 4.29305 1.17224 4.0142C1.40075 3.69898 1.71366 3.44872 2.22206 3.04211C2.23686 3.03027 2.25182 3.01831 2.26695 3.0062L3.27841 2.19704C3.71461 1.84808 4.05796 1.57339 4.35408 1.37014C4.65669 1.16242 4.93062 1.01441 5.23341 0.93064ZM5.43338 1.65349C5.24168 1.70653 5.04542 1.80528 4.77851 1.98848C4.5077 2.17437 4.18562 2.43174 3.73548 2.79185L2.73548 3.59185C2.16791 4.0459 1.94116 4.23135 1.77948 4.45438C1.63008 4.66049 1.51892 4.89176 1.45131 5.13718C1.37815 5.40275 1.37499 5.69565 1.37499 6.4225V9C1.37499 10.1736 2.32639 11.125 3.49999 11.125C3.84518 11.125 4.12499 10.8452 4.12499 10.5V8.49995C4.12499 7.46445 4.96443 6.62495 5.99999 6.62495C7.03556 6.62495 7.87499 7.46445 7.87499 8.49995V10.5C7.87499 10.8452 8.1548 11.125 8.49999 11.125C9.67359 11.125 10.625 10.1736 10.625 9V6.4225C10.625 5.69565 10.6218 5.40276 10.5487 5.13719C10.481 4.89175 10.3699 4.66046 10.2205 4.45436C10.0588 4.23133 9.83202 4.04587 9.26453 3.59185C9.26453 3.59185 9.26454 3.59185 9.26453 3.59185L8.26454 2.79185C7.81439 2.43174 7.4923 2.17437 7.22149 1.98848C6.95458 1.80528 6.75831 1.70653 6.56661 1.65349M5.43338 1.65349C5.80415 1.55092 6.19584 1.55092 6.56661 1.65349H5.43338Z" fill="#252532"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_444_417">
+                                <rect width="12" height="12" fill="white" transform="translate(0 0.5)"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+                        </li>
+                        <li>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
+                            </svg>
+                            <a href="#" class="text-sm font-medium text-gray-700 ms-1 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Getting Started</a>
+                        </div>
+                        </li>
+                        <li aria-current="page">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
+                            </svg>
+                            <span class="text-sm font-medium text-[#1A76FF] ms-1 md:ms-2 dark:text-gray-400">Overview</span>
+                        </div>
+                        </li>
+                    </ol>
+                </nav>
 
-            <div class="mx-auto mt-16 prose lg:prose-lg">
-                
+                <div class="prose lg:prose-lg">
                 @if (!Model.HideTitle)
                 {
                     <section class="mb-16 not-prose md:mb-12">
@@ -595,6 +597,70 @@
                         </h1>
                     </section>
                 }
+            
+            @* FEATURE AVAILABILITY *@
+            <div class="flex flex-col w-[327px] sm:w-full not-prose py-3 px-6 rounded-lg sm:self-stretch items-center gap-[24px] sm:gap-[46px] border border-[#DDDFDA] bg-[#F9F8F6] shadow-sm sm:flex-row" role="group">
+                <span class="inline-flex items-center px-4 py-2 text-base font-bold text-[#252532] cursor-default dark:text-white">
+                    Feature Availability
+                </span>
+
+                <span class="flex items-center gap-2 text-base leading-7 text-[#525D61]  cursor-default dark:text-white">      
+                    Self-Hosted Unilake 
+                    <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <g clip-path="url(#clip0_218_2600)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.83334C4.59424 1.83334 1.83333 4.59425 1.83333 8.00001C1.83333 11.4058 4.59424 14.1667 8 14.1667C11.4058 14.1667 14.1667 11.4058 14.1667 8.00001C14.1667 4.59425 11.4058 1.83334 8 1.83334ZM0.833328 8.00001C0.833328 4.04197 4.04195 0.833344 8 0.833344C11.958 0.833344 15.1667 4.04197 15.1667 8.00001C15.1667 11.9581 11.958 15.1667 8 15.1667C4.04195 15.1667 0.833328 11.9581 0.833328 8.00001ZM5.64644 5.64646C5.8417 5.45119 6.15829 5.45119 6.35355 5.64646L8 7.2929L9.64644 5.64646C9.8417 5.45119 10.1583 5.45119 10.3535 5.64646C10.5488 5.84172 10.5488 6.1583 10.3535 6.35356L8.7071 8.00001L10.3535 9.64646C10.5488 9.84172 10.5488 10.1583 10.3535 10.3536C10.1583 10.5488 9.8417 10.5488 9.64644 10.3536L8 8.70712L6.35355 10.3536C6.15829 10.5488 5.8417 10.5488 5.64644 10.3536C5.45118 10.1583 5.45118 9.84172 5.64644 9.64646L7.29289 8.00001L5.64644 6.35356C5.45118 6.1583 5.45118 5.84172 5.64644 5.64646Z" fill="#525D61"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_218_2600">
+                        <rect width="16" height="16" fill="white"/>
+                        </clipPath>
+                    </defs>
+                    </svg>
+                </span>
+
+                
+                <span data-popover-target="popover-default" data-popover-offset="30" class="flex items-center gap-2 text-base leading-7 text-[#525D61]  cursor-default dark:text-white"> 
+                    <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2.5C5.45505 2.5 3.36667 4.62988 3.36667 7.28889C3.36667 7.31777 3.36692 7.34659 3.36741 7.37534C3.37134 7.60533 3.21786 7.80833 2.9955 7.86722C1.95263 8.14344 1.16667 9.12584 1.16667 10.3111C1.16667 11.7183 2.27008 12.8333 3.6 12.8333H11.6667C13.4016 12.8333 14.8333 11.38 14.8333 9.55555C14.8333 8.15321 13.9843 6.96498 12.8022 6.49472C12.6507 6.43444 12.5381 6.30408 12.5005 6.14542C12.0024 4.04299 10.1676 2.5 8 2.5ZM2.37263 7.02071C2.5088 3.96087 4.96307 1.5 8 1.5C10.5734 1.5 12.73 3.26896 13.4097 5.66901C14.8453 6.34853 15.8333 7.83756 15.8333 9.55555C15.8333 11.9039 13.9818 13.8333 11.6667 13.8333H3.6C1.68986 13.8333 0.166672 12.2422 0.166672 10.3111C0.166672 8.81666 1.07629 7.52959 2.37263 7.02071Z" fill="#252532"/>
+                    </svg>     
+                    Self-Hosted Unilake 
+                    <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <g clip-path="url(#clip0_218_2614)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00001 1.83334C4.59425 1.83334 1.83334 4.59425 1.83334 8.00001C1.83334 11.4058 4.59425 14.1667 8.00001 14.1667C11.4058 14.1667 14.1667 11.4058 14.1667 8.00001C14.1667 4.59425 11.4058 1.83334 8.00001 1.83334ZM0.833344 8.00001C0.833344 4.04197 4.04197 0.833344 8.00001 0.833344C11.9581 0.833344 15.1667 4.04197 15.1667 8.00001C15.1667 11.9581 11.9581 15.1667 8.00001 15.1667C4.04197 15.1667 0.833344 11.9581 0.833344 8.00001ZM11.0202 5.64646C11.2155 5.84172 11.2155 6.1583 11.0202 6.35356L7.6869 9.6869C7.49164 9.88216 7.17505 9.88216 6.97979 9.6869L5.64646 8.35356C5.45119 8.1583 5.45119 7.84172 5.64646 7.64646C5.84172 7.45119 6.1583 7.45119 6.35356 7.64646L7.33334 8.62624L10.3131 5.64646C10.5084 5.45119 10.825 5.45119 11.0202 5.64646Z" fill="#6B9E32"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_218_2614">
+                        <rect width="16" height="16" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </span>
+                
+                @* POPOVER *@
+                <div data-popover id="popover-default" role="tooltip" class="relative z-10 inline-block text-sm text-gray-500 w-[290px] transition-opacity duration-300 bg-[#F9F8F6] border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                    @* header *@
+                    <div class="px-3 py-1.5 bg-[#EFEEEB] border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                        <div class="flex items-center justify-between dark:text-white">
+                            <div class="flex items-center">
+                                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2.5C5.45505 2.5 3.36667 4.62988 3.36667 7.28889C3.36667 7.31777 3.36692 7.34659 3.36741 7.37534C3.37134 7.60533 3.21786 7.80833 2.9955 7.86722C1.95263 8.14344 1.16667 9.12584 1.16667 10.3111C1.16667 11.7183 2.27008 12.8333 3.6 12.8333H11.6667C13.4016 12.8333 14.8333 11.38 14.8333 9.55555C14.8333 8.15321 13.9843 6.96498 12.8022 6.49472C12.6507 6.43444 12.5381 6.30408 12.5005 6.14542C12.0024 4.04299 10.1676 2.5 8 2.5ZM2.37263 7.02071C2.5088 3.96087 4.96307 1.5 8 1.5C10.5734 1.5 12.73 3.26896 13.4097 5.66901C14.8453 6.34853 15.8333 7.83756 15.8333 9.55555C15.8333 11.9039 13.9818 13.8333 11.6667 13.8333H3.6C1.68986 13.8333 0.166672 12.2422 0.166672 10.3111C0.166672 8.81666 1.07629 7.52959 2.37263 7.02071Z" fill="#252532"/>
+                            </svg>     
+                            <span class="font-bold leading-7 font-xs text-[#252532]">Self-Hosted Unilake</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 3.64645C3.84171 3.45118 4.15829 3.45118 4.35355 3.64645L8 7.29289L11.6464 3.64645C11.8417 3.45118 12.1583 3.45118 12.3536 3.64645C12.5488 3.84171 12.5488 4.15829 12.3536 4.35355L8.70711 8L12.3536 11.6464C12.5488 11.8417 12.5488 12.1583 12.3536 12.3536C12.1583 12.5488 11.8417 12.5488 11.6464 12.3536L8 8.70711L4.35355 12.3536C4.15829 12.5488 3.84171 12.5488 3.64645 12.3536C3.45118 12.1583 3.45118 11.8417 3.64645 11.6464L7.29289 8L3.64645 4.35355C3.45118 4.15829 3.45118 3.84171 3.64645 3.64645Z" fill="#252532"/>
+                            </svg>
+                        </div>
+                    </div>
+                    @* body *@
+                    <div class="px-3 py-2">
+                        <p class="leading-6 flex-1 font-xs text-[#525D61]">Our cloud offering is currently under development and will be available soon.</p>
+                    </div>
+                    @* TODO: Arrow not appear *@
+                    <div data-popper-arrow></div>
+                </div>
+            </div>
+
 
                 <div class="not-prose">@Model.Header?.Invoke(null)</div>
 
@@ -613,7 +679,11 @@
                     </div>
                 }
 
-                @if (!Model.HideNavigation)
+                <div class="flex flex-col items-end self-stretch gap-16 bg-green-200">
+                    
+                </div>
+
+                @* @if (!Model.HideNavigation)
                 {
                     <div class="my-20 not-prose">
                         @{
@@ -676,7 +746,7 @@
 
                             if (prev != null || next != null)
                             {
-                                <nav class="flex items-center justify-between px-4 border-t border-gray-200 dark:border-gray-700 sm:px-0">
+                                <nav class="flex items-center justify-between px-4 bg-green-200 border-t border-gray-200 dark:border-gray-700 sm:px-0">
                                     <div class="flex flex-1 w-0 -mt-px">
                                         @if (prev != null)
                                         {
@@ -706,7 +776,8 @@
                             }
                         }
                     </div>
-                }
+                } *@
+                </div>
             </div>
             @* RIGHT MENU *@
             @if (!Model.HideDocumentMap && doc.DocumentMap?.Headings.Count > 0)
