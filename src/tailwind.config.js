@@ -3,6 +3,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
+        fira: ['"Fira Code"', 'monospace'],
       },
       colors: {
         brand: '#FF6849',
