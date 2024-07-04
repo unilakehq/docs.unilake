@@ -550,10 +550,10 @@
         
     <div id="doc" class="flex flex-start"> 
         @* CONTENT SECTION *@
-        <div class="px-6 py-16 flex flex-col gap-16 mx-auto 2xl:w-[886px] 2xl:ml-[263px]">
+        <div class="px-6 py-6 2xl:py-16 flex flex-col gap-8 2xl:gap-16 mx-auto 2xl:w-[886px] 2xl:ml-[263px]">
             @* BREADCRUMB *@
             <nav class="flex" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-[12px] rtl:space-x-reverse">
+                <ol class="inline-flex items-center space-x-3 md:space-x-[12px] rtl:space-x-reverse">
                     <li class="inline-flex items-center">
                         <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
@@ -573,7 +573,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
                             </svg>
-                            <a href="#" class="text-sm font-medium text-gray-700 ms-1 hover:text-blue-600 md:ms-[9px] dark:text-gray-400 dark:hover:text-white">Getting Started</a>
+                            <a href="#" class="text-sm font-medium text-gray-700 ms-2 2xl:ms-1 hover:text-blue-600 md:ms-[9px] dark:text-gray-400 dark:hover:text-white">Getting Started</a>
                         </div>
                     </li>
                     <li aria-current="page">
@@ -581,15 +581,15 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
                             </svg>
-                            <span class="text-sm font-medium text-[#1A76FF] ms-1 md:ms-2 dark:text-gray-400">Overview</span>
+                            <span class="text-sm font-medium text-[#1A76FF] ms-2 md:ms-2 dark:text-gray-400">Overview</span>
                         </div>
                     </li>
                 </ol>
             </nav>
 
             @* RIGHT MENU *@
-            <div id="drawer-right" class="2xl:fixed 2xl:mr-[75px] right-0 z-40 2xl:h-screen top-[108px] 2xl:p-4 overflow-y-auto bg-transparent 2xl:w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-right-label">
-                <div>
+            <div id="drawer-right" class="2xl:fixed 2xl:mr-[75px] right-0 z-40 2xl:h-screen 2xl:top-[108px] 2xl:p-4 overflow-y-auto bg-transparent 2xl:w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-right-label">
+                <div class="">
                     <button type="button" class="flex items-center border-b 2xl:border-b-0 border-offset-[12px] border-[#DDDFDA] justify-between w-full gap-2 2xl:px-4 py-2 text-base text-[#525D61] transition duration-75 group dark:text-white" aria-controls="dropdown-r" data-collapse-toggle="dropdown-r">
                         <div class="flex w-[266px] items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -652,17 +652,18 @@
             </div> 
 
             @* TITLE *@
-            <h1 class="text-[56px] font-bold leading-[64px] -tracking-[1.68px]">Title placeholder</h1>
+            <h1 class="2xl:text-[56px] text-[32px] tracking-[-0.96px] font-bold leading-[64px] 2xl:-tracking-[1.68px]">Title placeholder</h1>
+
             @* FEATURE AVAILABILITY *@
-            <div>
+            <div class="">
                 @* top *@
-                <div class="flex flex-col w-[327px] sm:w-full not-prose py-3 px-6 rounded-lg sm:self-stretch items-center gap-[24px] sm:gap-[45px] border border-[#DDDFDA] bg-[#F9F8F6] shadow-sm sm:flex-row" role="group">
+                <div class="flex flex-col w-[327px] mx-auto sm:w-full not-prose py-3 px-6 rounded-lg sm:self-stretch items-center gap-[24px] sm:gap-[45px] border border-[#DDDFDA] bg-[#F9F8F6] shadow-sm sm:flex-row" role="group">
                     
-                    <span class="inline-flex items-center text-base font-bold text-[#252532] cursor-default dark:text-white">
+                    <span class="inline-flex items-center text-xs sm:text-base font-bold text-[#252532] cursor-default dark:text-white">
                         Feature Availability
                     </span>
 
-                    <span class="flex items-center gap-2 text-base leading-7 text-[#525D61]  cursor-default dark:text-white">      
+                    <span class="flex items-center gap-2 text-xs sm:text-base leading-7 text-[#525D61]  cursor-default dark:text-white">      
                         Self-Hosted Unilake 
                         <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <g clip-path="url(#clip0_218_2600)">
@@ -677,7 +678,7 @@
                     </span>
 
                     
-                    <span data-popover-target="popover-default" data-popover-offset="30" class="flex items-center text-base leading-7 text-[#525D61]  cursor-default dark:text-white"> 
+                    <span data-popover-target="popover-default" data-popover-offset="30" class="flex items-center text-xs sm:text-base leading-7 text-[#525D61]  cursor-default dark:text-white"> 
                         <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2.5C5.45505 2.5 3.36667 4.62988 3.36667 7.28889C3.36667 7.31777 3.36692 7.34659 3.36741 7.37534C3.37134 7.60533 3.21786 7.80833 2.9955 7.86722C1.95263 8.14344 1.16667 9.12584 1.16667 10.3111C1.16667 11.7183 2.27008 12.8333 3.6 12.8333H11.6667C13.4016 12.8333 14.8333 11.38 14.8333 9.55555C14.8333 8.15321 13.9843 6.96498 12.8022 6.49472C12.6507 6.43444 12.5381 6.30408 12.5005 6.14542C12.0024 4.04299 10.1676 2.5 8 2.5ZM2.37263 7.02071C2.5088 3.96087 4.96307 1.5 8 1.5C10.5734 1.5 12.73 3.26896 13.4097 5.66901C14.8453 6.34853 15.8333 7.83756 15.8333 9.55555C15.8333 11.9039 13.9818 13.8333 11.6667 13.8333H3.6C1.68986 13.8333 0.166672 12.2422 0.166672 10.3111C0.166672 8.81666 1.07629 7.52959 2.37263 7.02071Z" fill="#252532"/>
                         </svg>     
@@ -726,25 +727,25 @@
             </div>
 
             @* text 1 *@
-            <p class="text-[#525D61] leading-7">
+            <p class="text-[#525D61] text-xs sm:text-base leading-7">
                 Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
             </p>
 
-            <h3 class="text-[32px] text-[#252532] leading-9 tracking-[-0.96px] font-bold">Title placeholder</h3>
+            <h3 class="2xl:text-[32px] text-[24px] text-[#252532] leading-9 tracking-[-0.96px] font-bold">Title placeholder</h3>
 
             @* text 2 *@
             <div>
-                <p class="text-[#525D61] leading-7">
+                <p class="text-[#525D61] text-xs sm:text-base leading-7">
                 Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                 </p>
-                <p class="text-[#525D61] leading-7">
+                <p class="text-[#525D61] text-xs sm:text-base leading-7">
                     Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                 </p>
             </div>
 
             @* tip *@
             <div class="flex items-start gap-4 py-2 pr-6 mt-4 rounded-lg ">
-                    <div class="w-1 mr-11 shrink-0 self-stretch bg-[#A4CD80]"> </div>
+                    <div class="w-1 2xl:mr-11 mr-5 shrink-0 self-stretch bg-[#A4CD80]"> </div>
                     <div class="text-[#525D61] text-base w-full leading-7">
                         <div class="flex items-center gap-2 mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -752,14 +753,14 @@
                             </svg>
                             <span class="text-[#6B9E32]">Tip</span>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.</p>
+                        <p class="text-xs leading-7 sm:text-base">Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.</p>
                         <br/>
-                        <p>Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis.</p>
+                        <p class="text-xs leading-7 sm:text-base">Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis.</p>
                     </div>
             </div>
 
             @* Code Card *@           
-            <div href="#" class="flex flex-col mt-[13.5px] bg-[#252532]  rounded-lg shadow">
+            <div href="#" class="flex w-[327px] sm:w-auto flex-col mt-[13.5px] bg-[#252532]  rounded-lg shadow">
                 <h5 class="px-8 py-6 text-xs font-extrabold  border-b border-[#3F4952] tracking-[1.44px] text-[#F9F8F6] uppercase ">Card Title</h5>
                 <div class="font-normal w-full py-6 text-xs text-[#1A76FF] font-fira">
                     @* clipboard *@
@@ -807,17 +808,17 @@
 
             @* text 3 *@
             <div class="-mt-4">
-                <p class="text-[#525D61] leading-7">
+                <p class="text-[#525D61] text-xs sm:text-base leading-7">
                 Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                 </p>
-                <p class="text-[#525D61] leading-7">
+                <p class="text-[#525D61] text-xs sm:text-base leading-7">
                     Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                 </p>
             </div>
 
 
             @* CONTENT FOOTER *@
-            <div class="flex flex-col h-[264px] w-[327px] sm:w-full not-prose items-end self-stretch gap-8 sm:gap-16">
+            <div class="flex flex-col mx-auto h-[264px] w-[327px] sm:w-full not-prose items-end self-stretch gap-8 sm:gap-16">
                 
                 <div class="flex flex-col sm:flex-row w-full sm:w-[431px] p-5 justify-center items-center  gap-8 rounded-lg border border-[#DDDFDA]">
                     
