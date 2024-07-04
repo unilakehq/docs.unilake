@@ -48,7 +48,7 @@
     <div class="flex flex-wrap">
     
     @* LEFT MENU *@
-    <div class="items-start flex-col hidden 2xl:inline-flex flex-none my-8 pr-[143px] pl-0 gap-2">
+    <div class="items-start flex-col hidden xl:inline-flex flex-none my-8 pr-[143px] pl-0 gap-2">
         <div id="left-menu" class="fixed z-40 w-[263px] h-screen xl:h-[calc(100vh-180px)] overflow-y-auto transition-transform translate-x-0 bg-transparent top-[105px] dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
         <div class="py-4 overflow-y-auto">
             <ul class="space-y-1">
@@ -550,7 +550,7 @@
         
     <div id="doc" class="flex flex-start"> 
         @* CONTENT SECTION *@
-        <div class="px-6 py-6 2xl:py-16 flex flex-col gap-8 2xl:gap-16 mx-auto 2xl:w-[886px] 2xl:ml-[263px]">
+        <div class="px-6 py-6 xl:py-16 flex flex-col gap-8 xl:gap-16 mx-auto xl:w-[700px] 2xl:w-[886px] xl:ml-[100px] min-[1440px]:ml-[150px] min-[1920px]:ml-[263px] ">
             @* BREADCRUMB *@
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-3 md:space-x-[12px] rtl:space-x-reverse">
@@ -588,16 +588,16 @@
             </nav>
 
             @* RIGHT MENU *@
-            <div id="drawer-right" class="2xl:fixed 2xl:mr-[75px] right-0 z-40 2xl:h-screen 2xl:top-[108px] 2xl:p-4 overflow-y-auto bg-transparent 2xl:w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-right-label">
+            <div id="drawer-right" class="xl:fixed min-[1440px]:pl-16 xl:mr-[75px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-right-label">
                 <div class="">
-                    <button type="button" class="flex items-center border-b 2xl:border-b-0 border-offset-[12px] border-[#DDDFDA] justify-between w-full gap-2 2xl:px-4 py-2 text-base text-[#525D61] transition duration-75 group dark:text-white" aria-controls="dropdown-r" data-collapse-toggle="dropdown-r">
+                    <button type="button" class="flex items-center border-b xl:border-b-0 border-offset-[12px] border-[#DDDFDA] justify-between w-full gap-2 2xl:px-4 py-2 text-base text-[#525D61] transition duration-75 group dark:text-white" aria-controls="dropdown-r" data-collapse-toggle="dropdown-r">
                         <div class="flex w-[266px] items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M8.83335 1.8483C8.60728 1.83429 8.31039 1.83333 7.85214 1.83333C6.98078 1.83333 6.3551 1.83367 5.86276 1.87095C5.37564 1.90785 5.05988 1.9788 4.80244 2.09887C4.19886 2.38037 3.71373 2.8655 3.43222 3.46909C3.31216 3.72653 3.2412 4.04228 3.20431 4.52941C3.16702 5.02174 3.16669 5.64742 3.16669 6.51878V9.33333C3.16669 10.275 3.16708 10.9512 3.21044 11.4819C3.25333 12.0069 3.33575 12.3454 3.4755 12.6196C3.74714 13.1528 4.18059 13.5862 4.71371 13.8578C4.988 13.9976 5.32649 14.08 5.85141 14.1229C6.38217 14.1663 7.05835 14.1667 8.00002 14.1667C8.94169 14.1667 9.61787 14.1663 10.1486 14.1229C10.6736 14.08 11.012 13.9976 11.2863 13.8578C11.8195 13.5862 12.2529 13.1528 12.5245 12.6196C12.6643 12.3454 12.7467 12.0069 12.7896 11.4819C12.833 10.9512 12.8334 10.275 12.8334 9.33333V6.8758C12.8334 6.39229 12.8323 6.07514 12.817 5.83335H11.4464C11.0903 5.83336 10.7931 5.83336 10.5502 5.81352C10.297 5.79283 10.0592 5.74809 9.83437 5.63353C9.48941 5.45776 9.20894 5.1773 9.03317 4.83233C8.91861 4.60749 8.87387 4.36972 8.85318 4.11646C8.83334 3.87365 8.83335 3.57642 8.83335 3.22032V1.8483ZM9.83335 2.10661V3.20002C9.83335 3.58164 9.83374 3.83778 9.84986 4.03503C9.8655 4.22645 9.89342 4.31797 9.92418 4.37834C10.0041 4.53514 10.1316 4.66263 10.2884 4.74252C10.3487 4.77329 10.4403 4.80121 10.6317 4.81685C10.8289 4.83296 11.0851 4.83335 11.4667 4.83335H12.5601C12.5168 4.74217 12.4687 4.65324 12.4158 4.56696C12.2478 4.29277 12.011 4.05146 11.4177 3.45812L11.1652 3.20567C10.6159 2.65635 10.3926 2.4369 10.1416 2.27701C10.0423 2.21376 9.93935 2.15688 9.83335 2.10661ZM7.91326 0.833327C8.60983 0.833253 9.03862 0.833207 9.44911 0.924223C9.88559 1.021 10.3018 1.19339 10.6789 1.4336C11.0335 1.6595 11.3366 1.96274 11.8291 2.45533C11.8434 2.46958 11.8578 2.48399 11.8724 2.49856L12.1248 2.75101C12.1405 2.76675 12.1561 2.78231 12.1715 2.79769C12.7035 3.32959 13.0311 3.65709 13.2685 4.04447C13.4787 4.38744 13.6335 4.76136 13.7274 5.1525C13.8335 5.59428 13.8334 6.05748 13.8334 6.80979C13.8334 6.83155 13.8334 6.85355 13.8334 6.8758V9.35572C13.8334 10.2702 13.8334 10.9871 13.7863 11.5634C13.7383 12.1501 13.6391 12.6349 13.4155 13.0736C13.048 13.7949 12.4616 14.3813 11.7403 14.7489C11.3016 14.9724 10.8168 15.0716 10.2301 15.1196C9.65383 15.1667 8.93688 15.1667 8.02241 15.1667H7.97763C7.06316 15.1667 6.34621 15.1667 5.76998 15.1196C5.18322 15.0716 4.69848 14.9724 4.25972 14.7489C3.53844 14.3813 2.95201 13.7949 2.5845 13.0736C2.36094 12.6349 2.2617 12.1501 2.21376 11.5634C2.16668 10.9871 2.16668 10.2702 2.16669 9.3557V6.49811C2.16668 5.65187 2.16668 4.9884 2.20716 4.45389C2.24837 3.90982 2.33361 3.45879 2.52594 3.04641C2.9068 2.2298 3.56315 1.57344 4.37977 1.19259C4.79215 1.00026 5.24317 0.915015 5.78724 0.873809C6.32175 0.833327 6.98523 0.833329 7.83146 0.833331L7.85214 0.833332C7.87274 0.833332 7.89311 0.833329 7.91326 0.833327ZM5.50002 8C5.50002 7.72386 5.72388 7.5 6.00002 7.5H10C10.2762 7.5 10.5 7.72386 10.5 8C10.5 8.27614 10.2762 8.5 10 8.5H6.00002C5.72388 8.5 5.50002 8.27614 5.50002 8ZM5.50002 10.6667C5.50002 10.3905 5.72388 10.1667 6.00002 10.1667H8.66669C8.94283 10.1667 9.16669 10.3905 9.16669 10.6667C9.16669 10.9428 8.94283 11.1667 8.66669 11.1667H6.00002C5.72388 11.1667 5.50002 10.9428 5.50002 10.6667Z" fill="#252532"/>
                             </svg>
                             <h5 id="drawer-right-label" class="text-xs font-extrabold text-[#525D61] tracking-[1.44px] uppercase dark:text-gray-400">On this page</h5>
                         </div>
-                        <svg class="transition-transform 2xl:hidden chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <svg class="transition-transform xl:hidden chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
                         </svg>
                     </button>
@@ -620,7 +620,7 @@
                                 <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                             </button>
                         </li>
-                        <ul class="px-4 pl-8 space-y-1">
+                        <ul class="pl-8 space-y-1">
                             <li class="relative flex items-center w-full pl-4 gap-2 px-2 py-[3px] justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                                 <button class="w-full text-left">
                                     <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
@@ -639,7 +639,7 @@
                         </ul>
                     </ul>
 
-                <a class="hidden 2xl:block" href="http://github.com" target="_blank">
+                <a class="hidden xl:block" href="http://github.com" target="_blank">
                     <button class="flex items-center mx-auto justify-center gap-2 px-6 py-3 mt-16 text-sm font-semibold text-[#F9F8F6] rounded-lg bg-brand hover:bg-[#e03c17]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                             <path d="M8.50065 1.33334C4.81732 1.33334 1.83399 4.31668 1.83399 8.00001C1.83318 9.39945 2.27305 10.7636 3.09119 11.899C3.90933 13.0343 5.06421 13.8833 6.39199 14.3253C6.72532 14.3833 6.85065 14.1833 6.85065 14.008C6.85065 13.85 6.84199 13.3253 6.84199 12.7667C5.16732 13.0753 4.73399 12.3587 4.60065 11.9833C4.52532 11.7913 4.20065 11.2 3.91732 11.0413C3.68399 10.9167 3.35065 10.608 3.90865 10.6C4.43399 10.5913 4.80865 11.0833 4.93399 11.2833C5.53399 12.2913 6.49199 12.008 6.87532 11.8333C6.93399 11.4 7.10865 11.1087 7.30065 10.942C5.81732 10.7753 4.26732 10.2 4.26732 7.65001C4.26732 6.92468 4.52532 6.32534 4.95065 5.85868C4.88399 5.69201 4.65065 5.00868 5.01732 4.09201C5.01732 4.09201 5.57532 3.91668 6.85065 4.77468C7.39339 4.62428 7.95413 4.54869 8.51732 4.55001C9.08399 4.55001 9.65065 4.62468 10.184 4.77468C11.4593 3.90801 12.0173 4.09201 12.0173 4.09201C12.384 5.00868 12.1507 5.69201 12.084 5.85868C12.5087 6.32534 12.7673 6.91668 12.7673 7.65001C12.7673 10.2087 11.2093 10.7753 9.72599 10.942C9.96732 11.15 10.176 11.55 10.176 12.1753C10.176 13.0667 10.1673 13.7833 10.1673 14.0087C10.1673 14.1833 10.2927 14.3913 10.626 14.3247C11.9492 13.8778 13.099 13.0272 13.9135 11.8926C14.7281 10.7581 15.1663 9.39667 15.1667 8.00001C15.1667 4.31668 12.1833 1.33334 8.49999 1.33334" fill="#F9F8F6"/>
