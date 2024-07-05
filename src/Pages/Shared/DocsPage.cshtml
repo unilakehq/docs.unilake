@@ -553,7 +553,7 @@
         <div class="px-6 py-6 xl:py-16 flex flex-col gap-8 xl:gap-16 mx-auto xl:w-[700px] 2xl:w-[886px] xl:ml-[100px] min-[1440px]:ml-[150px] min-[1920px]:ml-[263px] ">
             @* BREADCRUMB *@
             <nav class="flex" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-3 md:space-x-[12px] rtl:space-x-reverse">
+                <ol class="inline-flex items-center space-x-3 md:space-x-3 rtl:space-x-reverse">
                     <li class="inline-flex items-center">
                         <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
@@ -573,7 +573,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
                             </svg>
-                            <a href="#" class="text-sm font-medium text-gray-700 ms-2 2xl:ms-1 hover:text-blue-600 md:ms-[9px] dark:text-gray-400 dark:hover:text-white">Getting Started</a>
+                            <a href="#" class="text-sm font-medium text-gray-700 ms-2 hover:text-blue-600 md:ms-[9px] dark:text-gray-400 dark:hover:text-white">Getting Started</a>
                         </div>
                     </li>
                     <li aria-current="page">
@@ -581,14 +581,14 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 3.23483C4.88128 3.08839 5.11872 3.08839 5.26517 3.23483L8.26517 6.23483C8.41161 6.38128 8.41161 6.61872 8.26517 6.76517L5.26517 9.76516C5.11872 9.91161 4.88128 9.91161 4.73483 9.76516C4.58839 9.61872 4.58839 9.38128 4.73483 9.23484L7.46967 6.5L4.73483 3.76517C4.58839 3.61872 4.58839 3.38128 4.73483 3.23483Z" fill="#677575"/>
                             </svg>
-                            <span class="text-sm font-medium text-[#1A76FF] ms-2 md:ms-2 dark:text-gray-400">Overview</span>
+                            <span class="text-sm font-medium text-[#1A76FF] ms-2 dark:text-gray-400">Overview</span>
                         </div>
                     </li>
                 </ol>
             </nav>
 
             @* RIGHT MENU *@
-            <div id="drawer-right" class="xl:fixed min-[1440px]:pl-16 xl:mr-[75px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-right-label">
+            <div id="drawer-right" class="xl:fixed min-[1440px]:pl-16 2xl:pl-0 2xl:mr-[63px] xl:mr-[75px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-right-label">
                 <div class="">
                     <button type="button" class="flex items-center border-b xl:border-b-0 border-offset-[12px] border-[#DDDFDA] justify-between w-full gap-2 2xl:px-4 py-2 text-base text-[#525D61] transition duration-75 group dark:text-white" aria-controls="dropdown-r" data-collapse-toggle="dropdown-r">
                         <div class="flex w-[266px] items-center gap-2">
@@ -597,41 +597,40 @@
                             </svg>
                             <h5 id="drawer-right-label" class="text-xs font-extrabold text-[#525D61] tracking-[1.44px] uppercase dark:text-gray-400">On this page</h5>
                         </div>
-                        <svg class="transition-transform xl:hidden chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                        <svg class="transition-transform xl:hidden rotate-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.64645 5.64645C7.84171 5.45118 8.15829 5.45118 8.35355 5.64645L12.3536 9.64645C12.5488 9.84171 12.5488 10.1583 12.3536 10.3536C12.1583 10.5488 11.8417 10.5488 11.6464 10.3536L8 6.70711L4.35355 10.3536C4.15829 10.5488 3.84171 10.5488 3.64645 10.3536C3.45118 10.1583 3.45118 9.84171 3.64645 9.64645L7.64645 5.64645Z" fill="#252532"/>
                         </svg>
                     </button>
-                    @* <div class="w-full h-px bg-[#DDDFDA]" /> *@
 
-                    @* TODO: Rotate arrow up when open *@
-                    <ul id="dropdown-r" class="p-2 py-2 space-y-1 ">
-                        <li class="relative flex items-center w-full pl-4 gap-2 px-2 py-[3px] justify-between text-xs text-[#525D61] transition font-bold duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                    <ul id="dropdown-r" class="flex flex-col gap-2 p-2 py-3 pl-6 ">
+                        <li class="relative flex items-center w-full justify-between text-xs text-[#525D61] transition font-bold duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                             <button class="w-full text-left">
                                 <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                             </button>
                         </li>
-                        <li class="relative flex items-center w-full pl-4 gap-2 px-2 py-[3px] justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                        <li class="relative flex items-center w-full justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                             <button class="w-full text-left">
                                 <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                             </button>
                         </li>
-                        <li class="relative flex items-center w-full pl-4 gap-2 px-2 py-[3px] justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                        <li class="relative flex items-center w-full justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                             <button class="w-full text-left">
                                 <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                             </button>
                         </li>
-                        <ul class="pl-8 space-y-1">
-                            <li class="relative flex items-center w-full pl-4 gap-2 px-2 py-[3px] justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                        @* inner list *@
+                        <ul class="flex flex-col gap-2 pl-8">
+                            <li class="relative flex items-center w-full justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                                 <button class="w-full text-left">
                                     <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                 </button>
                             </li>
-                            <li class="relative flex items-center w-full pl-4 gap-2 px-2 py-[3px] justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                            <li class="relative flex items-center w-full justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                                 <button class="w-full text-left">
                                     <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                 </button>
                             </li>
-                            <li class="relative flex items-center w-full pl-4 gap-2 px-2 py-[3px] justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                            <li class="relative flex items-center w-full justify-between text-xs text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                                 <button class="w-full text-left">
                                     <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                 </button>
@@ -639,8 +638,8 @@
                         </ul>
                     </ul>
 
-                <a class="hidden xl:block" href="http://github.com" target="_blank">
-                    <button class="flex items-center mx-auto justify-center gap-2 px-6 py-3 mt-16 text-sm font-semibold text-[#F9F8F6] rounded-lg bg-brand hover:bg-[#e03c17]">
+                <a class="hidden pr-8 xl:block" href="http://github.com" target="_blank">
+                    <button class="flex items-center mx-auto justify-center gap-2 px-6 py-3 mt-[60px] text-sm font-semibold text-[#F9F8F6] rounded-lg bg-brand hover:bg-[#e03c17]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                             <path d="M8.50065 1.33334C4.81732 1.33334 1.83399 4.31668 1.83399 8.00001C1.83318 9.39945 2.27305 10.7636 3.09119 11.899C3.90933 13.0343 5.06421 13.8833 6.39199 14.3253C6.72532 14.3833 6.85065 14.1833 6.85065 14.008C6.85065 13.85 6.84199 13.3253 6.84199 12.7667C5.16732 13.0753 4.73399 12.3587 4.60065 11.9833C4.52532 11.7913 4.20065 11.2 3.91732 11.0413C3.68399 10.9167 3.35065 10.608 3.90865 10.6C4.43399 10.5913 4.80865 11.0833 4.93399 11.2833C5.53399 12.2913 6.49199 12.008 6.87532 11.8333C6.93399 11.4 7.10865 11.1087 7.30065 10.942C5.81732 10.7753 4.26732 10.2 4.26732 7.65001C4.26732 6.92468 4.52532 6.32534 4.95065 5.85868C4.88399 5.69201 4.65065 5.00868 5.01732 4.09201C5.01732 4.09201 5.57532 3.91668 6.85065 4.77468C7.39339 4.62428 7.95413 4.54869 8.51732 4.55001C9.08399 4.55001 9.65065 4.62468 10.184 4.77468C11.4593 3.90801 12.0173 4.09201 12.0173 4.09201C12.384 5.00868 12.1507 5.69201 12.084 5.85868C12.5087 6.32534 12.7673 6.91668 12.7673 7.65001C12.7673 10.2087 11.2093 10.7753 9.72599 10.942C9.96732 11.15 10.176 11.55 10.176 12.1753C10.176 13.0667 10.1673 13.7833 10.1673 14.0087C10.1673 14.1833 10.2927 14.3913 10.626 14.3247C11.9492 13.8778 13.099 13.0272 13.9135 11.8926C14.7281 10.7581 15.1663 9.39667 15.1667 8.00001C15.1667 4.31668 12.1833 1.33334 8.49999 1.33334" fill="#F9F8F6"/>
                         </svg>
@@ -715,19 +714,18 @@
                         <div class="px-3 py-2">
                             <p class="leading-6 flex-1 font-xs text-[#525D61]">Our cloud offering is currently under development and will be available soon.</p>
                         </div>
-                        @* TODO: Arrow not appear *@
                         <div data-popper-arrow></div>
                     </div>
                 </div>
                 @* bottom *@
-                <div class="flex items-start gap-4 py-2 mt-4 rounded-lg ">
+                <div class="flex items-start gap-4 py-2 mt-4 rounded-lg lg:mt-5 ">
                     <div class="w-0.5 shrink-0 self-stretch bg-[#677575]"> </div>
                     <p class="text-[#525D61] text-xs w-full leading-6" >Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. </p>
                 </div>
             </div>
 
             @* text 1 *@
-            <p class="text-[#525D61] text-xs sm:text-base leading-7">
+            <p class="text-[#525D61] text-xs sm:text-base leading-6 lg:leading-7">
                 Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
             </p>
 
@@ -735,10 +733,10 @@
 
             @* text 2 *@
             <div>
-                <p class="text-[#525D61] text-xs sm:text-base leading-7">
+                <p class="text-[#525D61] text-xs sm:text-base leading-6 lg:leading-7">
                 Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                 </p>
-                <p class="text-[#525D61] text-xs sm:text-base leading-7">
+                <p class="text-[#525D61] text-xs sm:text-base leading-6 lg:leading-7">
                     Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                 </p>
             </div>
@@ -753,9 +751,9 @@
                             </svg>
                             <span class="text-[#6B9E32]">Tip</span>
                         </div>
-                        <p class="text-xs leading-7 sm:text-base">Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.</p>
+                        <p class="text-xs leading-6 sm:leading-7 sm:text-base">Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.</p>
                         <br/>
-                        <p class="text-xs leading-7 sm:text-base">Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis.</p>
+                        <p class="text-xs leading-6 sm:leading-7 sm:text-base">Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis.</p>
                     </div>
             </div>
 
@@ -808,10 +806,10 @@
 
             @* text 3 *@
             <div class="-mt-4">
-                <p class="text-[#525D61] text-xs sm:text-base leading-7">
+                <p class="text-[#525D61] text-xs sm:text-base leading-6 sm:leading-7">
                 Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                 </p>
-                <p class="text-[#525D61] text-xs sm:text-base leading-7">
+                <p class="text-[#525D61] text-xs sm:text-base leading-6 sm:leading-7">
                     Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                 </p>
             </div>
@@ -941,6 +939,18 @@ document.querySelectorAll('[data-collapse-toggle]').forEach(button => {
                 path.setAttribute('fill', newColor);
             });
 
+    });
+});
+</script>
+
+@* Script to rotate chevron icon  in RIGHT MENU *@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('[data-collapse-toggle="dropdown-r"]');
+    const chevronIcon = toggleButton.querySelector('.rotate-icon');
+
+    toggleButton.addEventListener('click', function() {
+        toggleButton.querySelector('.rotate-icon').classList.toggle('rotate-180');
     });
 });
 </script>

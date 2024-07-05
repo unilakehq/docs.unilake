@@ -11,11 +11,12 @@
     };
 }
 <header id="header" class="fixed top-0 z-50 w-full bg-white shadow 2xl:h-14 dark:bg-black">
-  <nav class=" bg-[#F9F8F6] dark:border-gray-700 dark:bg-black">
+  <nav class="bg-[#F9F8F6] dark:border-gray-700 dark:bg-black">
+    @* desktop *@
     <div class="px-4 py-1.5 lg:py-4 pr-6 mx-auto 2xl:py-6 sm:px-8 2xl:px-28 border-b bg-[#F9F8F6] border-[#DDDFDA]">
       <div class="flex items-center justify-between">
           <div class="flex flex-shrink-0 gap-0 sm:gap-6">
-          <!-- Mobile menu button -->
+          <!-- HAMBURGER BUTTON -->
           <div class="flex items-center xl:hidden">
             <button type="button" v-on:click="open=!open" class="inline-flex items-center justify-center p-2 pr-1 text-gray-400 rounded-md dark:bg-black " aria-controls="mobile-menu" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
@@ -48,7 +49,7 @@
                     void RenderNavLink(string href, string childContent, string? cls = null)
                     {
                         
-                        <a href="@href" class="@Html.ClassNames("inline-flex items-center font-inter px-1 leading-[28px] pt-1 text-base font-normal", Html.MatchesPath(href) ? "text-[#FF6849]" : " text-[#252532] transition duration-500 hover:text-[#FF6849]", cls)">@Html.Raw(childContent) </a>
+                        <a href="@href" class="@Html.ClassNames("inline-flex items-center font-inter leading-[28px] text-base font-normal", Html.MatchesPath(href) ? "text-[#FF6849]" : " text-[#252532] transition duration-500 hover:text-[#FF6849]", cls)">@Html.Raw(childContent) </a>
 
                     }
                     foreach (var menuItem in menuItems)
@@ -103,17 +104,15 @@
     </div>
    
     <!-- Mobile menu, show/hide based on menu state. -->
-    @* TODO: Mobile menu is open intially for dropdown purposes *@
-    @* TODO: Figure out scroll problem with mobile menu *@
     <div v-if="open" class="xl:hidden">
         <div class="pb-3 space-y-1">
         
             <div class="z-50 flex flex-col items-start flex-none h-screen gap-2 overflow-hidden">
             
             <div id="left-menu-in" class="w-full h-screen overflow-y-auto sm:w-3/5 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
-                <div class="px-2 py-1 overflow-y-auto sm:px-16 sm:py-3 ">
+                <div class="px-2 overflow-y-auto sm:px-16 sm:py-3 ">
                     @* menu items *@
-                    <ul class="space-y-2">
+                    <ul class="mt-4 space-y-1">
                         <!-- MAIN MENU ITEM 1 -->
                         <li>
                             <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700" aria-controls="main-dropdown" data-collapse-toggle="main-dropdown">
@@ -122,7 +121,7 @@
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
                                 </svg>
                             </button>
-                            <ul id="main-dropdown" class="p-2 py-2 space-y-2 ">
+                            <ul id="main-dropdown" class="px-4 py-2 my-5 mr-16 space-y-1 ">
                                @* MENU ITEM *@
                                 <li>
                                     <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-1" data-collapse-toggle="dropdown-1">
@@ -684,7 +683,7 @@
                         <!-- GITHUB BUTTON -->
                         <li class="mx-4">
                             <a href="http://github.com"  target="_blank">
-                                <button class="flex items-center justify-center w-full sm:w-auto gap-2 px-6 py-3 mt-4 text-sm font-semibold text-[#F9F8F6] rounded-lg bg-brand hover:bg-[#e03c17]">
+                                <button class="flex items-center justify-center w-full sm:w-auto gap-2 px-6 py-3 mt-6 text-sm font-semibold text-[#F9F8F6] rounded-lg bg-brand hover:bg-[#e03c17]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                                         <path d="M8.50065 1.33334C4.81732 1.33334 1.83399 4.31668 1.83399 8.00001C1.83318 9.39945 2.27305 10.7636 3.09119 11.899C3.90933 13.0343 5.06421 13.8833 6.39199 14.3253C6.72532 14.3833 6.85065 14.1833 6.85065 14.008C6.85065 13.85 6.84199 13.3253 6.84199 12.7667C5.16732 13.0753 4.73399 12.3587 4.60065 11.9833C4.52532 11.7913 4.20065 11.2 3.91732 11.0413C3.68399 10.9167 3.35065 10.608 3.90865 10.6C4.43399 10.5913 4.80865 11.0833 4.93399 11.2833C5.53399 12.2913 6.49199 12.008 6.87532 11.8333C6.93399 11.4 7.10865 11.1087 7.30065 10.942C5.81732 10.7753 4.26732 10.2 4.26732 7.65001C4.26732 6.92468 4.52532 6.32534 4.95065 5.85868C4.88399 5.69201 4.65065 5.00868 5.01732 4.09201C5.01732 4.09201 5.57532 3.91668 6.85065 4.77468C7.39339 4.62428 7.95413 4.54869 8.51732 4.55001C9.08399 4.55001 9.65065 4.62468 10.184 4.77468C11.4593 3.90801 12.0173 4.09201 12.0173 4.09201C12.384 5.00868 12.1507 5.69201 12.084 5.85868C12.5087 6.32534 12.7673 6.91668 12.7673 7.65001C12.7673 10.2087 11.2093 10.7753 9.72599 10.942C9.96732 11.15 10.176 11.55 10.176 12.1753C10.176 13.0667 10.1673 13.7833 10.1673 14.0087C10.1673 14.1833 10.2927 14.3913 10.626 14.3247C11.9492 13.8778 13.099 13.0272 13.9135 11.8926C14.7281 10.7581 15.1663 9.39667 15.1667 8.00001C15.1667 4.31668 12.1833 1.33334 8.49999 1.33334" fill="#F9F8F6"/>
                                     </svg>
