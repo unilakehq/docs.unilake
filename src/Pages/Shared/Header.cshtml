@@ -1,9 +1,9 @@
 <header id="header" class="fixed top-0 z-50 w-full bg-white shadow 2xl:h-14 dark:bg-black">
   <nav class="bg-[#F9F8F6] dark:border-gray-700 dark:bg-black">
     <!-- desktop -->
-    <div class="px-4 py-1.5 lg:py-4 pr-6 mx-auto 2xl:py-6 sm:px-8 2xl:px-28 border-b bg-[#F9F8F6] border-[#DDDFDA]">
+    <div class="px-4 py-1.5 lg:py-4 pr-6 mx-auto 2xl:py-6 md:px-8 3xl:px-28 border-b bg-[#F9F8F6] border-[#DDDFDA]">
       <div class="flex items-center justify-between">
-        <div class="flex flex-shrink-0 gap-0 sm:gap-6">
+        <div class="flex flex-shrink-0 gap-0 md:gap-6">
           <!-- HAMBURGER BUTTON -->
           <div class="flex items-center xl:hidden">
             <button id="hamburgerBtn" type="button" class="inline-flex items-center justify-center p-2 pr-1 text-gray-400 rounded-md dark:bg-black" aria-controls="mobile-menu" aria-expanded="false">
@@ -16,7 +16,7 @@
           </div>
           <!-- LOGO -->
           <a href="/" class="self-center" alt="Main Logo">
-             <svg id="mainLogo" class="w-[87px] h-[16px] sm:w-[171px] sm:h-[32px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171 32" fill="none">
+             <svg id="mainLogo" class="w-[87px] h-[16px] md:w-[171px] md:h-[32px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171 32" fill="none">
                 <path d="M51.5706 20.8496C51.5706 25.3076 49.5008 27.8653 45.8927 27.8653C42.6237 27.8653 40.7567 25.4206 40.7567 21.1552V9.74811H36.558V21.2707C36.558 29.1827 41.4372 31.9896 45.6334 31.9896C47.9677 31.9896 49.9836 31.3424 51.5783 30.1175V31.6069H55.7795V9.74811H51.5783L51.5706 20.8496Z" fill="#252532"/>
                 <path d="M70.1269 9.36548C67.7926 9.36548 65.7613 10.0126 64.1794 11.2376V9.74811H59.9808V31.6069H64.1794V20.5055C64.1794 16.0448 66.2493 13.4871 69.8573 13.4871C73.1264 13.4871 74.9933 15.9344 74.9933 20.1999V31.6069H79.1945V20.0843C79.1945 12.1723 74.3153 9.36548 70.1192 9.36548" fill="#252532"/>
                 <path d="M87.3043 9.74811H83.1056V31.6069H87.3043V9.74811Z" fill="#252532"/>
@@ -32,7 +32,7 @@
           </a>
         </div>
         <!-- LINKS -->
-        <div class="hidden xl:flex sm:space-x-4 lg:space-x-8" id="navLinks">
+        <div class="hidden xl:flex md:space-x-4 lg:space-x-8" id="navLinks">
           <!-- Rendered navigation links will go here -->
         </div>
         <!-- CTA -->
@@ -40,7 +40,7 @@
           <!-- Search form -->
           <form id="searchForm" class="flex items-center max-w-md gap-6 mx-auto xl:flex md:gap-8 font-inter hover:cursor-pointer">
             <label for="default-search" class="mb-2 text-sm leading-[24px] sr-only dark:text-white">Search</label>
-            <div class="relative w-[158px] sm:w-[193px] border border-[#DDDFDA] rounded-lg hover:bg-[#f0eeeb] hover:border-[#FF6849]">
+            <div class="relative w-[158px] md:w-[193px] border border-[#DDDFDA] rounded-lg hover:bg-[#f0eeeb] hover:border-[#FF6849]">
               <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-4">
                 <!-- Search icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -51,8 +51,8 @@
               <button type="submit" class="text-gray-400 absolute end-2.5 bottom-1.5 mr-1 bg-transparent leading-[24px] text-xs peer-focus:text-transparent ">ctrl+k</button>
             </div>
             <!-- Buttons -->
-            <div id="ctaBtns" class="hidden sm:flex flex-start gap-3 text-[#252532]">
-                <a href="#">
+            <div id="ctaBtns" class="hidden md:flex flex-start gap-3 text-[#252532]">
+                <a href="/">
                 <div class="rounded-full p-2 border hover:bg-[#f0eeeb] cursor-default border-[#DDDFDA]">
                     <!-- Icon 1 SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -60,7 +60,7 @@
                     </svg>
                 </div>
                 </a>
-                <a href="#">
+                <a href="/">
                 <div class="rounded-full p-2 border hover:bg-[#f0eeeb] cursor-default border-[#DDDFDA]">
                     <!-- Icon 2 SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -87,8 +87,8 @@
         <!-- Rendered mobile navigation links will go here -->
           <div class="flex flex-col z-[100] items-start flex-none h-full gap-2 overflow-hidden">
           
-          <div id="left-menu-in" class="w-full h-screen overflow-y-auto sm:w-3/5 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
-              <div class="px-2 overflow-y-hidden sm:px-16 sm:py-3 ">
+          <div id="left-menu-in" class="w-full h-screen overflow-y-auto md:w-3/5 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
+              <div class="px-2 overflow-y-hidden md:px-16 md:py-3 ">
                   @* MENU ITEMS *@
                   <ul class="mt-4 space-y-5">
                       <!-- MAIN MENU ITEM 1 -->
@@ -136,7 +136,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -149,7 +149,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -162,13 +162,13 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M1.77651 1.93333L1.46597 1.93337C1.20865 1.9334 1.00003 1.7245 1 1.46676C0.999969 1.20903 1.20854 1.00007 1.46585 1.00004L1.77646 1C1.7822 1 1.78793 1 1.79351 1C1.91749 0.999993 2.00249 0.999988 2.08151 1.00536C3.00375 1.06804 3.80176 1.67097 4.11527 2.54196C4.14213 2.61658 4.16548 2.69845 4.19952 2.81786C4.20106 2.82323 4.20261 2.82868 4.20419 2.83421L4.21346 2.86671H11.2513C11.8957 2.8667 12.4106 2.8667 12.8192 2.90309C13.2358 2.94019 13.598 3.01857 13.9125 3.21218C14.4041 3.51486 14.7661 3.98956 14.9283 4.54431C15.032 4.89915 15.0123 5.26975 14.9384 5.68208C14.8659 6.08652 14.7304 6.58404 14.5609 7.20676L14.5175 7.36618C14.5079 7.40146 14.4984 7.4363 14.489 7.47069C14.2307 8.42061 14.0647 9.03077 13.7064 9.49546C13.3909 9.90465 12.9738 10.2238 12.4966 10.421C11.9548 10.645 11.3234 10.6448 10.3404 10.6445C10.3049 10.6445 10.2688 10.6445 10.2323 10.6445H8.81334C8.77728 10.6445 8.74169 10.6445 8.70655 10.6445C7.73481 10.6448 7.11056 10.645 6.57304 10.4251C6.09963 10.2314 5.68461 9.91784 5.36864 9.51512C5.00988 9.05785 4.83856 8.45659 4.57187 7.52064C4.56223 7.4868 4.55246 7.45252 4.54255 7.4178L3.30822 3.09061C3.26775 2.94873 3.25344 2.89951 3.23868 2.85851C3.05057 2.33591 2.57177 1.97416 2.01842 1.93655C1.97502 1.9336 1.92377 1.93334 1.77651 1.93333ZM4.47969 3.80004L5.43852 7.16139C5.7453 8.23687 5.87013 8.64378 6.1013 8.93843C6.31749 9.21397 6.60146 9.42852 6.92536 9.56102C7.27173 9.70272 7.69664 9.71115 8.81334 9.71115H10.2323C11.3621 9.71115 11.792 9.70255 12.1412 9.55825C12.4677 9.42331 12.7531 9.20495 12.969 8.92497C13.1998 8.62557 13.3212 8.21236 13.6185 7.1206L13.6559 6.9831C13.8328 6.33347 13.9569 5.87597 14.0212 5.51721C14.0849 5.16161 14.0784 4.9583 14.034 4.8066C13.9367 4.47375 13.7195 4.18893 13.4245 4.00732C13.2901 3.92455 13.096 3.86475 12.7367 3.83275C12.3742 3.80047 11.9009 3.80004 11.2287 3.80004H4.47969ZM7.05684 12.5111C6.62798 12.5111 6.28032 12.8593 6.28032 13.2889C6.28032 13.7184 6.62798 14.0667 7.05684 14.0667C7.48569 14.0667 7.83335 13.7184 7.83335 13.2889C7.83335 12.8593 7.48569 12.5111 7.05684 12.5111ZM5.3485 13.2889C5.3485 12.3439 6.11335 11.5778 7.05684 11.5778C8.00032 11.5778 8.76517 12.3439 8.76517 13.2889C8.76517 14.2339 8.00032 15 7.05684 15C6.11335 15 5.3485 14.2339 5.3485 13.2889ZM12.0265 12.5111C11.5977 12.5111 11.25 12.8593 11.25 13.2889C11.25 13.7184 11.5977 14.0667 12.0265 14.0667C12.4554 14.0667 12.8031 13.7184 12.8031 13.2889C12.8031 12.8593 12.4554 12.5111 12.0265 12.5111ZM10.3182 13.2889C10.3182 12.3439 11.0831 11.5778 12.0265 11.5778C12.97 11.5778 13.7349 12.3439 13.7349 13.2889C13.7349 14.2339 12.97 15 12.0265 15C11.0831 15 10.3182 14.2339 10.3182 13.2889Z" fill="#252532"/>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                           </ul>
                                       </li>
@@ -177,7 +177,7 @@
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M5.86667 9.83337C4.3755 9.83337 3.16667 11.0422 3.16667 12.5334C3.16667 13.4354 3.89794 14.1667 4.8 14.1667H11.2C12.1021 14.1667 12.8333 13.4354 12.8333 12.5334C12.8333 11.0422 11.6245 9.83337 10.1333 9.83337H5.86667ZM2.16667 12.5334C2.16667 10.4899 3.82322 8.83337 5.86667 8.83337H10.1333C12.1768 8.83337 13.8333 10.4899 13.8333 12.5334C13.8333 13.9877 12.6543 15.1667 11.2 15.1667H4.8C3.34565 15.1667 2.16667 13.9877 2.16667 12.5334Z" fill="#252532"/>
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.83337C6.80339 1.83337 5.83334 2.80342 5.83334 4.00004C5.83334 5.19666 6.80339 6.16671 8 6.16671C9.1966 6.16671 10.1667 5.19666 10.1667 4.00004C10.1667 2.80343 9.1966 1.83337 8 1.83337ZM4.83334 4.00004C4.83334 2.25114 6.2511 0.833374 8 0.833374C9.74888 0.833374 11.1667 2.25114 11.1667 4.00004C11.1667 5.74895 9.74888 7.16671 8 7.16671C6.2511 7.16671 4.83334 5.74894 4.83334 4.00004Z" fill="#252532"/>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -190,7 +190,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -203,7 +203,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -216,7 +216,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>                        
                                   </ul>
                               </li>
@@ -263,7 +263,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -276,7 +276,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -289,13 +289,13 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M1.77651 1.93333L1.46597 1.93337C1.20865 1.9334 1.00003 1.7245 1 1.46676C0.999969 1.20903 1.20854 1.00007 1.46585 1.00004L1.77646 1C1.7822 1 1.78793 1 1.79351 1C1.91749 0.999993 2.00249 0.999988 2.08151 1.00536C3.00375 1.06804 3.80176 1.67097 4.11527 2.54196C4.14213 2.61658 4.16548 2.69845 4.19952 2.81786C4.20106 2.82323 4.20261 2.82868 4.20419 2.83421L4.21346 2.86671H11.2513C11.8957 2.8667 12.4106 2.8667 12.8192 2.90309C13.2358 2.94019 13.598 3.01857 13.9125 3.21218C14.4041 3.51486 14.7661 3.98956 14.9283 4.54431C15.032 4.89915 15.0123 5.26975 14.9384 5.68208C14.8659 6.08652 14.7304 6.58404 14.5609 7.20676L14.5175 7.36618C14.5079 7.40146 14.4984 7.4363 14.489 7.47069C14.2307 8.42061 14.0647 9.03077 13.7064 9.49546C13.3909 9.90465 12.9738 10.2238 12.4966 10.421C11.9548 10.645 11.3234 10.6448 10.3404 10.6445C10.3049 10.6445 10.2688 10.6445 10.2323 10.6445H8.81334C8.77728 10.6445 8.74169 10.6445 8.70655 10.6445C7.73481 10.6448 7.11056 10.645 6.57304 10.4251C6.09963 10.2314 5.68461 9.91784 5.36864 9.51512C5.00988 9.05785 4.83856 8.45659 4.57187 7.52064C4.56223 7.4868 4.55246 7.45252 4.54255 7.4178L3.30822 3.09061C3.26775 2.94873 3.25344 2.89951 3.23868 2.85851C3.05057 2.33591 2.57177 1.97416 2.01842 1.93655C1.97502 1.9336 1.92377 1.93334 1.77651 1.93333ZM4.47969 3.80004L5.43852 7.16139C5.7453 8.23687 5.87013 8.64378 6.1013 8.93843C6.31749 9.21397 6.60146 9.42852 6.92536 9.56102C7.27173 9.70272 7.69664 9.71115 8.81334 9.71115H10.2323C11.3621 9.71115 11.792 9.70255 12.1412 9.55825C12.4677 9.42331 12.7531 9.20495 12.969 8.92497C13.1998 8.62557 13.3212 8.21236 13.6185 7.1206L13.6559 6.9831C13.8328 6.33347 13.9569 5.87597 14.0212 5.51721C14.0849 5.16161 14.0784 4.9583 14.034 4.8066C13.9367 4.47375 13.7195 4.18893 13.4245 4.00732C13.2901 3.92455 13.096 3.86475 12.7367 3.83275C12.3742 3.80047 11.9009 3.80004 11.2287 3.80004H4.47969ZM7.05684 12.5111C6.62798 12.5111 6.28032 12.8593 6.28032 13.2889C6.28032 13.7184 6.62798 14.0667 7.05684 14.0667C7.48569 14.0667 7.83335 13.7184 7.83335 13.2889C7.83335 12.8593 7.48569 12.5111 7.05684 12.5111ZM5.3485 13.2889C5.3485 12.3439 6.11335 11.5778 7.05684 11.5778C8.00032 11.5778 8.76517 12.3439 8.76517 13.2889C8.76517 14.2339 8.00032 15 7.05684 15C6.11335 15 5.3485 14.2339 5.3485 13.2889ZM12.0265 12.5111C11.5977 12.5111 11.25 12.8593 11.25 13.2889C11.25 13.7184 11.5977 14.0667 12.0265 14.0667C12.4554 14.0667 12.8031 13.7184 12.8031 13.2889C12.8031 12.8593 12.4554 12.5111 12.0265 12.5111ZM10.3182 13.2889C10.3182 12.3439 11.0831 11.5778 12.0265 11.5778C12.97 11.5778 13.7349 12.3439 13.7349 13.2889C13.7349 14.2339 12.97 15 12.0265 15C11.0831 15 10.3182 14.2339 10.3182 13.2889Z" fill="#252532"/>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                           </ul>
                                       </li>
@@ -304,7 +304,7 @@
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M5.86667 9.83337C4.3755 9.83337 3.16667 11.0422 3.16667 12.5334C3.16667 13.4354 3.89794 14.1667 4.8 14.1667H11.2C12.1021 14.1667 12.8333 13.4354 12.8333 12.5334C12.8333 11.0422 11.6245 9.83337 10.1333 9.83337H5.86667ZM2.16667 12.5334C2.16667 10.4899 3.82322 8.83337 5.86667 8.83337H10.1333C12.1768 8.83337 13.8333 10.4899 13.8333 12.5334C13.8333 13.9877 12.6543 15.1667 11.2 15.1667H4.8C3.34565 15.1667 2.16667 13.9877 2.16667 12.5334Z" fill="#252532"/>
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.83337C6.80339 1.83337 5.83334 2.80342 5.83334 4.00004C5.83334 5.19666 6.80339 6.16671 8 6.16671C9.1966 6.16671 10.1667 5.19666 10.1667 4.00004C10.1667 2.80343 9.1966 1.83337 8 1.83337ZM4.83334 4.00004C4.83334 2.25114 6.2511 0.833374 8 0.833374C9.74888 0.833374 11.1667 2.25114 11.1667 4.00004C11.1667 5.74895 9.74888 7.16671 8 7.16671C6.2511 7.16671 4.83334 5.74894 4.83334 4.00004Z" fill="#252532"/>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -317,7 +317,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -330,7 +330,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -343,7 +343,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>                        
                                   </ul>
                               </li>
@@ -383,7 +383,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -396,7 +396,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -409,13 +409,13 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M1.77651 1.93333L1.46597 1.93337C1.20865 1.9334 1.00003 1.7245 1 1.46676C0.999969 1.20903 1.20854 1.00007 1.46585 1.00004L1.77646 1C1.7822 1 1.78793 1 1.79351 1C1.91749 0.999993 2.00249 0.999988 2.08151 1.00536C3.00375 1.06804 3.80176 1.67097 4.11527 2.54196C4.14213 2.61658 4.16548 2.69845 4.19952 2.81786C4.20106 2.82323 4.20261 2.82868 4.20419 2.83421L4.21346 2.86671H11.2513C11.8957 2.8667 12.4106 2.8667 12.8192 2.90309C13.2358 2.94019 13.598 3.01857 13.9125 3.21218C14.4041 3.51486 14.7661 3.98956 14.9283 4.54431C15.032 4.89915 15.0123 5.26975 14.9384 5.68208C14.8659 6.08652 14.7304 6.58404 14.5609 7.20676L14.5175 7.36618C14.5079 7.40146 14.4984 7.4363 14.489 7.47069C14.2307 8.42061 14.0647 9.03077 13.7064 9.49546C13.3909 9.90465 12.9738 10.2238 12.4966 10.421C11.9548 10.645 11.3234 10.6448 10.3404 10.6445C10.3049 10.6445 10.2688 10.6445 10.2323 10.6445H8.81334C8.77728 10.6445 8.74169 10.6445 8.70655 10.6445C7.73481 10.6448 7.11056 10.645 6.57304 10.4251C6.09963 10.2314 5.68461 9.91784 5.36864 9.51512C5.00988 9.05785 4.83856 8.45659 4.57187 7.52064C4.56223 7.4868 4.55246 7.45252 4.54255 7.4178L3.30822 3.09061C3.26775 2.94873 3.25344 2.89951 3.23868 2.85851C3.05057 2.33591 2.57177 1.97416 2.01842 1.93655C1.97502 1.9336 1.92377 1.93334 1.77651 1.93333ZM4.47969 3.80004L5.43852 7.16139C5.7453 8.23687 5.87013 8.64378 6.1013 8.93843C6.31749 9.21397 6.60146 9.42852 6.92536 9.56102C7.27173 9.70272 7.69664 9.71115 8.81334 9.71115H10.2323C11.3621 9.71115 11.792 9.70255 12.1412 9.55825C12.4677 9.42331 12.7531 9.20495 12.969 8.92497C13.1998 8.62557 13.3212 8.21236 13.6185 7.1206L13.6559 6.9831C13.8328 6.33347 13.9569 5.87597 14.0212 5.51721C14.0849 5.16161 14.0784 4.9583 14.034 4.8066C13.9367 4.47375 13.7195 4.18893 13.4245 4.00732C13.2901 3.92455 13.096 3.86475 12.7367 3.83275C12.3742 3.80047 11.9009 3.80004 11.2287 3.80004H4.47969ZM7.05684 12.5111C6.62798 12.5111 6.28032 12.8593 6.28032 13.2889C6.28032 13.7184 6.62798 14.0667 7.05684 14.0667C7.48569 14.0667 7.83335 13.7184 7.83335 13.2889C7.83335 12.8593 7.48569 12.5111 7.05684 12.5111ZM5.3485 13.2889C5.3485 12.3439 6.11335 11.5778 7.05684 11.5778C8.00032 11.5778 8.76517 12.3439 8.76517 13.2889C8.76517 14.2339 8.00032 15 7.05684 15C6.11335 15 5.3485 14.2339 5.3485 13.2889ZM12.0265 12.5111C11.5977 12.5111 11.25 12.8593 11.25 13.2889C11.25 13.7184 11.5977 14.0667 12.0265 14.0667C12.4554 14.0667 12.8031 13.7184 12.8031 13.2889C12.8031 12.8593 12.4554 12.5111 12.0265 12.5111ZM10.3182 13.2889C10.3182 12.3439 11.0831 11.5778 12.0265 11.5778C12.97 11.5778 13.7349 12.3439 13.7349 13.2889C13.7349 14.2339 12.97 15 12.0265 15C11.0831 15 10.3182 14.2339 10.3182 13.2889Z" fill="#252532"/>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                           </ul>
                                       </li>
@@ -424,7 +424,7 @@
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M5.86667 9.83337C4.3755 9.83337 3.16667 11.0422 3.16667 12.5334C3.16667 13.4354 3.89794 14.1667 4.8 14.1667H11.2C12.1021 14.1667 12.8333 13.4354 12.8333 12.5334C12.8333 11.0422 11.6245 9.83337 10.1333 9.83337H5.86667ZM2.16667 12.5334C2.16667 10.4899 3.82322 8.83337 5.86667 8.83337H10.1333C12.1768 8.83337 13.8333 10.4899 13.8333 12.5334C13.8333 13.9877 12.6543 15.1667 11.2 15.1667H4.8C3.34565 15.1667 2.16667 13.9877 2.16667 12.5334Z" fill="#252532"/>
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.83337C6.80339 1.83337 5.83334 2.80342 5.83334 4.00004C5.83334 5.19666 6.80339 6.16671 8 6.16671C9.1966 6.16671 10.1667 5.19666 10.1667 4.00004C10.1667 2.80343 9.1966 1.83337 8 1.83337ZM4.83334 4.00004C4.83334 2.25114 6.2511 0.833374 8 0.833374C9.74888 0.833374 11.1667 2.25114 11.1667 4.00004C11.1667 5.74895 9.74888 7.16671 8 7.16671C6.2511 7.16671 4.83334 5.74894 4.83334 4.00004Z" fill="#252532"/>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -437,7 +437,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -450,7 +450,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -463,7 +463,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>                        
                                   </ul>
                               </li>
@@ -510,7 +510,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -523,7 +523,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -536,13 +536,13 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M1.77651 1.93333L1.46597 1.93337C1.20865 1.9334 1.00003 1.7245 1 1.46676C0.999969 1.20903 1.20854 1.00007 1.46585 1.00004L1.77646 1C1.7822 1 1.78793 1 1.79351 1C1.91749 0.999993 2.00249 0.999988 2.08151 1.00536C3.00375 1.06804 3.80176 1.67097 4.11527 2.54196C4.14213 2.61658 4.16548 2.69845 4.19952 2.81786C4.20106 2.82323 4.20261 2.82868 4.20419 2.83421L4.21346 2.86671H11.2513C11.8957 2.8667 12.4106 2.8667 12.8192 2.90309C13.2358 2.94019 13.598 3.01857 13.9125 3.21218C14.4041 3.51486 14.7661 3.98956 14.9283 4.54431C15.032 4.89915 15.0123 5.26975 14.9384 5.68208C14.8659 6.08652 14.7304 6.58404 14.5609 7.20676L14.5175 7.36618C14.5079 7.40146 14.4984 7.4363 14.489 7.47069C14.2307 8.42061 14.0647 9.03077 13.7064 9.49546C13.3909 9.90465 12.9738 10.2238 12.4966 10.421C11.9548 10.645 11.3234 10.6448 10.3404 10.6445C10.3049 10.6445 10.2688 10.6445 10.2323 10.6445H8.81334C8.77728 10.6445 8.74169 10.6445 8.70655 10.6445C7.73481 10.6448 7.11056 10.645 6.57304 10.4251C6.09963 10.2314 5.68461 9.91784 5.36864 9.51512C5.00988 9.05785 4.83856 8.45659 4.57187 7.52064C4.56223 7.4868 4.55246 7.45252 4.54255 7.4178L3.30822 3.09061C3.26775 2.94873 3.25344 2.89951 3.23868 2.85851C3.05057 2.33591 2.57177 1.97416 2.01842 1.93655C1.97502 1.9336 1.92377 1.93334 1.77651 1.93333ZM4.47969 3.80004L5.43852 7.16139C5.7453 8.23687 5.87013 8.64378 6.1013 8.93843C6.31749 9.21397 6.60146 9.42852 6.92536 9.56102C7.27173 9.70272 7.69664 9.71115 8.81334 9.71115H10.2323C11.3621 9.71115 11.792 9.70255 12.1412 9.55825C12.4677 9.42331 12.7531 9.20495 12.969 8.92497C13.1998 8.62557 13.3212 8.21236 13.6185 7.1206L13.6559 6.9831C13.8328 6.33347 13.9569 5.87597 14.0212 5.51721C14.0849 5.16161 14.0784 4.9583 14.034 4.8066C13.9367 4.47375 13.7195 4.18893 13.4245 4.00732C13.2901 3.92455 13.096 3.86475 12.7367 3.83275C12.3742 3.80047 11.9009 3.80004 11.2287 3.80004H4.47969ZM7.05684 12.5111C6.62798 12.5111 6.28032 12.8593 6.28032 13.2889C6.28032 13.7184 6.62798 14.0667 7.05684 14.0667C7.48569 14.0667 7.83335 13.7184 7.83335 13.2889C7.83335 12.8593 7.48569 12.5111 7.05684 12.5111ZM5.3485 13.2889C5.3485 12.3439 6.11335 11.5778 7.05684 11.5778C8.00032 11.5778 8.76517 12.3439 8.76517 13.2889C8.76517 14.2339 8.00032 15 7.05684 15C6.11335 15 5.3485 14.2339 5.3485 13.2889ZM12.0265 12.5111C11.5977 12.5111 11.25 12.8593 11.25 13.2889C11.25 13.7184 11.5977 14.0667 12.0265 14.0667C12.4554 14.0667 12.8031 13.7184 12.8031 13.2889C12.8031 12.8593 12.4554 12.5111 12.0265 12.5111ZM10.3182 13.2889C10.3182 12.3439 11.0831 11.5778 12.0265 11.5778C12.97 11.5778 13.7349 12.3439 13.7349 13.2889C13.7349 14.2339 12.97 15 12.0265 15C11.0831 15 10.3182 14.2339 10.3182 13.2889Z" fill="#252532"/>
                                                   </svg>
-                                                  <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                           </ul>
                                       </li>
@@ -551,7 +551,7 @@
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M5.86667 9.83337C4.3755 9.83337 3.16667 11.0422 3.16667 12.5334C3.16667 13.4354 3.89794 14.1667 4.8 14.1667H11.2C12.1021 14.1667 12.8333 13.4354 12.8333 12.5334C12.8333 11.0422 11.6245 9.83337 10.1333 9.83337H5.86667ZM2.16667 12.5334C2.16667 10.4899 3.82322 8.83337 5.86667 8.83337H10.1333C12.1768 8.83337 13.8333 10.4899 13.8333 12.5334C13.8333 13.9877 12.6543 15.1667 11.2 15.1667H4.8C3.34565 15.1667 2.16667 13.9877 2.16667 12.5334Z" fill="#252532"/>
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.83337C6.80339 1.83337 5.83334 2.80342 5.83334 4.00004C5.83334 5.19666 6.80339 6.16671 8 6.16671C9.1966 6.16671 10.1667 5.19666 10.1667 4.00004C10.1667 2.80343 9.1966 1.83337 8 1.83337ZM4.83334 4.00004C4.83334 2.25114 6.2511 0.833374 8 0.833374C9.74888 0.833374 11.1667 2.25114 11.1667 4.00004C11.1667 5.74895 9.74888 7.16671 8 7.16671C6.2511 7.16671 4.83334 5.74894 4.83334 4.00004Z" fill="#252532"/>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -564,7 +564,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -577,7 +577,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>
                                       <li class="flex items-center w-full pl-4 gap-2 p-2 justify-between text-xs font-bold text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700 ">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -590,7 +590,7 @@
                                               </clipPath>
                                               </defs>
                                           </svg>
-                                          <a href="#" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
+                                          <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community Deployment</a>
                                       </li>                        
                                   </ul>
                               </li>    
@@ -663,15 +663,17 @@
 
                       <!-- MAIN MENU ITEM 7 -->
                       <li>
-                          <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
-                              <span class="flex-1 text-left whitespace-nowrap">Blog</span>
+                        <a href="blog">
+                            <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base text-[#525D61] transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                            <span class="flex-1 text-left whitespace-nowrap">Blog</span>
                           </button>
+                        </a>
                       </li>
 
                       <!-- MAIN MENU ITEM 8 (GH BUTTON) -->
                       <li class="mx-4">
                           <a href="http://github.com"  target="_blank">
-                              <button class="flex items-center justify-center w-full sm:w-auto gap-2 px-6 py-3 mt-6 my-20 text-sm font-semibold text-[#F9F8F6] rounded-lg bg-brand hover:bg-[#e03c17]">
+                              <button class="flex items-center justify-center w-full md:w-auto gap-2 px-6 py-3 mt-6 my-20 text-sm font-semibold text-[#F9F8F6] rounded-lg bg-brand hover:bg-[#e03c17]">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                                       <path d="M8.50065 1.33334C4.81732 1.33334 1.83399 4.31668 1.83399 8.00001C1.83318 9.39945 2.27305 10.7636 3.09119 11.899C3.90933 13.0343 5.06421 13.8833 6.39199 14.3253C6.72532 14.3833 6.85065 14.1833 6.85065 14.008C6.85065 13.85 6.84199 13.3253 6.84199 12.7667C5.16732 13.0753 4.73399 12.3587 4.60065 11.9833C4.52532 11.7913 4.20065 11.2 3.91732 11.0413C3.68399 10.9167 3.35065 10.608 3.90865 10.6C4.43399 10.5913 4.80865 11.0833 4.93399 11.2833C5.53399 12.2913 6.49199 12.008 6.87532 11.8333C6.93399 11.4 7.10865 11.1087 7.30065 10.942C5.81732 10.7753 4.26732 10.2 4.26732 7.65001C4.26732 6.92468 4.52532 6.32534 4.95065 5.85868C4.88399 5.69201 4.65065 5.00868 5.01732 4.09201C5.01732 4.09201 5.57532 3.91668 6.85065 4.77468C7.39339 4.62428 7.95413 4.54869 8.51732 4.55001C9.08399 4.55001 9.65065 4.62468 10.184 4.77468C11.4593 3.90801 12.0173 4.09201 12.0173 4.09201C12.384 5.00868 12.1507 5.69201 12.084 5.85868C12.5087 6.32534 12.7673 6.91668 12.7673 7.65001C12.7673 10.2087 11.2093 10.7753 9.72599 10.942C9.96732 11.15 10.176 11.55 10.176 12.1753C10.176 13.0667 10.1673 13.7833 10.1673 14.0087C10.1673 14.1833 10.2927 14.3913 10.626 14.3247C11.9492 13.8778 13.099 13.0272 13.9135 11.8926C14.7281 10.7581 15.1663 9.39667 15.1667 8.00001C15.1667 4.31668 12.1833 1.33334 8.49999 1.33334" fill="#F9F8F6"/>
                                   </svg>
@@ -730,9 +732,9 @@
 
     function updateLogoClasses() {
         if (open) {
-          mainLogo.setAttribute('class', 'w-[171px] h-[32px] ml-2 sm:ml-0');
+          mainLogo.setAttribute('class', 'w-[171px] h-[32px] ml-2 md:ml-0');
         } else {
-          mainLogo.setAttribute('class', 'w-[87px] h-[16px] sm:w-[171px] sm:h-[32px] sm:ml-0');
+          mainLogo.setAttribute('class', 'w-[87px] h-[16px] md:w-[171px] md:h-[32px] md:ml-0');
         }
       }
 
