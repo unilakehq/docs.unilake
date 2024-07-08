@@ -369,14 +369,12 @@ select {
 }
 
 .join-our-newsletter {
-  background-image: url(/img/Subscribe/SubscribeMobile.svg);
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: bottom;
   background-size: cover;
 }
 .contact-enterprise {
-  background-image: url(/img/Support/ContactEnterpriseSalesMobile.svg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -458,24 +456,20 @@ select {
 }
 @media (min-width: 768px) {
   .not-found-main {
-    background-image: url(/img/404/notFoundBgTablet.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
   .contact-enterprise {
-    background-image: url(/img/Support/ContactEnterpriseSalesDesktop.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
   .join-our-newsletter {
-    background-image: url(/img/Subscribe/SubscribeTablet.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
     background-size: cover;
   }
   .blog-slider {
-    background-image: url(/img/Slider/SliderTablet.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
@@ -507,28 +501,24 @@ select {
     height: 14%;
   }
   .not-found-main {
-    background-image: url(/img/404/notFoundBgDesktop.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
     background-size: cover;
   }
   .contact-enterprise {
-    background-image: url(/img/Support/ContactEnterpriseSalesDesktop.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
     background-size: cover;
   }
   .join-our-newsletter {
-    background-image: url(/img/Subscribe/SubscribeDesktop.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
     background-size: cover;
   }
   .blog-slider {
-    background-image: url(/img/Slider/SliderDesktop.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }

@@ -1047,7 +1047,6 @@ select {
 }
 
 .join-our-newsletter {
-  background-image: url(/img/Subscribe/SubscribeMobile.svg);
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: bottom;
@@ -1055,7 +1054,6 @@ select {
 }
 
 .contact-enterprise {
-  background-image: url(/img/Support/ContactEnterpriseSalesMobile.svg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1169,19 +1167,16 @@ select {
 
 @media (min-width: 768px) {
   .not-found-main {
-    background-image: url(/img/404/notFoundBgTablet.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   .contact-enterprise {
-    background-image: url(/img/Support/ContactEnterpriseSalesDesktop.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   .join-our-newsletter {
-    background-image: url(/img/Subscribe/SubscribeTablet.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
@@ -1189,7 +1184,6 @@ select {
   }
 
   .blog-slider {
-    background-image: url(/img/Slider/SliderTablet.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
@@ -1227,7 +1221,6 @@ select {
   }
 
   .not-found-main {
-    background-image: url(/img/404/notFoundBgDesktop.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
@@ -1235,7 +1228,6 @@ select {
   }
 
   .contact-enterprise {
-    background-image: url(/img/Support/ContactEnterpriseSalesDesktop.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
@@ -1243,7 +1235,6 @@ select {
   }
 
   .join-our-newsletter {
-    background-image: url(/img/Subscribe/SubscribeDesktop.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: bottom;
@@ -1251,7 +1242,6 @@ select {
   }
 
   .blog-slider {
-    background-image: url(/img/Slider/SliderDesktop.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -2065,6 +2055,10 @@ select {
   width: 0.5rem;
 }
 
+.w-2\/3 {
+  width: 66.666667%;
+}
+
 .w-28 {
   width: 7rem;
 }
@@ -2188,10 +2182,6 @@ select {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-2\/3 {
-  width: 66.666667%;
 }
 
 .min-w-0 {
@@ -3666,10 +3656,6 @@ select {
 
 .text-\[32px\] {
   font-size: 32px;
-}
-
-.text-\[40px\] {
-  font-size: 40px;
 }
 
 .text-base {
@@ -5618,10 +5604,6 @@ select {
     margin-top: 1.25rem;
   }
 
-  .sm\:mt-\[68px\] {
-    margin-top: 68px;
-  }
-
   .sm\:block {
     display: block;
   }
@@ -5648,14 +5630,6 @@ select {
 
   .sm\:w-44 {
     width: 11rem;
-  }
-
-  .sm\:w-\[431px\] {
-    width: 431px;
-  }
-
-  .sm\:w-auto {
-    width: auto;
   }
 
   .sm\:w-full {
@@ -5703,10 +5677,6 @@ select {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .sm\:flex-row {
-    flex-direction: row;
-  }
-
   .sm\:flex-row-reverse {
     flex-direction: row-reverse;
   }
@@ -5715,20 +5685,8 @@ select {
     align-items: center;
   }
 
-  .sm\:gap-16 {
-    gap: 4rem;
-  }
-
   .sm\:gap-M {
     gap: 16px;
-  }
-
-  .sm\:gap-\[45px\] {
-    gap: 45px;
-  }
-
-  .sm\:self-stretch {
-    align-self: stretch;
   }
 
   .sm\:overflow-hidden {
@@ -5882,14 +5840,14 @@ select {
     right: 64px;
   }
 
-  .md\:mx-\[16px\] {
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-
   .md\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
+  }
+
+  .md\:mx-\[16px\] {
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .md\:-mt-px {
@@ -5971,6 +5929,10 @@ select {
     width: 364px;
   }
 
+  .md\:w-\[431px\] {
+    width: 431px;
+  }
+
   .md\:w-\[91px\] {
     width: 91px;
   }
@@ -5986,10 +5948,6 @@ select {
 
   .md\:w-full {
     width: 100%;
-  }
-
-  .md\:w-\[431px\] {
-    width: 431px;
   }
 
   .md\:min-w-\[200px\] {
@@ -6020,6 +5978,10 @@ select {
     align-items: center;
   }
 
+  .md\:gap-16 {
+    gap: 4rem;
+  }
+
   .md\:gap-6 {
     gap: 1.5rem;
   }
@@ -6038,10 +6000,6 @@ select {
 
   .md\:gap-\[45px\] {
     gap: 45px;
-  }
-
-  .md\:gap-16 {
-    gap: 4rem;
   }
 
   .md\:space-x-3 > :not([hidden]) ~ :not([hidden]) {
@@ -6196,21 +6154,6 @@ select {
     font-size: 40px;
   }
 
-  .md\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .md\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-
-  .md\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
   .md\:leading-7 {
     line-height: 1.75rem;
   }
@@ -6225,10 +6168,6 @@ select {
 
   .md\:leading-none {
     line-height: 1;
-  }
-
-  .md\:leading-10 {
-    line-height: 2.5rem;
   }
 
   .md\:tracking-\[-0\.96px\] {
@@ -6645,36 +6584,16 @@ select {
     right: 112px;
   }
 
-  .\32xl\:mr-11 {
-    margin-right: 2.75rem;
-  }
-
-  .\32xl\:mr-\[63px\] {
-    margin-right: 63px;
-  }
-
   .\32xl\:ml-\[150px\] {
     margin-left: 150px;
   }
 
-  .\32xl\:mr-\[75px\] {
-    margin-right: 75px;
-  }
-
-  .\32xl\:mr-\[50px\] {
-    margin-right: 50px;
-  }
-
-  .\32xl\:mr-\[40px\] {
-    margin-right: 40px;
-  }
-
-  .\32xl\:mr-\[20px\] {
-    margin-right: 20px;
-  }
-
   .\32xl\:mr-0 {
     margin-right: 0px;
+  }
+
+  .\32xl\:mr-11 {
+    margin-right: 2.75rem;
   }
 
   .\32xl\:table-cell {
@@ -6683,10 +6602,6 @@ select {
 
   .\32xl\:h-14 {
     height: 3.5rem;
-  }
-
-  .\32xl\:w-\[886px\] {
-    width: 886px;
   }
 
   .\32xl\:max-w-screen-xl {
@@ -6717,10 +6632,6 @@ select {
     padding-left: 0px;
   }
 
-  .\32xl\:pl-16 {
-    padding-left: 4rem;
-  }
-
   .\32xl\:text-\[32px\] {
     font-size: 32px;
   }
@@ -6732,23 +6643,15 @@ select {
   .\32xl\:-tracking-\[1\.68px\] {
     letter-spacing: -1.68px;
   }
-
-  .min-\[1440px\]\:ml-\[150px\] {
-    margin-left: 150px;
-  }
-
-  .min-\[1440px\]\:pl-16 {
-    padding-left: 4rem;
-  }
 }
 
 @media (min-width: 1920px) {
-  .\33xl\:mr-\[112px\] {
-    margin-right: 112px;
-  }
-
   .\33xl\:ml-\[263px\] {
     margin-left: 263px;
+  }
+
+  .\33xl\:mr-\[112px\] {
+    margin-right: 112px;
   }
 
   .\33xl\:w-\[886px\] {
@@ -6758,14 +6661,6 @@ select {
   .\33xl\:px-28 {
     padding-left: 7rem;
     padding-right: 7rem;
-  }
-
-  .\33xl\:pl-0 {
-    padding-left: 0px;
-  }
-
-  .min-\[1920px\]\:ml-\[263px\] {
-    margin-left: 263px;
   }
 }
 
