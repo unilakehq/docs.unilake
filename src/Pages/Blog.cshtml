@@ -25,7 +25,7 @@
                 </span>
             </div>
             <div class="">
-                 <ul class="flex w-full overflow-x-scroll h-fit gap-M">
+                 <ul class="flex w-full overflow-x-scroll h-fit gap-M" style="-ms-overflow-style: none; scrollbar-width: none;">
                    <li onClick="toggleTag(event)" class="active-tag">All</li>
                    <li onClick="toggleTag(event)" class="inactive-tag">Auth</li>
                    <li onClick="toggleTag(event)" class="inactive-tag">Catching / Offline-First</li>
@@ -41,15 +41,15 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-1 md:gap-L gap-M blog-card">
                     <div class="flex-shrink-0 md:w-full">
-                        <a href="#">
+                        <a href="/article">
                             <img class="object-cover w-full h-full rounded-S" src="./img/card/img.png" alt="">
                         </a>
                     </div>
                     <div class="flex flex-col md:gap-L sm:gap-M gap-XS">
                         <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
-                        <h1 class="md:text-H3 tracking-[-0.96px] text-Regular text-headLines blog-heading">Blog title heading </h1>
-                        <h5 class="md:text-Medium text-Small xl:w-[400px]  md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
-                        <a class="" href="about#">
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[400px]  md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
                             @await Html.PartialAsync("Logos/ReadArticleLogo")
                         </a>
                         <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
@@ -72,15 +72,15 @@
 
                 <div class="grid md:grid-cols-1 grid-cols-2 md:gap-L gap-M blog-card  lg:px-SM lg:mx-[-12px] lg:border-x md:border-neutralSecondary">
                     <div class="flex-shrink-0">
-                        <a href="#">
+                        <a href="/article">
                             <img class="object-cover w-full h-full rounded-S" src="./img/card/img1.png" alt="">
                         </a>
                     </div>
                     <div class="flex flex-col md:gap-L sm:gap-M gap-XS">
                         <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
-                        <h1 class="md:text-H3 tracking-[-0.96px] text-Regular text-headLines blog-heading">Blog title heading </h1>
-                        <h5 class="md:text-Medium text-Small xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
-                        <a class="" href="about#">
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
                             @await Html.PartialAsync("Logos/ReadArticleLogo")
                         </a>
                         <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
@@ -103,15 +103,15 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-1 md:gap-L gap-M blog-card">
                     <div class="flex-shrink-0">
-                        <a href="#">
+                        <a href="/article">
                             <img class="object-cover w-full h-full rounded-S" src="./img/card/img2.png" alt="">
                         </a>
                     </div>
                     <div class="flex flex-col md:gap-L sm:gap-M gap-XS">
                         <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#FF684940] text-onBrand text-Small flex items-center text-center justify-center">Category</button>
-                        <h1 class="md:text-H3 tracking-[-0.96px] text-Regular text-headLines blog-heading">Blog title heading </h1>
-                        <h5 class="md:text-Medium text-Small xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
-                        <a class="" href="about#">
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
                             @await Html.PartialAsync("Logos/ReadArticleLogo")
                         </a>
                         <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
@@ -134,15 +134,15 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-1 md:gap-L gap-M blog-card">
                     <div class="flex-shrink-0">
-                        <a href="#">
+                        <a href="/article">
                             <img class="object-cover w-full h-full rounded-S" src="./img/card/img3.png" alt="">
                         </a>
                     </div>
                     <div class="flex flex-col md:gap-L sm:gap-M gap-XS">
                         <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
-                        <h1 class="md:text-H3 tracking-[-0.96px] text-Regular text-headLines blog-heading">Blog title heading </h1>
-                        <h5 class="md:text-Medium text-Small xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
-                        <a class="" href="about#">
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
                             @await Html.PartialAsync("Logos/ReadArticleLogo")
                         </a>
                         <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
@@ -165,15 +165,15 @@
 
                 <div class="grid md:grid-cols-1 grid-cols-2 md:gap-L gap-M blog-card  lg:px-SM lg:mx-[-12px] lg:border-x md:border-neutralSecondary">
                     <div class="flex-shrink-0">
-                        <a href="#">
+                        <a href="/article">
                             <img class="object-cover w-full h-full rounded-S" src="./img/card/img4.png" alt="">
                         </a>
                     </div>
                     <div class="flex flex-col md:gap-L sm:gap-M gap-XS">
                         <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
-                        <h1 class="md:text-H3 tracking-[-0.96px] text-Regular text-headLines blog-heading">Blog title heading </h1>
-                        <h5 class="md:text-Medium text-Small xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
-                        <a class="" href="about#">
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
                             @await Html.PartialAsync("Logos/ReadArticleLogo")
                         </a>
                         <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
@@ -196,15 +196,15 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-1 md:gap-L gap-M blog-card">
                     <div class="flex-shrink-0">
-                        <a href="#">
+                        <a href="/article">
                             <img class="object-cover w-full h-full rounded-S" src="./img/card/img5.png" alt="">
                         </a>
                     </div>
                     <div class="flex flex-col md:gap-L sm:gap-M gap-XS">
                         <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#A4CD805C] text-success text-Small flex items-center text-center justify-center">Category</button>
-                        <h1 class="md:text-H3 tracking-[-0.96px] text-Regular text-headLines blog-heading">Blog title heading </h1>
-                        <h5 class="md:text-Medium text-Small xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
-                        <a class="" href="about#">
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
                             @await Html.PartialAsync("Logos/ReadArticleLogo")
                         </a>
                         <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">

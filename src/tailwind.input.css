@@ -287,10 +287,13 @@ select {
 .read-article-icon:hover {
   fill: #e03c18;
 }
-.back-button:hover {
-  fill: #e03c18;
+
+.back-button-container:hover svg {
+  fill: #e03c18 !important;
 }
+
 .back-button {
+  fill: #252532 !important;
   cursor: pointer;
 }
 .article-accordion-closed {
@@ -307,7 +310,7 @@ select {
 }
 
 .article-accordion-open > div {
-  background-color: #f9f8f6;
+  /* background-color: #f9f8f6; */
   border-bottom-width: 1px !important;
   border-color: #dddfda;
 }
