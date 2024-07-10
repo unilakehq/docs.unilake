@@ -526,4 +526,13 @@ select {
     background-size: cover;
   }
 }
+
+.icon-footer path {
+  fill: #252532;
+}
+
+a:hover .icon-footer path,
+button:hover .icon-footer path {
+  fill: #ff6849;
+}
 @tailwind utilities;
