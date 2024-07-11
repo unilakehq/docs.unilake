@@ -2034,10 +2034,6 @@ button:hover .icon-footer path {
   min-height: 137px;
 }
 
-.min-h-\[159px\] {
-  min-height: 159px;
-}
-
 .min-h-\[195px\] {
   min-height: 195px;
 }
@@ -2948,11 +2944,6 @@ button:hover .icon-footer path {
   background-color: rgb(164 205 128 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#EFEEEB\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 238 235 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#F79009\] {
   --tw-bg-opacity: 1;
   background-color: rgb(247 144 9 / var(--tw-bg-opacity));
@@ -2965,6 +2956,11 @@ button:hover .icon-footer path {
 .bg-\[\#FF7D87\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 125 135 / var(--tw-bg-opacity));
+}
+
+.bg-backgroundFaded {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 238 235 / var(--tw-bg-opacity));
 }
 
 .bg-backgroundSecondary {
@@ -6028,12 +6024,12 @@ button:hover .icon-footer path {
     height: 48px;
   }
 
-  .md\:min-h-\[508px\] {
-    min-height: 508px;
-  }
-
   .md\:min-h-\[394px\] {
     min-height: 394px;
+  }
+
+  .md\:min-h-\[508px\] {
+    min-height: 508px;
   }
 
   .md\:w-3\/5 {
@@ -6571,6 +6567,10 @@ button:hover .icon-footer path {
     margin-left: 100px;
   }
 
+  .xl\:mr-\[30px\] {
+    margin-right: 30px;
+  }
+
   .xl\:mr-\[75px\] {
     margin-right: 75px;
   }
@@ -6756,6 +6756,10 @@ button:hover .icon-footer path {
     width: 380px;
   }
 
+  .\32xl\:w-\[750px\] {
+    width: 750px;
+  }
+
   .\32xl\:max-w-screen-xl {
     max-width: 1280px;
   }
@@ -6794,6 +6798,16 @@ button:hover .icon-footer path {
 
   .\32xl\:-tracking-\[1\.68px\] {
     letter-spacing: -1.68px;
+  }
+}
+
+@media (min-width: 1590px) {
+  .min-\[1590px\]\:ml-\[263px\] {
+    margin-left: 263px;
+  }
+
+  .min-\[1590px\]\:w-\[886px\] {
+    width: 886px;
   }
 }
 
