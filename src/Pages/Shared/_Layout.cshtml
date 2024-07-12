@@ -37,12 +37,14 @@
                 posthog.init('phc_6QvsRwm2YU0irsycRbWRrOjP1o56MX2o36g2teEMHYJ', {
                     api_host: 'https://ph.avd.unilake.com',
                     persistence: 'memory',
-                    autocapture: false
+                    autocapture: false,
+                    person_profiles: 'identified_only'
                 }); 
                 console.log('PostHog initialized with cookieless approach for EU user');
             } else {
                 posthog.init('phc_6QvsRwm2YU0irsycRbWRrOjP1o56MX2o36g2teEMHYJ', {
                     api_host: 'https://ph.avd.unilake.com',
+                    person_profiles: 'identified_only'
                 }); 
                 console.log('PostHog initialized with regular approach for non-EU user');
             }
