@@ -1374,8 +1374,8 @@ button:hover .icon-footer path {
 .group-item[aria-selected='true'],
 .group-item[aria-selected='true'] a,
 .group-item[aria-selected='true'] mark {
-  background-color: #42b983;
-  box-shadow: inset 0 0 0 2px #42b983;
+  background-color: #ff6849;
+  box-shadow: inset 0 0 0 2px #ff6849;
   cursor: pointer;
   color: white;
 }
@@ -3778,10 +3778,6 @@ button:hover .icon-footer path {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pt-\[60px\] {
-  padding-top: 60px;
 }
 
 .pt-\[7\%\] {
