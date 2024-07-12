@@ -38,18 +38,9 @@
         <!-- CTA -->
         <div class="flex items-center gap-6 md:gap-8">
           <!-- Search form -->
-          <form id="searchForm" class="flex items-center max-w-md gap-6 mx-auto xl:flex md:gap-8 font-inter hover:cursor-pointer">
-            <label for="default-search" class="mb-2 text-sm leading-[24px] sr-only dark:text-white">Search</label>
-            <div class="relative w-[158px] md:w-[193px] border border-bgNeutarl rounded-lg hover:bg-backgroundFaded hover:border-brand">
-              <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-4">
-                <!-- Search icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.833313 7.33334C0.833313 3.74349 3.74346 0.833336 7.33331 0.833336C10.9232 0.833336 13.8333 3.74349 13.8333 7.33334C13.8333 8.94811 13.2439 10.426 12.2695 11.5624L14.3535 13.6464C14.5488 13.8417 14.5488 14.1583 14.3535 14.3536C14.1583 14.5488 13.8417 14.5488 13.6464 14.3536L11.5624 12.2696C10.426 13.244 8.94809 13.8333 7.33331 13.8333C3.74347 13.8333 0.833313 10.9232 0.833313 7.33334ZM11.2224 11.2224C12.2182 10.2266 12.8333 8.85225 12.8333 7.33334C12.8333 4.29577 10.3709 1.83334 7.33331 1.83334C4.29575 1.83334 1.83331 4.29577 1.83331 7.33334C1.83331 10.3709 4.29575 12.8333 7.33331 12.8333C8.85223 12.8333 10.2265 12.2183 11.2224 11.2225C11.2224 11.2225 11.2224 11.2224 11.2224 11.2224Z" fill="#525D61"/>
-                </svg>
-              </div>
-              <input type="text" id="default-search" class="flex items-center self-stretch w-full px-4 py-2 text-sm bg-transparent border-transparent rounded-lg cursor-pointer peer ps-10 text-bodyText focus:ring-brand focus:border-brand" placeholder="Search" required />
-              <button type="submit" class="text-gray-400 absolute end-2.5 bottom-1.5 mr-1 bg-transparent leading-[24px] text-xs peer-focus:text-transparent ">ctrl+k</button>
-            </div>
+
+          <div id="searchForm" class="flex items-center max-w-md gap-6 mx-auto xl:flex md:gap-8 font-inter hover:cursor-pointer">
+            <typesense></typesense>
             <!-- Buttons -->
             <div id="ctaBtns" class="hidden gap-3 md:flex flex-start text-headLines">
                 <a href="/">
@@ -69,7 +60,7 @@
                 </div>
                 </a>
             </div>
-          </form>
+          </div>
           <!-- Close menu button -->
           <button id="closeMenuBtn" type="button" class="items-center justify-center hidden p-2 pr-1 text-gray-400 rounded-md xl:hidden dark:bg-black" aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Close Main Menu</span>
@@ -124,7 +115,7 @@
                                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
                                               </svg>
                                           </button>
-                                          <ul id="dropdown-2" class="hidden py-2 pl-6">
+                                          <ul id="dropdown-2" class="hidden py-2 pl-6 space-y-2">
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <g clip-path="url(#clip0_444_3131)">
@@ -136,7 +127,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -149,7 +140,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -162,13 +153,13 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M1.77651 1.93333L1.46597 1.93337C1.20865 1.9334 1.00003 1.7245 1 1.46676C0.999969 1.20903 1.20854 1.00007 1.46585 1.00004L1.77646 1C1.7822 1 1.78793 1 1.79351 1C1.91749 0.999993 2.00249 0.999988 2.08151 1.00536C3.00375 1.06804 3.80176 1.67097 4.11527 2.54196C4.14213 2.61658 4.16548 2.69845 4.19952 2.81786C4.20106 2.82323 4.20261 2.82868 4.20419 2.83421L4.21346 2.86671H11.2513C11.8957 2.8667 12.4106 2.8667 12.8192 2.90309C13.2358 2.94019 13.598 3.01857 13.9125 3.21218C14.4041 3.51486 14.7661 3.98956 14.9283 4.54431C15.032 4.89915 15.0123 5.26975 14.9384 5.68208C14.8659 6.08652 14.7304 6.58404 14.5609 7.20676L14.5175 7.36618C14.5079 7.40146 14.4984 7.4363 14.489 7.47069C14.2307 8.42061 14.0647 9.03077 13.7064 9.49546C13.3909 9.90465 12.9738 10.2238 12.4966 10.421C11.9548 10.645 11.3234 10.6448 10.3404 10.6445C10.3049 10.6445 10.2688 10.6445 10.2323 10.6445H8.81334C8.77728 10.6445 8.74169 10.6445 8.70655 10.6445C7.73481 10.6448 7.11056 10.645 6.57304 10.4251C6.09963 10.2314 5.68461 9.91784 5.36864 9.51512C5.00988 9.05785 4.83856 8.45659 4.57187 7.52064C4.56223 7.4868 4.55246 7.45252 4.54255 7.4178L3.30822 3.09061C3.26775 2.94873 3.25344 2.89951 3.23868 2.85851C3.05057 2.33591 2.57177 1.97416 2.01842 1.93655C1.97502 1.9336 1.92377 1.93334 1.77651 1.93333ZM4.47969 3.80004L5.43852 7.16139C5.7453 8.23687 5.87013 8.64378 6.1013 8.93843C6.31749 9.21397 6.60146 9.42852 6.92536 9.56102C7.27173 9.70272 7.69664 9.71115 8.81334 9.71115H10.2323C11.3621 9.71115 11.792 9.70255 12.1412 9.55825C12.4677 9.42331 12.7531 9.20495 12.969 8.92497C13.1998 8.62557 13.3212 8.21236 13.6185 7.1206L13.6559 6.9831C13.8328 6.33347 13.9569 5.87597 14.0212 5.51721C14.0849 5.16161 14.0784 4.9583 14.034 4.8066C13.9367 4.47375 13.7195 4.18893 13.4245 4.00732C13.2901 3.92455 13.096 3.86475 12.7367 3.83275C12.3742 3.80047 11.9009 3.80004 11.2287 3.80004H4.47969ZM7.05684 12.5111C6.62798 12.5111 6.28032 12.8593 6.28032 13.2889C6.28032 13.7184 6.62798 14.0667 7.05684 14.0667C7.48569 14.0667 7.83335 13.7184 7.83335 13.2889C7.83335 12.8593 7.48569 12.5111 7.05684 12.5111ZM5.3485 13.2889C5.3485 12.3439 6.11335 11.5778 7.05684 11.5778C8.00032 11.5778 8.76517 12.3439 8.76517 13.2889C8.76517 14.2339 8.00032 15 7.05684 15C6.11335 15 5.3485 14.2339 5.3485 13.2889ZM12.0265 12.5111C11.5977 12.5111 11.25 12.8593 11.25 13.2889C11.25 13.7184 11.5977 14.0667 12.0265 14.0667C12.4554 14.0667 12.8031 13.7184 12.8031 13.2889C12.8031 12.8593 12.4554 12.5111 12.0265 12.5111ZM10.3182 13.2889C10.3182 12.3439 11.0831 11.5778 12.0265 11.5778C12.97 11.5778 13.7349 12.3439 13.7349 13.2889C13.7349 14.2339 12.97 15 12.0265 15C11.0831 15 10.3182 14.2339 10.3182 13.2889Z" fill="#252532"/>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                           </ul>
                                       </li>
@@ -251,7 +242,7 @@
                                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
                                               </svg>
                                           </button>
-                                          <ul id="dropdown-4" class="hidden py-2 pl-6">
+                                          <ul id="dropdown-4" class="hidden py-2 pl-6 space-y-2">
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <g clip-path="url(#clip0_444_3131)">
@@ -263,7 +254,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -276,7 +267,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -289,13 +280,13 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M1.77651 1.93333L1.46597 1.93337C1.20865 1.9334 1.00003 1.7245 1 1.46676C0.999969 1.20903 1.20854 1.00007 1.46585 1.00004L1.77646 1C1.7822 1 1.78793 1 1.79351 1C1.91749 0.999993 2.00249 0.999988 2.08151 1.00536C3.00375 1.06804 3.80176 1.67097 4.11527 2.54196C4.14213 2.61658 4.16548 2.69845 4.19952 2.81786C4.20106 2.82323 4.20261 2.82868 4.20419 2.83421L4.21346 2.86671H11.2513C11.8957 2.8667 12.4106 2.8667 12.8192 2.90309C13.2358 2.94019 13.598 3.01857 13.9125 3.21218C14.4041 3.51486 14.7661 3.98956 14.9283 4.54431C15.032 4.89915 15.0123 5.26975 14.9384 5.68208C14.8659 6.08652 14.7304 6.58404 14.5609 7.20676L14.5175 7.36618C14.5079 7.40146 14.4984 7.4363 14.489 7.47069C14.2307 8.42061 14.0647 9.03077 13.7064 9.49546C13.3909 9.90465 12.9738 10.2238 12.4966 10.421C11.9548 10.645 11.3234 10.6448 10.3404 10.6445C10.3049 10.6445 10.2688 10.6445 10.2323 10.6445H8.81334C8.77728 10.6445 8.74169 10.6445 8.70655 10.6445C7.73481 10.6448 7.11056 10.645 6.57304 10.4251C6.09963 10.2314 5.68461 9.91784 5.36864 9.51512C5.00988 9.05785 4.83856 8.45659 4.57187 7.52064C4.56223 7.4868 4.55246 7.45252 4.54255 7.4178L3.30822 3.09061C3.26775 2.94873 3.25344 2.89951 3.23868 2.85851C3.05057 2.33591 2.57177 1.97416 2.01842 1.93655C1.97502 1.9336 1.92377 1.93334 1.77651 1.93333ZM4.47969 3.80004L5.43852 7.16139C5.7453 8.23687 5.87013 8.64378 6.1013 8.93843C6.31749 9.21397 6.60146 9.42852 6.92536 9.56102C7.27173 9.70272 7.69664 9.71115 8.81334 9.71115H10.2323C11.3621 9.71115 11.792 9.70255 12.1412 9.55825C12.4677 9.42331 12.7531 9.20495 12.969 8.92497C13.1998 8.62557 13.3212 8.21236 13.6185 7.1206L13.6559 6.9831C13.8328 6.33347 13.9569 5.87597 14.0212 5.51721C14.0849 5.16161 14.0784 4.9583 14.034 4.8066C13.9367 4.47375 13.7195 4.18893 13.4245 4.00732C13.2901 3.92455 13.096 3.86475 12.7367 3.83275C12.3742 3.80047 11.9009 3.80004 11.2287 3.80004H4.47969ZM7.05684 12.5111C6.62798 12.5111 6.28032 12.8593 6.28032 13.2889C6.28032 13.7184 6.62798 14.0667 7.05684 14.0667C7.48569 14.0667 7.83335 13.7184 7.83335 13.2889C7.83335 12.8593 7.48569 12.5111 7.05684 12.5111ZM5.3485 13.2889C5.3485 12.3439 6.11335 11.5778 7.05684 11.5778C8.00032 11.5778 8.76517 12.3439 8.76517 13.2889C8.76517 14.2339 8.00032 15 7.05684 15C6.11335 15 5.3485 14.2339 5.3485 13.2889ZM12.0265 12.5111C11.5977 12.5111 11.25 12.8593 11.25 13.2889C11.25 13.7184 11.5977 14.0667 12.0265 14.0667C12.4554 14.0667 12.8031 13.7184 12.8031 13.2889C12.8031 12.8593 12.4554 12.5111 12.0265 12.5111ZM10.3182 13.2889C10.3182 12.3439 11.0831 11.5778 12.0265 11.5778C12.97 11.5778 13.7349 12.3439 13.7349 13.2889C13.7349 14.2339 12.97 15 12.0265 15C11.0831 15 10.3182 14.2339 10.3182 13.2889Z" fill="#252532"/>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                           </ul>
                                       </li>
@@ -371,7 +362,7 @@
                                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
                                               </svg>
                                           </button>
-                                          <ul id="dropdown-6" class="hidden py-2 pl-6">
+                                          <ul id="dropdown-6" class="hidden py-2 pl-6 space-y-2">
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <g clip-path="url(#clip0_444_3131)">
@@ -383,7 +374,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -396,7 +387,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -409,13 +400,13 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M1.77651 1.93333L1.46597 1.93337C1.20865 1.9334 1.00003 1.7245 1 1.46676C0.999969 1.20903 1.20854 1.00007 1.46585 1.00004L1.77646 1C1.7822 1 1.78793 1 1.79351 1C1.91749 0.999993 2.00249 0.999988 2.08151 1.00536C3.00375 1.06804 3.80176 1.67097 4.11527 2.54196C4.14213 2.61658 4.16548 2.69845 4.19952 2.81786C4.20106 2.82323 4.20261 2.82868 4.20419 2.83421L4.21346 2.86671H11.2513C11.8957 2.8667 12.4106 2.8667 12.8192 2.90309C13.2358 2.94019 13.598 3.01857 13.9125 3.21218C14.4041 3.51486 14.7661 3.98956 14.9283 4.54431C15.032 4.89915 15.0123 5.26975 14.9384 5.68208C14.8659 6.08652 14.7304 6.58404 14.5609 7.20676L14.5175 7.36618C14.5079 7.40146 14.4984 7.4363 14.489 7.47069C14.2307 8.42061 14.0647 9.03077 13.7064 9.49546C13.3909 9.90465 12.9738 10.2238 12.4966 10.421C11.9548 10.645 11.3234 10.6448 10.3404 10.6445C10.3049 10.6445 10.2688 10.6445 10.2323 10.6445H8.81334C8.77728 10.6445 8.74169 10.6445 8.70655 10.6445C7.73481 10.6448 7.11056 10.645 6.57304 10.4251C6.09963 10.2314 5.68461 9.91784 5.36864 9.51512C5.00988 9.05785 4.83856 8.45659 4.57187 7.52064C4.56223 7.4868 4.55246 7.45252 4.54255 7.4178L3.30822 3.09061C3.26775 2.94873 3.25344 2.89951 3.23868 2.85851C3.05057 2.33591 2.57177 1.97416 2.01842 1.93655C1.97502 1.9336 1.92377 1.93334 1.77651 1.93333ZM4.47969 3.80004L5.43852 7.16139C5.7453 8.23687 5.87013 8.64378 6.1013 8.93843C6.31749 9.21397 6.60146 9.42852 6.92536 9.56102C7.27173 9.70272 7.69664 9.71115 8.81334 9.71115H10.2323C11.3621 9.71115 11.792 9.70255 12.1412 9.55825C12.4677 9.42331 12.7531 9.20495 12.969 8.92497C13.1998 8.62557 13.3212 8.21236 13.6185 7.1206L13.6559 6.9831C13.8328 6.33347 13.9569 5.87597 14.0212 5.51721C14.0849 5.16161 14.0784 4.9583 14.034 4.8066C13.9367 4.47375 13.7195 4.18893 13.4245 4.00732C13.2901 3.92455 13.096 3.86475 12.7367 3.83275C12.3742 3.80047 11.9009 3.80004 11.2287 3.80004H4.47969ZM7.05684 12.5111C6.62798 12.5111 6.28032 12.8593 6.28032 13.2889C6.28032 13.7184 6.62798 14.0667 7.05684 14.0667C7.48569 14.0667 7.83335 13.7184 7.83335 13.2889C7.83335 12.8593 7.48569 12.5111 7.05684 12.5111ZM5.3485 13.2889C5.3485 12.3439 6.11335 11.5778 7.05684 11.5778C8.00032 11.5778 8.76517 12.3439 8.76517 13.2889C8.76517 14.2339 8.00032 15 7.05684 15C6.11335 15 5.3485 14.2339 5.3485 13.2889ZM12.0265 12.5111C11.5977 12.5111 11.25 12.8593 11.25 13.2889C11.25 13.7184 11.5977 14.0667 12.0265 14.0667C12.4554 14.0667 12.8031 13.7184 12.8031 13.2889C12.8031 12.8593 12.4554 12.5111 12.0265 12.5111ZM10.3182 13.2889C10.3182 12.3439 11.0831 11.5778 12.0265 11.5778C12.97 11.5778 13.7349 12.3439 13.7349 13.2889C13.7349 14.2339 12.97 15 12.0265 15C11.0831 15 10.3182 14.2339 10.3182 13.2889Z" fill="#252532"/>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                           </ul>
                                       </li>
@@ -498,7 +489,7 @@
                                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
                                               </svg>
                                           </button>
-                                          <ul id="dropdown-8" class="hidden py-2 pl-6">
+                                          <ul id="dropdown-8" class="hidden py-2 pl-6 space-y-2">
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <g clip-path="url(#clip0_444_3131)">
@@ -510,7 +501,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -523,7 +514,7 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -536,13 +527,13 @@
                                                       </clipPath>
                                                       </defs>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                               <li class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M1.77651 1.93333L1.46597 1.93337C1.20865 1.9334 1.00003 1.7245 1 1.46676C0.999969 1.20903 1.20854 1.00007 1.46585 1.00004L1.77646 1C1.7822 1 1.78793 1 1.79351 1C1.91749 0.999993 2.00249 0.999988 2.08151 1.00536C3.00375 1.06804 3.80176 1.67097 4.11527 2.54196C4.14213 2.61658 4.16548 2.69845 4.19952 2.81786C4.20106 2.82323 4.20261 2.82868 4.20419 2.83421L4.21346 2.86671H11.2513C11.8957 2.8667 12.4106 2.8667 12.8192 2.90309C13.2358 2.94019 13.598 3.01857 13.9125 3.21218C14.4041 3.51486 14.7661 3.98956 14.9283 4.54431C15.032 4.89915 15.0123 5.26975 14.9384 5.68208C14.8659 6.08652 14.7304 6.58404 14.5609 7.20676L14.5175 7.36618C14.5079 7.40146 14.4984 7.4363 14.489 7.47069C14.2307 8.42061 14.0647 9.03077 13.7064 9.49546C13.3909 9.90465 12.9738 10.2238 12.4966 10.421C11.9548 10.645 11.3234 10.6448 10.3404 10.6445C10.3049 10.6445 10.2688 10.6445 10.2323 10.6445H8.81334C8.77728 10.6445 8.74169 10.6445 8.70655 10.6445C7.73481 10.6448 7.11056 10.645 6.57304 10.4251C6.09963 10.2314 5.68461 9.91784 5.36864 9.51512C5.00988 9.05785 4.83856 8.45659 4.57187 7.52064C4.56223 7.4868 4.55246 7.45252 4.54255 7.4178L3.30822 3.09061C3.26775 2.94873 3.25344 2.89951 3.23868 2.85851C3.05057 2.33591 2.57177 1.97416 2.01842 1.93655C1.97502 1.9336 1.92377 1.93334 1.77651 1.93333ZM4.47969 3.80004L5.43852 7.16139C5.7453 8.23687 5.87013 8.64378 6.1013 8.93843C6.31749 9.21397 6.60146 9.42852 6.92536 9.56102C7.27173 9.70272 7.69664 9.71115 8.81334 9.71115H10.2323C11.3621 9.71115 11.792 9.70255 12.1412 9.55825C12.4677 9.42331 12.7531 9.20495 12.969 8.92497C13.1998 8.62557 13.3212 8.21236 13.6185 7.1206L13.6559 6.9831C13.8328 6.33347 13.9569 5.87597 14.0212 5.51721C14.0849 5.16161 14.0784 4.9583 14.034 4.8066C13.9367 4.47375 13.7195 4.18893 13.4245 4.00732C13.2901 3.92455 13.096 3.86475 12.7367 3.83275C12.3742 3.80047 11.9009 3.80004 11.2287 3.80004H4.47969ZM7.05684 12.5111C6.62798 12.5111 6.28032 12.8593 6.28032 13.2889C6.28032 13.7184 6.62798 14.0667 7.05684 14.0667C7.48569 14.0667 7.83335 13.7184 7.83335 13.2889C7.83335 12.8593 7.48569 12.5111 7.05684 12.5111ZM5.3485 13.2889C5.3485 12.3439 6.11335 11.5778 7.05684 11.5778C8.00032 11.5778 8.76517 12.3439 8.76517 13.2889C8.76517 14.2339 8.00032 15 7.05684 15C6.11335 15 5.3485 14.2339 5.3485 13.2889ZM12.0265 12.5111C11.5977 12.5111 11.25 12.8593 11.25 13.2889C11.25 13.7184 11.5977 14.0667 12.0265 14.0667C12.4554 14.0667 12.8031 13.7184 12.8031 13.2889C12.8031 12.8593 12.4554 12.5111 12.0265 12.5111ZM10.3182 13.2889C10.3182 12.3439 11.0831 11.5778 12.0265 11.5778C12.97 11.5778 13.7349 12.3439 13.7349 13.2889C13.7349 14.2339 12.97 15 12.0265 15C11.0831 15 10.3182 14.2339 10.3182 13.2889Z" fill="#252532"/>
                                                   </svg>
-                                                  <a href="/" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                  <a href="/" class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
                                               </li>
                                           </ul>
                                       </li>
@@ -691,6 +682,8 @@
   </nav>
 </header>
 
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const hamburgerBtn = document.getElementById("hamburgerBtn");
@@ -752,4 +745,17 @@
     hamburgerBtn.addEventListener('click', toggleMobileMenu);
     closeMenuBtn.addEventListener('click', toggleMobileMenu);
   });
+</script>
+
+<script type="module">
+import { ref } from "vue"
+import { mount } from "app.mjs"
+
+const Header = {
+    setup() {
+        const open = ref(false)
+        return { open }
+    }
+}
+mount('#header', Header)
 </script>
