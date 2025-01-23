@@ -1,0 +1,486 @@
+@page "/blog"
+@attribute [RenderStatic]
+@{
+    ViewData["Title"] = "Unilake Blog";
+}
+
+<div class="mx-auto bg-white 3xl:container font-inter">
+    @await Html.PartialAsync("Subscribe")
+
+    <section class="flex flex-col border-b py-XL md:py-XXL px-M 2xl:px-XXXL gap-XL bg-backgroundFaded border-neutralSecondary blog-slider">
+        <span class="text-brand md:px-L px-L text-[24px] tracking-[-0.72px]  xl:text-[40px] md:text-[32px] leading-[40px] xl:tracking-[-1.2px] md:tracking-[-0.96px] xl:leading-[44px] font-bold">Featured articles</span>
+        @await Html.PartialAsync("BlogSlider")
+    </section>
+
+    
+
+    <section class="flex flex-col py-XL xl:py-XXL px-XL md:px-XXL 2xl:px-XXXL">
+        <div class="flex flex-col gap-XL xl:gap-XXL">
+            <div class="flex items-center justify-between">
+                 <span class="xl:text-5xl text-[24px] tracking-[-0.72px] md:text-[40px] leading-[32px] md:leading-[48px] xl:leading-[52px] font-bold md:tracking-[-1.2px] xl:tracking-[-1.44px] text-brand">Articles</span>
+                <span class="block md:hidden">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 6C2.25 5.58579 2.58579 5.25 3 5.25H21C21.4142 5.25 21.75 5.58579 21.75 6C21.75 6.41421 21.4142 6.75 21 6.75H3C2.58579 6.75 2.25 6.41421 2.25 6ZM5.25 12C5.25 11.5858 5.58579 11.25 6 11.25H18C18.4142 11.25 18.75 11.5858 18.75 12C18.75 12.4142 18.4142 12.75 18 12.75H6C5.58579 12.75 5.25 12.4142 5.25 12ZM9.25 18C9.25 17.5858 9.58579 17.25 10 17.25H14C14.4142 17.25 14.75 17.5858 14.75 18C14.75 18.4142 14.4142 18.75 14 18.75H10C9.58579 18.75 9.25 18.4142 9.25 18Z" fill="#252532" />
+                    </svg>
+                </span>
+            </div>
+            <div class="">
+                 <ul class="flex w-full overflow-x-scroll h-fit gap-M" style="-ms-overflow-style: none; scrollbar-width: none;">
+                   <li onClick="toggleTag(event)" class="active-tag">All</li>
+                   <li onClick="toggleTag(event)" class="inactive-tag">Auth</li>
+                   <li onClick="toggleTag(event)" class="inactive-tag">Catching / Offline-First</li>
+                   <li onClick="toggleTag(event)" class="inactive-tag">Data Platform</li>
+                   <li onClick="toggleTag(event)" class="inactive-tag">DevTools</li>
+                   <li onClick="toggleTag(event)" class="inactive-tag">Forreign Data Wrapper</li>
+                   <li onClick="toggleTag(event)" class="inactive-tag">Low-Code</li>
+                   <li onClick="toggleTag(event)" class="inactive-tag">Messaging</li>
+                 </ul>
+            </div>
+
+            <div class="grid grid-cols-1 md:gap-L gap-y-L md:gap-y-XL gap-L md:grid-cols-2 lg:grid-cols-3">
+                @* Item 1 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card lg:border-r md:border-neutralSecondary">
+                    @* img *@
+                    <div class="flex-shrink-0 col-span-2 md:w-full">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img.png" alt="">
+                        </a>
+                    </div>
+                        @* content *@
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px]  md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Jane Coper</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 2 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card lg:border-r md:border-neutralSecondary">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Guy Hawkins</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 3 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img2.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#FF684940] text-onBrand text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Jenny Wilson</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 4 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card lg:border-r md:border-neutralSecondary">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img3.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Robert Fox</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 5 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card lg:border-r md:border-neutralSecondary">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img4.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Darlene Robertson</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 6 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img5.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#A4CD805C] text-success text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Albert Flores</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* more 6 items *@
+                 @* Item 1 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card lg:border-r md:border-neutralSecondary">
+                    @* img *@
+                    <div class="flex-shrink-0 col-span-2 md:w-full">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img.png" alt="">
+                        </a>
+                    </div>
+                        @* content *@
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px]  md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Jane Coper</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 2 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card lg:border-r md:border-neutralSecondary">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Guy Hawkins</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 3 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img2.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#FF684940] text-onBrand text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Jenny Wilson</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 4 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card lg:border-r md:border-neutralSecondary">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img3.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Robert Fox</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 5 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card lg:border-r md:border-neutralSecondary">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img4.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#619DFF5C] text-bravo text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Darlene Robertson</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* Item 6 *@
+                <div class="grid grid-cols-5 md:grid-cols-1 md:gap-L gap-M blog-card">
+                    <div class="flex-shrink-0 col-span-2">
+                        <a href="/article">
+                            <img class="object-cover min-h-[137px] w-full h-full rounded-S" src="./img/card/img5.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
+                        <button class="md:h-[32px] h-[24px] w-[77px] py-S px-SM rounded-[6px] bg-[#A4CD805C] text-success text-Small flex items-center text-center justify-center">Category</button>
+                        <a href="/article"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">Blog title heading </h1></a>
+                        <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px] md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.</h5>
+                        <a class="" href="/article">
+                            @await Html.PartialAsync("Logos/ReadArticleLogo")
+                        </a>
+                        <div class="md:flex hidden flex-grow gap-M h-[48px] max-w-[272px]">
+                            <img src="./img/profile/profile.png" class="h-[48px] w-[48px] rounded-full">
+                            <div class="flex flex-col justify-between lg:min-w-[208px] min-w-[200px]">
+                                <span class="text-Bold text-headLines">Albert Flores</span>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-Small text-textSecondary">31 December 2023</span>
+                                    <div class="flex items-center h-full">
+                                        <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-Small text-textSecondary">5 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            @* PAGINATION *@
+            <div class="h-[60px] pt-L flex items-center justify-center border-t border-neutralSecondary">
+                <nav aria-label="Page navigation example">
+                    <ul class="flex items-center h-8 -space-x-px text-sm">
+                        <li>
+                            <a href="?page=1" class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-bgNeutarl ms-0 border-e-0 rounded-s-lg hover:bg-backgroundFaded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Previous</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.26517 2.73483C7.41161 2.88128 7.41161 3.11872 7.26517 3.26517L4.53033 6L7.26517 8.73484C7.41161 8.88128 7.41161 9.11872 7.26517 9.26516C7.11872 9.41161 6.88128 9.41161 6.73483 9.26516L3.73483 6.26517C3.58839 6.11872 3.58839 5.88128 3.73483 5.73483L6.73483 2.73483C6.88128 2.58839 7.11872 2.58839 7.26517 2.73483Z" fill="#252532"/>
+                            </svg>
+                        </a>
+                        </li>
+                        <li>
+                            <a href="?page=1" class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-bgNeutarl hover:bg-backgroundFaded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                        </li>
+                        <li>
+                            <a href="?page=2" aria-current="page" class="z-10 flex items-center justify-center h-8 px-3 leading-tight border text-headLines border-bgNeutarl bg-backgroundFaded hover:bg-backgroundFaded dark:border-gray-700 dark:bg-gray-700 dark:text-white">2</a>
+                        </li>
+                        <li>
+                            <a href="?page=3" class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-bgNeutarl hover:bg-backgroundFaded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-bgNeutarl hover:bg-backgroundFaded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">...</a>
+                        </li>
+                        <li>
+                            <a href="?page=100" class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-bgNeutarl hover:bg-backgroundFaded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">100</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-bgNeutarl rounded-e-lg hover:bg-backgroundFaded dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Next</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73483 2.73483C4.88128 2.58839 5.11872 2.58839 5.26517 2.73483L8.26517 5.73483C8.41161 5.88128 8.41161 6.11872 8.26517 6.26517L5.26517 9.26516C5.11872 9.41161 4.88128 9.41161 4.73483 9.26516C4.58839 9.11872 4.58839 8.88128 4.73483 8.73484L7.46967 6L4.73483 3.26517C4.58839 3.11872 4.58839 2.88128 4.73483 2.73483Z" fill="#252532"/>
+                            </svg>
+                        </a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+            </div>
+        </div>
+    </section>
+    
+
+
+    
+</div>
+@await Html.PartialAsync("BlogFooter")
+<script>
+    function showMore(event){
+        event.currentTarget.classList.toggle('show-more-focused')
+        event.currentTarget.classList.toggle('show-more')
+        event.currentTarget.children[1].classList.toggle('rotate-180')
+    }
+    function toggleTag(event) {
+        const currentTag = event.currentTarget;
+        if (currentTag.classList.contains('active-tag')) {
+            currentTag.classList.remove('active-tag');
+            currentTag.classList.add('inactive-tag');
+        } else {
+            currentTag.classList.remove('inactive-tag');
+            currentTag.classList.add('active-tag');
+        }
+        console.log(event.currentTarget);
+        console.log(event.target.classList);
+    }
+</script>
