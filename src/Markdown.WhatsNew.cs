@@ -1,4 +1,3 @@
-// run node postinstall.js to update to latest version
 using System.Globalization;
 using ServiceStack.IO;
 
@@ -16,7 +15,7 @@ public class MarkdownWhatsNew(ILogger<MarkdownWhatsNew> log, IWebHostEnvironment
             ? Fresh(docs.Where(IsVisible).OrderBy(x => x.Order).ThenBy(x => x.FileName).ToList())
             : [];
     }
-    
+
     public void LoadFrom(string fromDirectory)
     {
         Features.Clear();
@@ -45,7 +44,7 @@ public class MarkdownWhatsNew(ILogger<MarkdownWhatsNew> log, IWebHostEnvironment
                     var doc = Load(file.VirtualPath, pipeline);
                     if (doc == null)
                         continue;
-                    
+
                     doc.Date = releaseDate;
                     doc.Group = releaseVersion;
 
@@ -59,7 +58,7 @@ public class MarkdownWhatsNew(ILogger<MarkdownWhatsNew> log, IWebHostEnvironment
             }
         }
     }
-    
+
     public override List<MarkdownFileBase> GetAll()
     {
         var to = new List<MarkdownFileBase>();

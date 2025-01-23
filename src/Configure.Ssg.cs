@@ -51,7 +51,7 @@ public class ConfigureSsg : IHostingStartup
                 meta.Features = [pages, whatsNew, videos];
 
                 includes.LoadFrom("_includes");
-                pages.LoadFrom("_pages");
+                pages.LoadFrom("_docs");
                 whatsNew.LoadFrom("_whatsnew");
                 videos.LoadFrom("_videos");
                 AppConfig.Instance.GitPagesBaseUrl ??= ResolveGitBlobBaseUrl(appHost.ContentRootDirectory);

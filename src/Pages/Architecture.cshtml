@@ -1,11 +1,11 @@
-﻿@page "/"
+﻿@page "/architecture"
 @attribute [RenderStatic]
 @inject MarkdownPages Markdown
 
 @await Html.PartialAsync("DocsPage", new Shared.DocsPage
 {
     Brand = "Documentation",
-    Folder = "getting_started",
+    Folder = "architecture",
     Slug = "index",
     DefaultMenu = new MarkdownMenu
     {
