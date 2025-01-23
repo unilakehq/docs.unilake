@@ -6,6 +6,7 @@
 # Custom
 meta/
 dist/
+**/css/app.css
 
 # User-specific files
 *.suo
