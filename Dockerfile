@@ -10,8 +10,7 @@ COPY . .
 
 WORKDIR /src
 
-RUN npm install && \
-    dotnet dev-certs https && \
+RUN dotnet dev-certs https && \
     npm run prerender
 
 CMD [ "npm", "run", "serve" ]

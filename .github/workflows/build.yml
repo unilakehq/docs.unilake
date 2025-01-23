@@ -57,7 +57,7 @@ jobs:
       - name: Build tailwind
         working-directory: ./src
         run: |
-          npm install && npm run build
+          npm run build
 
       - name: Prerender Site
         working-directory: ./src
