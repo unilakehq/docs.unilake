@@ -2733,6 +2733,14 @@ button:hover .icon-footer path {
   gap: 55px;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-16 {
+  gap: 4rem;
+}
+
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
@@ -3470,6 +3478,10 @@ button:hover .icon-footer path {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-16 {
+  padding: 4rem;
 }
 
 .px-0 {
@@ -6864,6 +6876,10 @@ button:hover .icon-footer path {
     gap: 112px;
   }
 
+  .xl\:gap-2 {
+    gap: 0.5rem;
+  }
+
   .xl\:overflow-auto {
     overflow: auto;
   }
@@ -6963,6 +6979,10 @@ button:hover .icon-footer path {
 
   .\32xl\:max-w-screen-xl {
     max-width: 1280px;
+  }
+
+  .\32xl\:gap-2 {
+    gap: 0.5rem;
   }
 
   .\32xl\:px-28 {
