@@ -386,59 +386,43 @@
                             </svg>
                         </button>
 
-                        <ul id="dropdown-r" class="flex-col hidden gap-2 p-2 py-3 pl-6 space-y-2 xl:flex ">
-                            <li
-                                class="relative flex items-center justify-between w-full text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700">
+                        @* Menu items *@
+                          <ul id="dropdown-r" class="flex-col hidden gap-2 p-2 py-3 pl-6 xl:flex ">
+                        <li id="link-heading1" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                            <button class="w-full text-left">
+                                <a href="#heading1" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
+                            </button>
+                        </li>
+                        <li id="link-heading2" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                            <button class="w-full text-left">
+                                <a href="#heading2" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
+                            </button>
+                        </li>
+                        <li id="link-heading3" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                            <button class="w-full text-left">
+                                <a href="#heading3" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
+                            </button>
+                        </li>
+                        @* inner list *@
+                        <ul class="flex flex-col gap-2 pl-8">
+                            <li id="link-heading4" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                                 <button class="w-full text-left">
-                                    <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community
-                                        Deployment</a>
+                                    <a href="#heading4" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
                                 </button>
                             </li>
-                            <li
-                                class="relative flex items-center justify-between w-full text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700">
+                            <li id="link-heading5" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                                 <button class="w-full text-left">
-                                    <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community
-                                        Deployment</a>
+                                    <a href="#heading5" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
                                 </button>
                             </li>
-                            <li
-                                class="relative flex items-center justify-between w-full text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700">
+                            <li id="link-heading6" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                                 <button class="w-full text-left">
-                                    <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community
-                                        Deployment</a>
+                                    <a href="#heading6" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
                                 </button>
                             </li>
-                            @* inner list *@
-                            <ul class="flex flex-col gap-2 pl-8">
-                                <li
-                                    class="relative flex items-center justify-between w-full text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700">
-                                    <button class="w-full text-left">
-                                        <a href="#"
-                                            class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community
-                                            Deployment</a>
-                                    </button>
-                                </li>
-                                <li
-                                    class="relative flex items-center justify-between w-full text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700">
-                                    <button class="w-full text-left">
-                                        <a href="#"
-                                            class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community
-                                            Deployment</a>
-                                    </button>
-                                </li>
-                                <li
-                                    class="relative flex items-center justify-between w-full text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700">
-                                    <button class="w-full text-left">
-                                        <a href="#"
-                                            class="flex items-center w-full p-2 transition duration-75 rounded-lg group focus:text-orange-500 dark:text-white dark:hover:bg-gray-700">Community
-                                            Deployment</a>
-                                    </button>
-                                </li>
-                            </ul>
                         </ul>
+                    </ul>
+
 
                         <a class="hidden pr-8 xl:block" href="http://github.com" target="_blank">
                             <button
@@ -555,8 +539,7 @@
                     tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                 </p>
 
-                <h3 class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title
-                    placeholder</h3>
+                <h2 id="heading1" class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title placeholder</h2>
 
                 @* text 2 *@
                 <div>
@@ -673,6 +656,25 @@
                     </div>
                 </div>
 
+
+                 <h2 id="heading2" class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title placeholder</h2>
+
+                @* text 2 *@
+                <div>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                </div>
+
                 @* Code Card *@
                 <div
                     class="flex w-[327px] mx-auto md:mx-0 md:w-auto flex-col mt-[13.5px] bg-headLines rounded-lg shadow">
@@ -731,6 +733,24 @@
                     </div>
                 </div>
 
+                <h2 id="heading3" class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title placeholder</h2>
+
+                @* text 2 *@
+                <div>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                </div>
+
                 @* text 3 *@
                 <div class="-mt-4">
                     <p class="text-xs leading-6 text-bodyText md:text-base sm:leading-7">
@@ -740,6 +760,60 @@
                         augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
                     </p>
                     <p class="text-xs leading-6 text-bodyText md:text-base sm:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                </div>
+
+                <h2 id="heading4" class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title placeholder</h2>
+
+                @* text 2 *@
+                <div>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                </div>
+
+                <h2 id="heading5" class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title placeholder</h2>
+
+                @* text 2 *@
+                <div>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                </div>
+
+                <h2 id="heading6" class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title placeholder</h2>
+
+                @* text 2 *@
+                <div>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
+                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
+                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
+                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
+                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+                    </p>
+                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
                         Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
                         ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
                         Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
@@ -866,8 +940,62 @@
     });
 </script>
 
-@* Script to rotate chevron icon in RIGHT MENU *@
+@* Script to rotate chevron icon  in RIGHT MENU *@
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('[data-collapse-toggle="dropdown-article"]');
+    const chevronIcon = toggleButton.querySelector('.rotate-icon');
+
+    toggleButton.addEventListener('click', function() {
+        toggleButton.querySelector('.rotate-icon').classList.toggle('rotate-180');
+    });
+});
+</script>
+
+@* Script to highlight the headings in RIGHT MENU *@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sections = document.querySelectorAll('h2[id^="heading"]');
+        const navLinks = document.querySelectorAll('li[id^="link-heading"]');
+        const fixedMenuHeight = 100;
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - fixedMenuHeight - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('font-bold');
+                if (link.id === `link-${current}`) {
+                    link.classList.add('font-bold');
+                }
+            });
+        });
+
+        // Smooth scrolling with offset
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.querySelector('a').getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                const offsetPosition = targetElement.offsetTop - fixedMenuHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+
+@* Script to rotate chevron icon in RIGHT MENU *@
+@* <script>
     document.addEventListener('DOMContentLoaded', function () {
         const toggleButton = document.querySelector('[data-collapse-toggle="dropdown-r"]');
         const chevronIcon = toggleButton.querySelector('.rotate-icon');
@@ -876,7 +1004,7 @@
             toggleButton.querySelector('.rotate-icon').classList.toggle('rotate-180');
         });
     });
-</script>
+</script> *@
 
 <script>
     function getCurrentPageSlug() {
