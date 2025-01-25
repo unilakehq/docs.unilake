@@ -1793,6 +1793,11 @@ button:hover .icon-footer path {
   margin-bottom: 24px;
 }
 
+.mx-16 {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
 .-mb-px {
   margin-bottom: -1px;
 }
@@ -2839,6 +2844,12 @@ button:hover .icon-footer path {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
 
 .divide-x > :not([hidden]) ~ :not([hidden]) {
@@ -5953,6 +5964,10 @@ button:hover .icon-footer path {
     width: 100%;
   }
 
+  .sm\:w-3\/5 {
+    width: 60%;
+  }
+
   .sm\:max-w-3xl {
     max-width: 48rem;
   }
@@ -6176,6 +6191,11 @@ button:hover .icon-footer path {
     margin-right: auto;
   }
 
+  .md\:mx-4 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
   .md\:-mt-px {
     margin-top: -1px;
   }
@@ -6294,6 +6314,14 @@ button:hover .icon-footer path {
 
   .md\:w-full {
     width: 100%;
+  }
+
+  .md\:w-2\/5 {
+    width: 40%;
+  }
+
+  .md\:w-1\/5 {
+    width: 20%;
   }
 
   .md\:min-w-\[200px\] {
@@ -6645,6 +6673,14 @@ button:hover .icon-footer path {
 
   .lg\:w-72 {
     width: 18rem;
+  }
+
+  .lg\:w-3\/5 {
+    width: 60%;
+  }
+
+  .lg\:w-2\/5 {
+    width: 40%;
   }
 
   .lg\:min-w-\[208px\] {
