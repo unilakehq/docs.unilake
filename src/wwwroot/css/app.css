@@ -1606,6 +1606,14 @@ button:hover .icon-footer path {
   top: 105px;
 }
 
+.top-\[108px\] {
+  top: 108px;
+}
+
+.top-\[102px\] {
+  top: 102px;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -2737,10 +2745,6 @@ button:hover .icon-footer path {
   gap: 0.25rem;
 }
 
-.gap-16 {
-  gap: 4rem;
-}
-
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
@@ -3478,10 +3482,6 @@ button:hover .icon-footer path {
 
 .p-8 {
   padding: 2rem;
-}
-
-.p-16 {
-  padding: 4rem;
 }
 
 .px-0 {
@@ -5088,11 +5088,6 @@ button:hover .icon-footer path {
 .focus\:bg-red-500:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
-}
-
-.focus\:text-orange-500:focus {
-  --tw-text-opacity: 1;
-  color: rgb(249 115 22 / var(--tw-text-opacity, 1));
 }
 
 .focus\:text-white:focus {
@@ -6864,6 +6859,10 @@ button:hover .icon-footer path {
     gap: 4rem;
   }
 
+  .xl\:gap-2 {
+    gap: 0.5rem;
+  }
+
   .xl\:gap-L {
     gap: 24px;
   }
@@ -6874,10 +6873,6 @@ button:hover .icon-footer path {
 
   .xl\:gap-XXXL {
     gap: 112px;
-  }
-
-  .xl\:gap-2 {
-    gap: 0.5rem;
   }
 
   .xl\:overflow-auto {
@@ -6910,6 +6905,11 @@ button:hover .icon-footer path {
   .xl\:py-XXL {
     padding-top: 64px;
     padding-bottom: 64px;
+  }
+
+  .xl\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .xl\:text-5xl {
@@ -6979,10 +6979,6 @@ button:hover .icon-footer path {
 
   .\32xl\:max-w-screen-xl {
     max-width: 1280px;
-  }
-
-  .\32xl\:gap-2 {
-    gap: 0.5rem;
   }
 
   .\32xl\:px-28 {

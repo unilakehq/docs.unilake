@@ -13,310 +13,317 @@
         @* LEFT MENU *@
         <div class="items-start flex-col hidden xl:inline-flex flex-none my-8 pr-[143px] pl-0 gap-2">
             <div id="left-menu"
-                class="fixed z-40 w-[263px] h-screen xl:h-[calc(100vh-180px)] overflow-y-auto transition-transform translate-x-0 bg-transparent top-[105px] dark:bg-gray-800"
+                class="fixed z-40 w-[263px] h-screen xl:h-[calc(100vh-180px)] overflow-y-auto transition-transform translate-x-0 bg-transparent top-[102px]"
                 tabindex="-1" aria-labelledby="drawer-navigation-label">
                 <div class="py-4 overflow-y-auto">
-                    <ul class="space-y-1">
+                    <ul>
                         @* MENU ITEM *@
                         <li>
                             <button type="button"
-                                class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
+                                class="flex items-center w-full gap-2 px-4 py-1 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
                                 aria-controls="dropdown-l-1" data-collapse-toggle="dropdown-l-1">
                                 @await Html.PartialAsync("SVG/GearSvg")
-                                <span class="flex-1 text-left whitespace-nowrap">Overview</span>
-                                @await Html.PartialAsync("SVG/ChevronSvg")
+                                <span class="flex-1 font-bold text-left whitespace-nowrap">Overview</span>
+                                @* opened chevron UP *@
+                                <svg class="transition-transform rotate-180 chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                                </svg>
                             </button>
-                            <ul id="dropdown-l-1" class="hidden p-2 py-2">
+                            <ul id="dropdown-l-1" class="px-2 pt-1">
                                 <li class="">
                                     <button type="button"
-                                        class="flex items-center justify-between w-full gap-2 p-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
-                                        aria-controls="dropdown-l-2" data-collapse-toggle="dropdown-l-2">
+                                        class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
+                                        aria-controls="dropdown-li-1" data-collapse-toggle="dropdown-li-1">
                                         @await Html.PartialAsync("SVG/PagesSvg")
                                         <span class="flex-1 text-left whitespace-nowrap">AWS</span>
-                                        @await Html.PartialAsync("SVG/ChevronSvg")
+                                        @* opened chevron UP *@
+                                        <svg class="transition-transform rotate-180 chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                                        </svg>
                                     </button>
-                                    <ul id="dropdown-l-2" class="hidden py-2 pl-6 space-y-2">
+                                    <ul id="dropdown-li-1" class="pl-6">
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/RefreshAlertSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/AlertBadgeSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
+                                        </li>
+                                        @* Active item has brand text color *@
+                                        <li
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
+                                            <a href="#"
+                                                class="flex items-center w-full transition duration-75 rounded-lg text-brand group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/QuestionBadgeSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/ShoppingCartSvg")
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/UserSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/CanbanSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/HistorySvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/HomeSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                             </ul>
                         </li>
+
                         @* MENU ITEM *@
                         <li>
                             <button type="button"
-                                class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
-                                aria-controls="dropdown-l-3" data-collapse-toggle="dropdown-l-3">
+                                class="flex items-center w-full gap-2 px-4 py-1 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
+                                aria-controls="dropdown-l-2" data-collapse-toggle="dropdown-l-2">
                                 @await Html.PartialAsync("SVG/DashboardSvg")
-                                <span class="flex-1 text-left whitespace-nowrap">Overview</span>
-                                @await Html.PartialAsync("SVG/ChevronSvg")
+                                <span class="flex-1 font-bold text-left whitespace-nowrap">Overview</span>
+                                <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                                </svg>
                             </button>
-                            <ul id="dropdown-l-3" class="hidden p-2 py-2">
+                            <ul id="dropdown-l-2" class="hidden px-2 pt-1">
                                 <li class="">
                                     <button type="button"
-                                        class="flex items-center justify-between w-full gap-2 p-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
-                                        aria-controls="dropdown-l-4" data-collapse-toggle="dropdown-l-4">
+                                        class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
+                                        aria-controls="dropdown-li-2" data-collapse-toggle="dropdown-li-2">
                                         @await Html.PartialAsync("SVG/PagesSvg")
                                         <span class="flex-1 text-left whitespace-nowrap">AWS</span>
-                                        @await Html.PartialAsync("SVG/ChevronSvg")
+                                        <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                                        </svg>
                                     </button>
-                                    <ul id="dropdown-l-4" class="hidden py-2 pl-6 space-y-2">
+                                    <ul id="dropdown-li-2" class="hidden pl-6">
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/RefreshAlertSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/AlertBadgeSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/QuestionBadgeSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/ShoppingCartSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/UserSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/CanbanSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/HistorySvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/HomeSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                             </ul>
                         </li>
+
                         @* MENU ITEM *@
-                        <li>
+                        <li class="mt-1">
                             <button type="button"
-                                class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
-                                aria-controls="dropdown-l-5" data-collapse-toggle="dropdown-l-5">
+                                class="flex items-center w-full gap-2 px-4 py-1 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
+                                aria-controls="dropdown-l-3" data-collapse-toggle="dropdown-l-3">
                                 @await Html.PartialAsync("SVG/FireSvg")
-                                <span class="flex-1 text-left whitespace-nowrap">Overview</span>
-                                @await Html.PartialAsync("SVG/ChevronSvg")
+                                <span class="flex-1 font-bold text-left whitespace-nowrap">Overview</span>
+                                <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                                </svg>
                             </button>
-                            <ul id="dropdown-l-5" class="hidden p-2 py-2">
+                            <ul id="dropdown-l-3" class="hidden px-2 pt-1">
                                 <li class="">
                                     <button type="button"
-                                        class="flex items-center justify-between w-full gap-2 p-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
-                                        aria-controls="dropdown-l-6" data-collapse-toggle="dropdown-l-6">
+                                        class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
+                                        aria-controls="dropdown-li-3" data-collapse-toggle="dropdown-li-3">
                                         @await Html.PartialAsync("SVG/PagesSvg")
                                         <span class="flex-1 text-left whitespace-nowrap">AWS</span>
-                                        @await Html.PartialAsync("SVG/ChevronSvg")
+                                        <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                                        </svg>
                                     </button>
-                                    <ul id="dropdown-l-6" class="hidden py-2 pl-6 space-y-2">
+                                    <ul id="dropdown-li-3" class="hidden pl-6">
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/RefreshAlertSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/AlertBadgeSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/QuestionBadgeSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/ShoppingCartSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/UserSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/CanbanSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/HistorySvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/HomeSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                             </ul>
                         </li>
+
                         @* MENU ITEM *@
-                        <li>
+                        <li class="mt-1">
                             <button type="button"
-                                class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
-                                aria-controls="dropdown-l-7" data-collapse-toggle="dropdown-l-7">
+                                class="flex items-center w-full gap-2 px-4 py-1 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
+                                aria-controls="dropdown-l-4" data-collapse-toggle="dropdown-l-4">
                                 @await Html.PartialAsync("SVG/GlobeSvg")
-                                <span class="flex-1 text-left whitespace-nowrap">Overview</span>
-                                @await Html.PartialAsync("SVG/ChevronSvg")
+                                <span class="flex-1 font-bold text-left whitespace-nowrap">Overview</span>
+                                <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                                </svg>
                             </button>
-                            <ul id="dropdown-l-7" class="hidden p-2 py-2">
+                            <ul id="dropdown-l-4" class="hidden px-2 pt-1">
                                 <li class="">
                                     <button type="button"
-                                        class="flex items-center justify-between w-full gap-2 p-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
-                                        aria-controls="dropdown-l-8" data-collapse-toggle="dropdown-l-8">
+                                        class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
+                                        aria-controls="dropdown-li-4" data-collapse-toggle="dropdown-li-4">
                                         @await Html.PartialAsync("SVG/PagesSvg")
                                         <span class="flex-1 text-left whitespace-nowrap">AWS</span>
-                                        @await Html.PartialAsync("SVG/ChevronSvg")
+                                        <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                                        </svg>
                                     </button>
-                                    <ul id="dropdown-l-8" class="hidden py-2 pl-6 space-y-2">
+                                    <ul id="dropdown-li-4" class="hidden pl-6">
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/RefreshAlertSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/AlertBadgeSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/QuestionBadgeSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                         <li
-                                            class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
-                                            @await Html.PartialAsync("SVG/ShoppingCartSvg")
+                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                             <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Overview</a>
+                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/UserSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/CanbanSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/HistorySvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                                 <li
-                                    class="flex items-center justify-between w-full gap-2 p-2 pl-4 text-xs font-bold transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700 ">
+                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
                                     @await Html.PartialAsync("SVG/HomeSvg")
                                     <a href="#"
-                                        class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Community
+                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
                                         Deployment</a>
                                 </li>
                             </ul>
                         </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -325,7 +332,7 @@
         <div id="doc" class="flex flex-start">
             @* CONTENT SECTION *@
             <div
-                class="px-6 py-6 xl:py-16 flex flex-col gap-8 xl:gap-16 mx-auto xl:w-[700px] min-[1590px]:w-[886px] 2xl:w-[750px] 3xl:w-[886px] xl:ml-[100px] 2xl:ml-[150px] min-[1590px]:ml-[263px] 3xl:ml-[263px] ">
+                class="px-6 py-6 xl:py-8 flex flex-col gap-8 xl:gap-16 mx-auto xl:w-[700px] min-[1590px]:w-[886px] 2xl:w-[750px] 3xl:w-[886px] xl:ml-[100px] 2xl:ml-[150px] min-[1590px]:ml-[263px] 3xl:ml-[263px] ">
                 @* BREADCRUMB *@
                 <nav class="flex" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-3 md:space-x-3 rtl:space-x-reverse">
@@ -366,11 +373,11 @@
 
                 @* RIGHT MENU *@
                 <div id="drawer-right"
-                    class="xl:fixed 2xl:pl-0 3xl:mr-[60px] 2xl:mr-0 xl:mr-[30px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80 dark:bg-gray-800"
+                    class="xl:fixed 2xl:pl-0 3xl:mr-[60px] 2xl:mr-0 xl:mr-[30px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80"
                     tabindex="-1" aria-labelledby="drawer-right-label">
                     <div class="">
                         <button type="button"
-                            class="flex items-center border-b xl:border-b-0 border-offset-[12px] border-bgNeutarl justify-between w-full gap-2 2xl:px-4 py-2 text-base text-bodyText transition duration-75 group dark:text-white"
+                            class="flex items-center border-b xl:border-b-0 border-offset-[12px] border-bgNeutarl justify-between w-full gap-2 2xl:px-4 py-2 text-base text-bodyText transition duration-75 group"
                             aria-controls="dropdown-r" data-collapse-toggle="dropdown-r">
                             <div class="flex w-[266px] items-center gap-2">
                                 @await Html.PartialAsync("SVG/PagesSvg")
@@ -388,36 +395,36 @@
 
                         @* Menu items *@
                         <ul id="dropdown-r" class="flex-col hidden gap-2 p-2 py-3 pl-6 xl:flex ">
-                            <li id="link-heading1" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                            <li id="link-heading1" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb]">
                                 <button class="w-full text-left">
-                                    <a href="#heading1" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
+                                    <a href="#heading1" class="flex items-center w-full p-2 transition duration-75 rounded-lg group">Title Placeholder</a>
                                 </button>
                             </li>
-                            <li id="link-heading2" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                            <li id="link-heading2" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb]">
                                 <button class="w-full text-left">
-                                    <a href="#heading2" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
+                                    <a href="#heading2" class="flex items-center w-full p-2 transition duration-75 rounded-lg group">Title Placeholder</a>
                                 </button>
                             </li>
-                            <li id="link-heading3" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                            <li id="link-heading3" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb]">
                                 <button class="w-full text-left">
-                                    <a href="#heading3" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
+                                    <a href="#heading3" class="flex items-center w-full p-2 transition duration-75 rounded-lg group">Title Placeholder</a>
                                 </button>
                             </li>
                         @* inner list *@
                             <ul class="flex flex-col pl-8 xl:gap-2">
-                                <li id="link-heading4" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                                <li id="link-heading4" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb]">
                                     <button class="w-full text-left">
-                                        <a href="#heading4" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
+                                        <a href="#heading4" class="flex items-center w-full p-2 transition duration-75 rounded-lg group">Title Placeholder</a>
                                     </button>
                                 </li>
-                                <li id="link-heading5" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                                <li id="link-heading5" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb]">
                                     <button class="w-full text-left">
-                                        <a href="#heading5" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
+                                        <a href="#heading5" class="flex items-center w-full p-2 transition duration-75 rounded-lg group">Title Placeholder</a>
                                     </button>
                                 </li>
-                                <li id="link-heading6" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
+                                <li id="link-heading6" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb]">
                                     <button class="w-full text-left">
-                                        <a href="#heading6" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Title Placeholder</a>
+                                        <a href="#heading6" class="flex items-center w-full p-2 transition duration-75 rounded-lg group">Title Placeholder</a>
                                     </button>
                                 </li>
                             </ul>
@@ -447,12 +454,12 @@
                         role="group">
 
                         <span
-                            class="inline-flex items-center text-xs font-bold cursor-default md:text-base text-headLines dark:text-white">
+                            class="inline-flex items-center text-xs font-bold cursor-default md:text-base text-headLines">
                             Feature Availability
                         </span>
 
                         <span
-                            class="flex items-center gap-2 text-xs leading-7 cursor-default md:text-base text-bodyText dark:text-white">
+                            class="flex items-center gap-2 text-xs leading-7 cursor-default md:text-base text-bodyText">
                             Self-Hosted Unilake
                             <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 viewBox="0 0 16 16" fill="none">
@@ -471,7 +478,7 @@
 
 
                         <span data-popover-target="popover-default" data-popover-offset="30"
-                            class="flex items-center text-xs leading-7 cursor-default md:text-base text-bodyText dark:text-white">
+                            class="flex items-center text-xs leading-7 cursor-default md:text-base text-bodyText">
                             <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 viewBox="0 0 16 16" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -496,11 +503,11 @@
 
                         @* POPOVER *@
                         <div data-popover id="popover-default" role="tooltip"
-                            class="relative z-10 inline-block text-sm text-gray-500 w-[290px] transition-opacity duration-300 bg-neutral border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                            class="relative z-10 inline-block text-sm text-gray-500 w-[290px] transition-opacity duration-300 bg-neutral border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600">
                             @* header *@
                             <div
                                 class="px-3 py-1.5 bg-backgroundFaded border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
-                                <div class="flex items-center justify-between dark:text-white">
+                                <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                         <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             viewBox="0 0 16 16" fill="none">
@@ -702,7 +709,7 @@
                                     <button id="copyBtn" onclick="copyCode()" data-copy-to-clipboard-target="code-block"
                                         data-copy-to-clipboard-content-type="innerHTML"
                                         data-copy-to-clipboard-html-entities="true"
-                                        class="m-0.5 hover:border-white dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 rounded-lg py-2 px-2.5 inline-flex items-center justify-center border-gray-500 border">
+                                        class="m-0.5 hover:border-white dark:border-gray-600 rounded-lg py-2 px-2.5 inline-flex items-center justify-center border-gray-500 border">
                                         <span id="default-message" class="inline-flex items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
                                                 viewBox="0 0 19 19" fill="none">
@@ -864,7 +871,7 @@
                     <div class="flex items-start justify-between gap-2 mt-8 md:mt-[68px] not-prose">
                         @* <!-- Previous Button --> *@
                         <a href="#"
-                            class="flex items-center justify-center gap-2 px-4 py-2 text-xs font-semibold border rounded-lg sm:px-6 sm:py-3 sm:text-sm text-headLines bg-neutral border-bgNeutarl hover:bg-backgroundFaded hover:text-brand dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            class="flex items-center justify-center gap-2 px-4 py-1 text-xs font-semibold border rounded-lg sm:px-6 sm:py-3 sm:text-sm text-headLines bg-neutral border-bgNeutarl hover:bg-backgroundFaded hover:text-brand dark:border-gray-700 dark:text-gray-400 dark:hover:text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon-footer" width="16" height="16"
                                 viewBox="0 0 16 16" fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -874,7 +881,7 @@
                         </a>
                         @* Next Button *@
                         <a href="#"
-                            class="flex items-center justify-center gap-2 px-4 py-2 text-xs font-semibold border rounded-lg sm:px-6 sm:py-3 sm:text-sm text-headLines bg-neutral border-bgNeutarl hover:bg-backgroundFaded hover:text-brand dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            class="flex items-center justify-center gap-2 px-4 py-1 text-xs font-semibold border rounded-lg sm:px-6 sm:py-3 sm:text-sm text-headLines bg-neutral border-bgNeutarl hover:bg-backgroundFaded hover:text-brand dark:border-gray-700 dark:text-gray-400 dark:hover:text-white">
                             Next page name
                             <svg class="icon-footer" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 viewBox="0 0 16 16" fill="none">
@@ -914,30 +921,33 @@
 <script src="/mjs/docs.mjs" type="module"></script>
 
 
-@* Script to rotate chevron icon and change color of the button in LEFT MENU *@
+@* Script to rotate chevron icon in LEFT MENU *@
 <script>
     document.querySelectorAll('[data-collapse-toggle]').forEach(button => {
-        button.addEventListener('click', () => {
-            console.log("button clicked.")
-            const target = document.getElementById(button.getAttribute('aria-controls'));
-            target.classList.toggle('hidden');
+    button.addEventListener('click', () => {
+        const target = document.getElementById(button.getAttribute('aria-controls'));
+        const isHidden = target.classList.toggle('hidden');
 
-            const chevron = button.querySelector('.chevron');
-            chevron.classList.toggle('rotate-180');
-
-            button.classList.toggle('text-brand');
-
-            const svgIcon = button.querySelector('.icon');
-            const paths = svgIcon.querySelectorAll('path');
-            const isOrange = paths[0].getAttribute('fill') === '#FF6849';
-            const newColor = isOrange ? '#252532' : '#FF6849';
-
-            paths.forEach(path => {
-                path.setAttribute('fill', newColor);
-            });
-
-        });
+        const chevron = button.querySelector('.chevron');
+        if (isHidden) {
+            chevron.classList.remove('rotate-180');
+        } else {
+            chevron.classList.add('rotate-180');
+        }
     });
+});
+
+// Initialize chevrons based on initial dropdown state
+document.querySelectorAll('[data-collapse-toggle]').forEach(button => {
+    const target = document.getElementById(button.getAttribute('aria-controls'));
+    const chevron = button.querySelector('.chevron');
+    
+    if (target.classList.contains('hidden')) {
+        chevron.classList.remove('rotate-180');
+    } else {
+        chevron.classList.add('rotate-180');
+    }
+});
 </script>
 
 @* Script to rotate chevron icon  in RIGHT MENU *@
@@ -993,18 +1003,6 @@
         });
     });
 </script>
-
-@* Script to rotate chevron icon in RIGHT MENU *@
-@* <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const toggleButton = document.querySelector('[data-collapse-toggle="dropdown-r"]');
-        const chevronIcon = toggleButton.querySelector('.rotate-icon');
-
-        toggleButton.addEventListener('click', function () {
-            toggleButton.querySelector('.rotate-icon').classList.toggle('rotate-180');
-        });
-    });
-</script> *@
 
 <script>
     function getCurrentPageSlug() {
