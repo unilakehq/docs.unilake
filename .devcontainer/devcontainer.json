@@ -6,6 +6,7 @@
             "version": "20.14.0"
         }
     },
+    "postCreateCommand": "dotnet dev-certs https",
     "customizations": {
         "vscode": {
             "extensions": [
