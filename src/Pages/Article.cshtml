@@ -289,9 +289,10 @@
                             </svg>
                             <h5 id="drawer-right-label" class="text-xs font-extrabold text-bodyText tracking-[1.44px] uppercase dark:text-gray-400">On this page</h5>
                         </div>
-                        <svg class="transition-transform xl:hidden rotate-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
-                        </svg>
+
+                        <svg class="transition-transform xl:hidden chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
+                            </svg>
                     </button>
 
                     <ul id="dropdown-article" class="flex-col hidden gap-2 p-2 py-3 pl-6 xl:flex ">
@@ -311,7 +312,7 @@
                             </button>
                         </li>
                         @* inner list *@
-                        <ul class="flex flex-col gap-2 pl-8">
+                        <ul class="flex flex-col pl-8 xl:gap-2">
                             <li id="link-heading4" class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                                 <button class="w-full text-left">
                                     <a href="#heading4" class="flex items-center w-full p-2 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700">Heading Title Goes Here</a>
@@ -346,7 +347,7 @@
 
 
 @* Script to rotate chevron icon  in RIGHT MENU *@
-<script>
+@* <script>
     document.addEventListener('DOMContentLoaded', function() {
     const toggleButton = document.querySelector('[data-collapse-toggle="dropdown-article"]');
     const chevronIcon = toggleButton.querySelector('.rotate-icon');
@@ -355,7 +356,7 @@
         toggleButton.querySelector('.rotate-icon').classList.toggle('rotate-180');
     });
 });
-</script>
+</script> *@
 
 @* Script to highlight the headings in RIGHT MENU *@
 <script>
