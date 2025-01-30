@@ -333,6 +333,13 @@ public class AutoLinkHeadingRenderer : HtmlObjectRenderer<HeadingBlock>
             ? headings[index]
             : $"h{obj.Level}";
 
+        var att = obj.GetAttributes();
+        var sizes = index == 1 ? ("2xl:text-[32px]", "text-[24px]") : index == 2 ? ("2xl:text-[26px]", "text-[18px]") : ("2xl:text-[24px]", "text-[16px]");
+        string classNames = $"{sizes.Item1} {sizes.Item2} text-headLines leading-9 tracking-[-0.96px] font-bold";
+        att.Classes??= new List<string>();
+        att.Classes.Add(classNames);
+        obj.SetAttributes(att);
+
         if (renderer.EnableHtmlForBlock)
         {
             renderer.Write('<');
@@ -342,13 +349,13 @@ public class AutoLinkHeadingRenderer : HtmlObjectRenderer<HeadingBlock>
         }
         renderer.WriteLeafInline(obj);
 
-        var attrs = obj.TryGetAttributes();
-        if (attrs?.Id != null && obj.Level <= 4)
-        {
-            renderer.Write("<a class=\"header-anchor\" href=\"javascript:;\" onclick=\"location.hash='#");
-            renderer.Write(attrs.Id);
-            renderer.Write("'\" aria-label=\"Permalink\">&ZeroWidthSpace;</a>");
-        }
+        // var attrs = obj.TryGetAttributes();
+        // if (attrs?.Id != null && obj.Level <= 4)
+        // {
+        //     renderer.Write("<a class=\"header-anchor\" onclick=\"location.hash='#");
+        //     renderer.Write(attrs.Id);
+        //     renderer.Write("'\" aria-label=\"Permalink\">&ZeroWidthSpace;</a>");
+        // }
 
         if (renderer.EnableHtmlForBlock)
         {
@@ -910,6 +917,7 @@ public class HeadingsMapExtension : IMarkdownExtension
                 {
                     Text = text,
                     Link = $"#{attrs.Id}",
+                    Id = attrs.Id
                 });
             }
             else if (headingBlock.Level == 3)
@@ -922,6 +930,7 @@ public class HeadingsMapExtension : IMarkdownExtension
                     {
                         Text = text,
                         Link = $"#{attrs.Id}",
+                        Id = attrs.Id
                     });
                 }
             }
@@ -966,6 +975,7 @@ public class MarkdownMenu
     public string? Icon { get; set; }
     public string? Text { get; set; }
     public string? Link { get; set; }
+    public string? Id { get; set; }
     public List<MarkdownMenuItem>? Children { get; set; }
 }
 
@@ -973,4 +983,5 @@ public class MarkdownMenuItem
 {
     public string Text { get; set; }
     public string Link { get; set; }
+    public string Id { get; set; }
 }

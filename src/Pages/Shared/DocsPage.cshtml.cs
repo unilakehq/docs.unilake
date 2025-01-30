@@ -20,6 +20,9 @@ public class DocsPage : PageModel
 
     public DocsPage Init(Microsoft.AspNetCore.Mvc.RazorPages.Page page, MarkdownPages markdown)
     {
+        Console.WriteLine("Folder: {0}, Slug: {1}", Folder, Slug);
+        if (string.IsNullOrEmpty(Slug))
+            Slug = "index";
         Doc = markdown.GetBySlug($"{Folder}/{Slug}");
         if (Doc == null)
         {

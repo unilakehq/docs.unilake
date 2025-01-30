@@ -1,15 +1,41 @@
 ---
-title: Documentation
+title: Architecture Overview
+sidebar_label: Architecture
+feature_availability:
+    self_hosted: true
+    cloud_hosted: true
+    notes: Some Text here
 ---
 
-## ServiceStack Community
+## Title Placeholder
+Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat. 
 
-- [servicestack.net/discord](https://servicestack.net/discord) - Join **#ServiceStack** Discord Channel
-- [servicestack.net/discuss](https://servicestack.net/discuss) - ServiceStack Community GitHub Discussions
-    - [servicestack.net/ask](https://servicestack.net/ask) - Q & A Community Support
-    - [servicestack.net/ideas](https://servicestack.net/ideas) - Submit Ideas & Feature Requests
+### Another Title Placeholder
 
-## Contributing
+Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
 
-- [Contributing Guide](https://docs.servicestack.net/contributing) - Read our Contributing Guide
-- [Contribution License Agreement](https://docs.google.com/forms/d/16Op0fmKaqYtxGL4sg7w_g-cXXyCoWjzppgkuqzOeKyk/viewform) - Please sign our CLA before Contributing
+Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+
+### Some Containers
+::: info
+This is an info box.
+:::
+
+::: tip
+This is a tip.
+:::
+
+::: warning
+This is a warning.
+:::
+
+::: danger
+This is a dangerous warning.
+:::
+
+
+| Tables        |      Are      |  Cool |
+| ------------- | :-----------: | ----: |
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      |   centered    |   $12 |
+| zebra stripes |   are neat    |    $1 |

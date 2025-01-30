@@ -1,4 +1,4 @@
-@page "/{slug}"
+@page "/{folder}/{slug?}"
 @model docs.unilake.Page
 @inject MarkdownPages Markdown
 
@@ -17,7 +17,7 @@
 @await Html.PartialAsync("DocsPage", new Shared.DocsPage {
    Brand = "ServiceStack Documentation",
    Slug = Model.Slug,
-   Folder = "",
+   Folder = Model.Folder,
    DefaultMenu = new MarkdownMenu {
        Icon = Markdown.DefaultMenuIcon,
        Text = "Home",

@@ -128,6 +128,7 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
                 {
                     Text = page.Title!,
                     Link = link,
+                    Id = page.Title!
                 });
             }
         }
