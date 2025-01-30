@@ -1,9 +1,10 @@
 ---
 title: Architecture Overview
 sidebar_label: Architecture
+draft: true
 feature_availability:
-    self_hosted: true
-    cloud_hosted: true
+    self_hosted: false 
+    cloud_hosted: true 
     notes: Some Text here
 ---
 
@@ -18,7 +19,10 @@ Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis ves
 
 ### Some Containers
 ::: info
-This is an info box.
+This is an info box. With some info inside of it.
+
+
+another p?
 :::
 
 ::: tip
@@ -33,9 +37,12 @@ This is a warning.
 This is a dangerous warning.
 :::
 
+::: quote 
+This is a quote thingy
+:::
 
-| Tables        |      Are      |  Cool |
-| ------------- | :-----------: | ----: |
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      |   centered    |   $12 |
-| zebra stripes |   are neat    |    $1 |
+Some text here
+
+```sql
+select 100 from my.table
+```

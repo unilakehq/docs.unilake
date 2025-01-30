@@ -356,7 +356,7 @@
         <div id="doc" class="flex flex-start">
             @* CONTENT SECTION *@
             <div
-                class="text-bodyText px-6 py-6 xl:py-8 flex flex-col gap-8 mx-auto xl:w-[700px] min-[1590px]:w-[886px] 2xl:w-[750px] 3xl:w-[886px] xl:ml-[100px] 2xl:ml-[150px] min-[1590px]:ml-[263px] 3xl:ml-[263px] ">
+                class="px-6 py-6 xl:py-8 flex flex-col gap-8 mx-auto xl:w-[700px] min-[1590px]:w-[886px] 2xl:w-[750px] 3xl:w-[886px] xl:ml-[100px] 2xl:ml-[150px] min-[1590px]:ml-[263px] 3xl:ml-[263px] ">
                 @* BREADCRUMB *@
                 <nav class="flex" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-3 md:space-x-3 rtl:space-x-reverse">
@@ -419,7 +419,7 @@
 
                         @* Menu items *@
                         <ul id="dropdown-r" class="flex-col hidden gap-2 p-2 py-3 pl-6 xl:flex ">
-                            @foreach (var item in Model.Doc.DocumentMap.Headings)
+                            @foreach (var item in Model?.Doc?.DocumentMap?.Headings ?? new List<MarkdownMenu>())
                             {
                                 <li id="link-@(item.Id)"
                                     class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb]">
@@ -461,247 +461,143 @@
                 @* TITLE *@
                 <h1 class="text-headLines 2xl:text-[56px] text-[32px] tracking-[-0.96px] font-bold leading-[64px] 2xl:-tracking-[1.68px]"> @Model.Doc.Title </h1>
 
-                @Html.Raw(Model.Doc.Preview)
-
                 @* FEATURE AVAILABILITY *@
-                <div class="">
-                    @* top *@
-                    <div
-                        class="flex flex-col w-[327px] mx-auto md:w-full not-prose py-3 px-6 rounded-lg md:self-stretch items-center gap-[24px] md:gap-[45px] border border-bgNeutarl bg-neutral shadow-sm md:flex-row"
-                        role="group">
+                @if (Model.Doc.FeatureAvailabilityInfo != null)
+                {
+                    <div class="">
+                        @* top *@
+                        <div
+                            class="flex flex-col w-[327px] mx-auto md:w-full not-prose py-3 px-6 rounded-lg md:self-stretch items-center gap-[24px] md:gap-[45px] border border-bgNeutarl bg-neutral shadow-sm md:flex-row"
+                            role="group">
 
-                        <span
-                            class="inline-flex items-center text-xs font-bold cursor-default md:text-base text-headLines">
-                            Feature Availability
-                        </span>
+                            <span
+                                class="inline-flex items-center text-xs font-bold cursor-default md:text-base text-headLines">
+                                Feature Availability
+                            </span>
 
-                        <span
-                            class="flex items-center gap-2 text-xs leading-7 cursor-default md:text-base text-bodyText">
-                            Self-Hosted Unilake
-                            <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                 viewBox="0 0 16 16" fill="none">
-                                <g clip-path="url(#clip0_218_2600)">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                          d="M8 1.83334C4.59424 1.83334 1.83333 4.59425 1.83333 8.00001C1.83333 11.4058 4.59424 14.1667 8 14.1667C11.4058 14.1667 14.1667 11.4058 14.1667 8.00001C14.1667 4.59425 11.4058 1.83334 8 1.83334ZM0.833328 8.00001C0.833328 4.04197 4.04195 0.833344 8 0.833344C11.958 0.833344 15.1667 4.04197 15.1667 8.00001C15.1667 11.9581 11.958 15.1667 8 15.1667C4.04195 15.1667 0.833328 11.9581 0.833328 8.00001ZM5.64644 5.64646C5.8417 5.45119 6.15829 5.45119 6.35355 5.64646L8 7.2929L9.64644 5.64646C9.8417 5.45119 10.1583 5.45119 10.3535 5.64646C10.5488 5.84172 10.5488 6.1583 10.3535 6.35356L8.7071 8.00001L10.3535 9.64646C10.5488 9.84172 10.5488 10.1583 10.3535 10.3536C10.1583 10.5488 9.8417 10.5488 9.64644 10.3536L8 8.70712L6.35355 10.3536C6.15829 10.5488 5.8417 10.5488 5.64644 10.3536C5.45118 10.1583 5.45118 9.84172 5.64644 9.64646L7.29289 8.00001L5.64644 6.35356C5.45118 6.1583 5.45118 5.84172 5.64644 5.64646Z"
-                                          fill="#525D61"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_218_2600">
-                                        <rect width="16" height="16" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </span>
-
-
-                        <span data-popover-target="popover-default" data-popover-offset="30"
-                              class="flex items-center text-xs leading-7 cursor-default md:text-base text-bodyText">
-                            <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                 viewBox="0 0 16 16" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M8 2.5C5.45505 2.5 3.36667 4.62988 3.36667 7.28889C3.36667 7.31777 3.36692 7.34659 3.36741 7.37534C3.37134 7.60533 3.21786 7.80833 2.9955 7.86722C1.95263 8.14344 1.16667 9.12584 1.16667 10.3111C1.16667 11.7183 2.27008 12.8333 3.6 12.8333H11.6667C13.4016 12.8333 14.8333 11.38 14.8333 9.55555C14.8333 8.15321 13.9843 6.96498 12.8022 6.49472C12.6507 6.43444 12.5381 6.30408 12.5005 6.14542C12.0024 4.04299 10.1676 2.5 8 2.5ZM2.37263 7.02071C2.5088 3.96087 4.96307 1.5 8 1.5C10.5734 1.5 12.73 3.26896 13.4097 5.66901C14.8453 6.34853 15.8333 7.83756 15.8333 9.55555C15.8333 11.9039 13.9818 13.8333 11.6667 13.8333H3.6C1.68986 13.8333 0.166672 12.2422 0.166672 10.3111C0.166672 8.81666 1.07629 7.52959 2.37263 7.02071Z"
-                                      fill="#252532"/>
-                            </svg>
-                            Self-Hosted Unilake
-                            <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                 viewBox="0 0 16 16" fill="none">
-                                <g clip-path="url(#clip0_218_2614)">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                          d="M8.00001 1.83334C4.59425 1.83334 1.83334 4.59425 1.83334 8.00001C1.83334 11.4058 4.59425 14.1667 8.00001 14.1667C11.4058 14.1667 14.1667 11.4058 14.1667 8.00001C14.1667 4.59425 11.4058 1.83334 8.00001 1.83334ZM0.833344 8.00001C0.833344 4.04197 4.04197 0.833344 8.00001 0.833344C11.9581 0.833344 15.1667 4.04197 15.1667 8.00001C15.1667 11.9581 11.9581 15.1667 8.00001 15.1667C4.04197 15.1667 0.833344 11.9581 0.833344 8.00001ZM11.0202 5.64646C11.2155 5.84172 11.2155 6.1583 11.0202 6.35356L7.6869 9.6869C7.49164 9.88216 7.17505 9.88216 6.97979 9.6869L5.64646 8.35356C5.45119 8.1583 5.45119 7.84172 5.64646 7.64646C5.84172 7.45119 6.1583 7.45119 6.35356 7.64646L7.33334 8.62624L10.3131 5.64646C10.5084 5.45119 10.825 5.45119 11.0202 5.64646Z"
-                                          fill="#6B9E32"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_218_2614">
-                                        <rect width="16" height="16" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </span>
-
-                        @* POPOVER *@
-                        <div data-popover id="popover-default" role="tooltip"
-                             class="relative z-10 inline-block text-sm text-gray-500 w-[290px] transition-opacity duration-300 bg-neutral border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600">
-                            @* header *@
-                            <div
-                                class="px-3 py-1.5 bg-backgroundFaded border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                        <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             viewBox="0 0 16 16" fill="none">
+                            <span
+                                class="flex items-center gap-2 text-xs leading-7 cursor-default md:text-base text-bodyText">
+                                Self-Hosted Unilake
+                                @if (Model.Doc.FeatureAvailabilityInfo.IsSelfHosted)
+                                {
+                                    <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                         viewBox="0 0 16 16" fill="none">
+                                        <g clip-path="url(#clip0_218_2614)">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
-                                                  d="M8 2.5C5.45505 2.5 3.36667 4.62988 3.36667 7.28889C3.36667 7.31777 3.36692 7.34659 3.36741 7.37534C3.37134 7.60533 3.21786 7.80833 2.9955 7.86722C1.95263 8.14344 1.16667 9.12584 1.16667 10.3111C1.16667 11.7183 2.27008 12.8333 3.6 12.8333H11.6667C13.4016 12.8333 14.8333 11.38 14.8333 9.55555C14.8333 8.15321 13.9843 6.96498 12.8022 6.49472C12.6507 6.43444 12.5381 6.30408 12.5005 6.14542C12.0024 4.04299 10.1676 2.5 8 2.5ZM2.37263 7.02071C2.5088 3.96087 4.96307 1.5 8 1.5C10.5734 1.5 12.73 3.26896 13.4097 5.66901C14.8453 6.34853 15.8333 7.83756 15.8333 9.55555C15.8333 11.9039 13.9818 13.8333 11.6667 13.8333H3.6C1.68986 13.8333 0.166672 12.2422 0.166672 10.3111C0.166672 8.81666 1.07629 7.52959 2.37263 7.02071Z"
-                                                  fill="#252532"/>
-                                        </svg>
-                                        <span class="font-bold leading-7 font-xs text-headLines">Self-Hosted
-                                            Unilake</span>
+                                                  d="M8.00001 1.83334C4.59425 1.83334 1.83334 4.59425 1.83334 8.00001C1.83334 11.4058 4.59425 14.1667 8.00001 14.1667C11.4058 14.1667 14.1667 11.4058 14.1667 8.00001C14.1667 4.59425 11.4058 1.83334 8.00001 1.83334ZM0.833344 8.00001C0.833344 4.04197 4.04197 0.833344 8.00001 0.833344C11.9581 0.833344 15.1667 4.04197 15.1667 8.00001C15.1667 11.9581 11.9581 15.1667 8.00001 15.1667C4.04197 15.1667 0.833344 11.9581 0.833344 8.00001ZM11.0202 5.64646C11.2155 5.84172 11.2155 6.1583 11.0202 6.35356L7.6869 9.6869C7.49164 9.88216 7.17505 9.88216 6.97979 9.6869L5.64646 8.35356C5.45119 8.1583 5.45119 7.84172 5.64646 7.64646C5.84172 7.45119 6.1583 7.45119 6.35356 7.64646L7.33334 8.62624L10.3131 5.64646C10.5084 5.45119 10.825 5.45119 11.0202 5.64646Z"
+                                                  fill="#6B9E32"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_218_2614">
+                                                <rect width="16" height="16" fill="white"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                }
+                                else
+                                {
+                                    <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                         viewBox="0 0 16 16" fill="none">
+                                        <g clip-path="url(#clip0_218_2600)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8 1.83334C4.59424 1.83334 1.83333 4.59425 1.83333 8.00001C1.83333 11.4058 4.59424 14.1667 8 14.1667C11.4058 14.1667 14.1667 11.4058 14.1667 8.00001C14.1667 4.59425 11.4058 1.83334 8 1.83334ZM0.833328 8.00001C0.833328 4.04197 4.04195 0.833344 8 0.833344C11.958 0.833344 15.1667 4.04197 15.1667 8.00001C15.1667 11.9581 11.958 15.1667 8 15.1667C4.04195 15.1667 0.833328 11.9581 0.833328 8.00001ZM5.64644 5.64646C5.8417 5.45119 6.15829 5.45119 6.35355 5.64646L8 7.2929L9.64644 5.64646C9.8417 5.45119 10.1583 5.45119 10.3535 5.64646C10.5488 5.84172 10.5488 6.1583 10.3535 6.35356L8.7071 8.00001L10.3535 9.64646C10.5488 9.84172 10.5488 10.1583 10.3535 10.3536C10.1583 10.5488 9.8417 10.5488 9.64644 10.3536L8 8.70712L6.35355 10.3536C6.15829 10.5488 5.8417 10.5488 5.64644 10.3536C5.45118 10.1583 5.45118 9.84172 5.64644 9.64646L7.29289 8.00001L5.64644 6.35356C5.45118 6.1583 5.45118 5.84172 5.64644 5.64646Z"
+                                                  fill="#525D61"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_218_2600">
+                                                <rect width="16" height="16" fill="white"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                }
+                            </span>
+
+
+                            <span data-popover-target="popover-default" data-popover-offset="30"
+                                  class="flex items-center text-xs leading-7 cursor-default md:text-base text-bodyText">
+                                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                     viewBox="0 0 16 16" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M8 2.5C5.45505 2.5 3.36667 4.62988 3.36667 7.28889C3.36667 7.31777 3.36692 7.34659 3.36741 7.37534C3.37134 7.60533 3.21786 7.80833 2.9955 7.86722C1.95263 8.14344 1.16667 9.12584 1.16667 10.3111C1.16667 11.7183 2.27008 12.8333 3.6 12.8333H11.6667C13.4016 12.8333 14.8333 11.38 14.8333 9.55555C14.8333 8.15321 13.9843 6.96498 12.8022 6.49472C12.6507 6.43444 12.5381 6.30408 12.5005 6.14542C12.0024 4.04299 10.1676 2.5 8 2.5ZM2.37263 7.02071C2.5088 3.96087 4.96307 1.5 8 1.5C10.5734 1.5 12.73 3.26896 13.4097 5.66901C14.8453 6.34853 15.8333 7.83756 15.8333 9.55555C15.8333 11.9039 13.9818 13.8333 11.6667 13.8333H3.6C1.68986 13.8333 0.166672 12.2422 0.166672 10.3111C0.166672 8.81666 1.07629 7.52959 2.37263 7.02071Z"
+                                          fill="#252532"/>
+                                </svg>
+                                Cloud-Hosted Unilake
+                                @if (Model.Doc.FeatureAvailabilityInfo.IsCloudHosted)
+                                {
+                                    <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                         viewBox="0 0 16 16" fill="none">
+                                        <g clip-path="url(#clip0_218_2614)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8.00001 1.83334C4.59425 1.83334 1.83334 4.59425 1.83334 8.00001C1.83334 11.4058 4.59425 14.1667 8.00001 14.1667C11.4058 14.1667 14.1667 11.4058 14.1667 8.00001C14.1667 4.59425 11.4058 1.83334 8.00001 1.83334ZM0.833344 8.00001C0.833344 4.04197 4.04197 0.833344 8.00001 0.833344C11.9581 0.833344 15.1667 4.04197 15.1667 8.00001C15.1667 11.9581 11.9581 15.1667 8.00001 15.1667C4.04197 15.1667 0.833344 11.9581 0.833344 8.00001ZM11.0202 5.64646C11.2155 5.84172 11.2155 6.1583 11.0202 6.35356L7.6869 9.6869C7.49164 9.88216 7.17505 9.88216 6.97979 9.6869L5.64646 8.35356C5.45119 8.1583 5.45119 7.84172 5.64646 7.64646C5.84172 7.45119 6.1583 7.45119 6.35356 7.64646L7.33334 8.62624L10.3131 5.64646C10.5084 5.45119 10.825 5.45119 11.0202 5.64646Z"
+                                                  fill="#6B9E32"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_218_2614">
+                                                <rect width="16" height="16" fill="white"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                }
+                                else
+                                {
+                                    <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                         viewBox="0 0 16 16" fill="none">
+                                        <g clip-path="url(#clip0_218_2600)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M8 1.83334C4.59424 1.83334 1.83333 4.59425 1.83333 8.00001C1.83333 11.4058 4.59424 14.1667 8 14.1667C11.4058 14.1667 14.1667 11.4058 14.1667 8.00001C14.1667 4.59425 11.4058 1.83334 8 1.83334ZM0.833328 8.00001C0.833328 4.04197 4.04195 0.833344 8 0.833344C11.958 0.833344 15.1667 4.04197 15.1667 8.00001C15.1667 11.9581 11.958 15.1667 8 15.1667C4.04195 15.1667 0.833328 11.9581 0.833328 8.00001ZM5.64644 5.64646C5.8417 5.45119 6.15829 5.45119 6.35355 5.64646L8 7.2929L9.64644 5.64646C9.8417 5.45119 10.1583 5.45119 10.3535 5.64646C10.5488 5.84172 10.5488 6.1583 10.3535 6.35356L8.7071 8.00001L10.3535 9.64646C10.5488 9.84172 10.5488 10.1583 10.3535 10.3536C10.1583 10.5488 9.8417 10.5488 9.64644 10.3536L8 8.70712L6.35355 10.3536C6.15829 10.5488 5.8417 10.5488 5.64644 10.3536C5.45118 10.1583 5.45118 9.84172 5.64644 9.64646L7.29289 8.00001L5.64644 6.35356C5.45118 6.1583 5.45118 5.84172 5.64644 5.64646Z"
+                                                  fill="#525D61"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_218_2600">
+                                                <rect width="16" height="16" fill="white"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                }
+                            </span>
+
+                            @* POPOVER *@
+                            <div data-popover id="popover-default" role="tooltip"
+                                 class="relative z-10 inline-block text-sm text-gray-500 w-[290px] transition-opacity duration-300 bg-neutral border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600">
+                                @* header *@
+                                <div
+                                    class="px-3 py-1.5 bg-backgroundFaded border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 viewBox="0 0 16 16" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M8 2.5C5.45505 2.5 3.36667 4.62988 3.36667 7.28889C3.36667 7.31777 3.36692 7.34659 3.36741 7.37534C3.37134 7.60533 3.21786 7.80833 2.9955 7.86722C1.95263 8.14344 1.16667 9.12584 1.16667 10.3111C1.16667 11.7183 2.27008 12.8333 3.6 12.8333H11.6667C13.4016 12.8333 14.8333 11.38 14.8333 9.55555C14.8333 8.15321 13.9843 6.96498 12.8022 6.49472C12.6507 6.43444 12.5381 6.30408 12.5005 6.14542C12.0024 4.04299 10.1676 2.5 8 2.5ZM2.37263 7.02071C2.5088 3.96087 4.96307 1.5 8 1.5C10.5734 1.5 12.73 3.26896 13.4097 5.66901C14.8453 6.34853 15.8333 7.83756 15.8333 9.55555C15.8333 11.9039 13.9818 13.8333 11.6667 13.8333H3.6C1.68986 13.8333 0.166672 12.2422 0.166672 10.3111C0.166672 8.81666 1.07629 7.52959 2.37263 7.02071Z"
+                                                      fill="#252532"/>
+                                            </svg>
+                                            <span class="font-bold leading-7 font-xs text-headLines">Cloud-Hosted
+                                                Unilake</span>
+                                        </div>
+
                                     </div>
-
                                 </div>
+                                @* body *@
+                                <div class="px-3 py-2">
+                                    <p class="flex-1 leading-6 font-xs text-bodyText">Our cloud offering is currently under development.</p>
+                                </div>
+                                <div data-popper-arrow></div>
                             </div>
-                            @* body *@
-                            <div class="px-3 py-2">
-                                <p class="flex-1 leading-6 font-xs text-bodyText">Our cloud offering is currently under
-                                    development and will be available soon.</p>
+                        </div>
+                        @if (!string.IsNullOrWhiteSpace(Model.Doc.FeatureAvailabilityInfo.Notes))
+                        {
+                            @* bottom *@
+                            <div class="flex items-start gap-4 py-2 mt-4 rounded-lg lg:mt-5 ">
+                                <div class="w-0.5 shrink-0 self-stretch bg-faded"></div>
+                                <p class="w-full text-xs leading-6 text-bodyText">
+                                    @Model.Doc.FeatureAvailabilityInfo.Notes
+                                </p>
                             </div>
-                            <div data-popper-arrow></div>
-                        </div>
+                        }
                     </div>
-                    @* bottom *@
-                    <div class="flex items-start gap-4 py-2 mt-4 rounded-lg lg:mt-5 ">
-                        <div class="w-0.5 shrink-0 self-stretch bg-faded"></div>
-                        <p class="w-full text-xs leading-6 text-bodyText">Lorem ipsum dolor sit amet consectetur. Magna
-                            cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat
-                            vestibulum. </p>
-                    </div>
-                </div>
+                }
 
-                @* text 1 *@
-                <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                    Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                    ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est
-                    mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue
-                    tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                </p>
-
-                <h2 id="heading1"
-                    class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title
-                    placeholder</h2>
-
-                @* text 2 *@
-                <div>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                </div>
-
-                @* tip success *@
-                <div class="flex items-start gap-4 py-2 pr-6 mt-4 rounded-lg ">
-                    <div class="w-1 2xl:mr-11 mr-5 shrink-0 self-stretch bg-[#A4CD80]"></div>
-                    <div class="w-full text-base leading-7 text-bodyText">
-                        <div class="flex items-center gap-2 mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                 fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M8 1.83337C7.35812 1.83337 6.74664 1.95823 6.18761 2.18452C5.93165 2.28813 5.64015 2.16463 5.53654 1.90866C5.43292 1.65269 5.55643 1.3612 5.8124 1.25758C6.48861 0.983859 7.22735 0.833374 8 0.833374C11.2217 0.833374 13.8333 3.44505 13.8333 6.66671C13.8333 8.89963 12.1998 10.581 11.1933 11.4137C10.7637 11.7692 10.5 12.2581 10.5 12.7512C10.5 14.0853 9.41856 15.1667 8.08453 15.1667H7.92513C6.58577 15.1667 5.5 14.0809 5.5 12.7416C5.5 12.2509 5.24113 11.765 4.81768 11.4107C3.81536 10.5721 2.16667 8.87316 2.16667 6.66671C2.16667 5.28769 2.64582 4.01921 3.4463 3.02064C3.61902 2.80518 3.9337 2.77053 4.14916 2.94325C4.36462 3.11597 4.39927 3.43065 4.22655 3.64611C3.56315 4.47367 3.16667 5.5232 3.16667 6.66671C3.16667 8.39121 4.48638 9.82971 5.45937 10.6438C5.75262 10.8891 6.00735 11.193 6.19138 11.5381C6.20098 11.5421 6.21051 11.5464 6.21996 11.551C6.22075 11.5514 6.22154 11.5518 6.22233 11.5522L6.21996 11.551C6.2213 11.5516 6.22525 11.5535 6.23166 11.5563C6.24449 11.5619 6.26745 11.5715 6.30057 11.584C6.36677 11.6088 6.47366 11.6447 6.62127 11.6816C6.91617 11.7554 7.37546 11.8334 8 11.8334C8.27615 11.8334 8.5 12.0572 8.5 12.3334C8.5 12.6095 8.27615 12.8334 8 12.8334C7.36436 12.8334 6.8639 12.7621 6.49924 12.6803C6.49975 12.7007 6.5 12.7211 6.5 12.7416C6.5 13.5287 7.13806 14.1667 7.92513 14.1667H8.08453C8.86627 14.1667 9.5 13.533 9.5 12.7512C9.5 11.8987 9.94861 11.1457 10.5558 10.6433C11.5246 9.84173 12.8333 8.4198 12.8333 6.66671C12.8333 3.99733 10.6694 1.83337 8 1.83337ZM6.22327 11.5527C6.22323 11.5526 6.22331 11.5527 6.22327 11.5527V11.5527Z"
-                                      fill="#6B9E32"/>
-                            </svg>
-                            <span class="text-[#6B9E32]">Tip</span>
-                        </div>
-                        <p class="text-xs leading-6 sm:leading-7 md:text-base">Lorem ipsum dolor sit amet consectetur.
-                            Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat
-                            vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis
-                            semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan
-                            etiam mattis. Arcu consectetur rutrum mi volutpat.</p>
-                        <br/>
-                        <p class="text-xs leading-6 sm:leading-7 md:text-base">Leo sapien nibh leo sagittis cras nam
-                            felis ornare. Habitant eget ornare turpis.</p>
-                    </div>
-                </div>
-
-                @* tip Warning *@
-                <div class="flex items-start gap-4 py-2 pr-6 mt-4 rounded-lg ">
-                    <div class="w-1 2xl:mr-11 mr-5 shrink-0 self-stretch bg-[#F79009]"></div>
-                    <div class="w-full text-base leading-7 text-bodyText">
-                        <div class="flex items-center gap-2 mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                 fill="none">
-                                <g clip-path="url(#clip0_536_1825)">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                          d="M9.1705 2.15142C8.42921 1.81671 7.57983 1.81671 6.83854 2.15142C6.46645 2.31944 6.09047 2.67757 5.59928 3.39251C5.1101 4.10453 4.55267 5.0989 3.78741 6.46545L3.5534 6.88331C2.81764 8.19718 2.28317 9.15262 1.94451 9.91295C1.60498 10.6753 1.49766 11.168 1.54329 11.5669C1.63397 12.3596 2.05462 13.0772 2.70191 13.5436C3.02768 13.7784 3.51001 13.9255 4.34103 14.0017C5.16989 14.0777 6.26466 14.0782 7.77052 14.0782H8.23853C9.74439 14.0782 10.8392 14.0777 11.668 14.0017C12.499 13.9255 12.9814 13.7784 13.3071 13.5436C13.9544 13.0772 14.3751 12.3596 14.4658 11.5669C14.5114 11.168 14.4041 10.6753 14.0645 9.91295C13.7259 9.15262 13.1914 8.19718 12.4556 6.8833L12.2216 6.46544C11.4564 5.0989 10.8989 4.10452 10.4098 3.39251C9.91858 2.67757 9.5426 2.31944 9.1705 2.15142ZM6.42702 1.24002C7.42994 0.787179 8.5791 0.787179 9.58202 1.24002C10.2103 1.52369 10.7147 2.07035 11.234 2.82624C11.7522 3.58056 12.3316 4.61521 13.0807 5.95288L13.3414 6.41843C14.0612 7.70365 14.6185 8.69887 14.978 9.50608C15.3389 10.3163 15.5359 11.0106 15.4593 11.6806C15.3366 12.753 14.7675 13.7239 13.8917 14.355C13.3447 14.7491 12.6426 14.9165 11.7594 14.9975C10.8794 15.0782 9.73877 15.0782 8.26577 15.0782H7.74328C6.27028 15.0782 5.12965 15.0782 4.24969 14.9975C3.36647 14.9165 2.66437 14.7491 2.11731 14.355C1.24157 13.7239 0.672448 12.753 0.549773 11.6806C0.47314 11.0106 0.670165 10.3163 1.03103 9.50608C1.39056 8.69888 1.94788 7.70367 2.66759 6.41846L2.92829 5.95294C3.6774 4.61524 4.2568 3.58058 4.77506 2.82624C5.29438 2.07035 5.79879 1.52369 6.42702 1.24002ZM8.00452 5.41156C8.28066 5.41156 8.50452 5.63542 8.50452 5.91156V8.57823C8.50452 8.85437 8.28066 9.07823 8.00452 9.07823C7.72838 9.07823 7.50452 8.85437 7.50452 8.57823V5.91156C7.50452 5.63542 7.72838 5.41156 8.00452 5.41156ZM7.17119 10.9116C7.17119 10.4513 7.54428 10.0782 8.00452 10.0782C8.46476 10.0782 8.83786 10.4513 8.83786 10.9116C8.83786 11.3718 8.46476 11.7449 8.00452 11.7449C7.54428 11.7449 7.17119 11.3718 7.17119 10.9116Z"
-                                          fill="#F79009"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_536_1825">
-                                        <rect width="16" height="16" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <span class="text-[#F79009]">Warning</span>
-                        </div>
-                        <p class="text-xs leading-6 sm:leading-7 md:text-base">Lorem ipsum dolor sit amet consectetur.
-                            Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat
-                            vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis
-                            semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan
-                            etiam mattis. Arcu consectetur rutrum mi volutpat.</p>
-                        <br/>
-                        <p class="text-xs leading-6 sm:leading-7 md:text-base">Leo sapien nibh leo sagittis cras nam
-                            felis ornare. Habitant eget ornare turpis.</p>
-                    </div>
-                </div>
-
-                @* tip Danger *@
-                <div class="flex items-start gap-4 py-2 pr-6 mt-4 rounded-lg ">
-                    <div class="w-1 2xl:mr-11 mr-5 shrink-0 self-stretch bg-[#FF7D87]"></div>
-                    <div class="w-full text-base leading-7 text-bodyText">
-                        <div class="flex items-center gap-2 mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                 fill="none">
-                                <g clip-path="url(#clip0_536_1272)">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                          d="M7.99998 1.83398C4.59422 1.83398 1.83331 4.5949 1.83331 8.00065C1.83331 11.4064 4.59422 14.1673 7.99998 14.1673C11.4057 14.1673 14.1666 11.4064 14.1666 8.00065C14.1666 4.5949 11.4057 1.83398 7.99998 1.83398ZM0.833313 8.00065C0.833313 4.04261 4.04194 0.833984 7.99998 0.833984C11.958 0.833984 15.1666 4.04261 15.1666 8.00065C15.1666 11.9587 11.958 15.1673 7.99998 15.1673C4.04194 15.1673 0.833313 11.9587 0.833313 8.00065ZM5.64643 5.6471C5.84169 5.45184 6.15827 5.45184 6.35353 5.6471L7.99998 7.29354L9.64643 5.6471C9.84169 5.45184 10.1583 5.45184 10.3535 5.6471C10.5488 5.84236 10.5488 6.15894 10.3535 6.35421L8.70709 8.00065L10.3535 9.6471C10.5488 9.84236 10.5488 10.1589 10.3535 10.3542C10.1583 10.5495 9.84169 10.5495 9.64643 10.3542L7.99998 8.70776L6.35353 10.3542C6.15827 10.5495 5.84169 10.5495 5.64643 10.3542C5.45116 10.1589 5.45116 9.84236 5.64643 9.6471L7.29287 8.00065L5.64643 6.35421C5.45116 6.15894 5.45116 5.84236 5.64643 5.6471Z"
-                                          fill="#EA0044"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_536_1272">
-                                        <rect width="16" height="16" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <span class="text-[#FF7D87]">Danger</span>
-                        </div>
-                        <p class="text-xs leading-6 sm:leading-7 md:text-base">Lorem ipsum dolor sit amet consectetur.
-                            Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat
-                            vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis
-                            semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan
-                            etiam mattis. Arcu consectetur rutrum mi volutpat.</p>
-                        <br/>
-                        <p class="text-xs leading-6 sm:leading-7 md:text-base">Leo sapien nibh leo sagittis cras nam
-                            felis ornare. Habitant eget ornare turpis.</p>
-                    </div>
-                </div>
-
-                @* tip Quote *@
-                <div class="flex items-start gap-4 py-2 pr-6 mt-4 rounded-lg ">
-                    <div class="self-stretch w-1 mr-5 2xl:mr-11 shrink-0 bg-brand"></div>
-                    <div class="w-full text-base leading-7 text-bodyText">
-
-                        <p class="text-base font-bold leading-6 tracking-[-0.48px] sm:leading-10 sm:text-xl">“Ultricies
-                            tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac
-                            rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum.”</p>
-                        <br/>
-                        <p class="text-xs leading-6 sm:leading-7 md:text-base">Kristin Watson</p>
-                    </div>
-                </div>
-
-
-                <h2 id="heading2"
-                    class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title
-                    placeholder</h2>
-
-                @* text 2 *@
-                <div>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                </div>
+                @* CONTENT *@
+                @Html.Raw(Model.Doc.Preview)
 
                 @* Code Card *@
                 <div
@@ -715,16 +611,16 @@
                             <div class="relative w-full dark:bg-gray-700">
                                 <div class="overflow-scroll md:overflow-hidden ">
                                     <pre id="code-block" class="text-xs text-[#1A76FF] bg-headLines whitespace-pre">
-        USING org.apache.spark.sql.jdbc
-            OPTIONS (
-                    url "jdbc:mysql://iomet-tutorial.cetmtjnompsh.eu-
-        central-1.rds.amazonaws.com:3306/employees",
-                    dbtable "employees.employees",
-                    driver 'com.mysql.cj.jdbc.Driver',
-                    user 'tutorial_user',
-                    password '9tVDVEKp'
-        );
-                    </pre>
+                                                USING org.apache.spark.sql.jdbc
+                                                    OPTIONS (
+                                                            url "jdbc:mysql://iomet-tutorial.cetmtjnompsh.eu-
+                                                central-1.rds.amazonaws.com:3306/employees",
+                                                            dbtable "employees.employees",
+                                                            driver 'com.mysql.cj.jdbc.Driver',
+                                                            user 'tutorial_user',
+                                                            password '9tVDVEKp'
+                                                );
+                                                            </pre>
                                 </div>
                                 <div class="absolute top-2 end-10 dark:bg-gray-700">
                                     <button id="copyBtn" onclick="copyCode()" data-copy-to-clipboard-target="code-block"
@@ -760,103 +656,6 @@
                         </div>
                     </div>
                 </div>
-
-                <h2 id="heading3"
-                    class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title
-                    placeholder</h2>
-
-                @* text 2 *@
-                <div>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                </div>
-
-                @* text 3 *@
-                <div class="-mt-4">
-                    <p class="text-xs leading-6 text-bodyText md:text-base sm:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                    <p class="text-xs leading-6 text-bodyText md:text-base sm:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                </div>
-
-                <h2 id="heading4"
-                    class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title
-                    placeholder</h2>
-
-                @* text 2 *@
-                <div>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                </div>
-
-                <h2 id="heading5"
-                    class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title
-                    placeholder</h2>
-
-                @* text 2 *@
-                <div>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                </div>
-
-                <h2 id="heading6"
-                    class="2xl:text-[32px] text-[24px] text-headLines leading-9 tracking-[-0.96px] font-bold">Title
-                    placeholder</h2>
-
-                @* text 2 *@
-                <div>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                    <p class="text-xs leading-6 text-bodyText md:text-base lg:leading-7">
-                        Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna
-                        ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl.
-                        Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est
-                        augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-                    </p>
-                </div>
-
 
                 @* CONTENT FOOTER *@
                 <div

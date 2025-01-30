@@ -113,6 +113,28 @@ public class MarkdownFileInfo : MarkdownFileBase
 {
 }
 
+public class FeatureAvailabilityInfo
+{
+    public bool IsSelfHosted { get; set; } = false;
+    public bool IsCloudHosted { get; set; } = false;
+    public string Notes { get; set; } = string.Empty;
+
+    public FeatureAvailabilityInfo()
+    {
+
+    }
+
+    public FeatureAvailabilityInfo(Dictionary<string, object>? fromDic)
+    {
+        if (fromDic == null)
+            return;
+
+        IsSelfHosted = fromDic.TryGetValue("self_hosted", out var isSelfHosted) && Convert.ToBoolean(isSelfHosted);
+        IsCloudHosted = fromDic.TryGetValue("cloud_hosted", out var isCloudHosted) && Convert.ToBoolean(isCloudHosted);
+        Notes = (fromDic.TryGetValue("notes", out var notes) ? notes.ToString() : string.Empty) ?? string.Empty;
+    }
+}
+
 public static class HtmlHelpers
 {
     public static string ToAbsoluteContentUrl(string? relativePath) => HostContext.DebugMode
