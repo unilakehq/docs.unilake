@@ -2,7 +2,6 @@
 title: Getting Started
 sidebar_label: Getting Started
 menuicon: gearSvg
-draft: true
 feature_availability:
     self_hosted: false 
     cloud_hosted: true 
