@@ -10,7 +10,7 @@
         var pages = markdown.GetVisiblePages();
         return pages
             .Where(page => page.Path != "_pages/index.md")
-            .Map(page => new Page { Slug = page.Slug! });
+            .Map(page => new Page { PathInfo = page.Slug! });
     }
 }
 
@@ -18,9 +18,4 @@
    Brand = "ServiceStack Documentation",
    Slug = Model.Slug,
    Folder = Model.Folder,
-   DefaultMenu = new MarkdownMenu {
-       Icon = Markdown.DefaultMenuIcon,
-       Text = "Home",
-       Link = "/",
-   },
 }.Init(this, Markdown))
