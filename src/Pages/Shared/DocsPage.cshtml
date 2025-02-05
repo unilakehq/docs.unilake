@@ -6,6 +6,11 @@
 <link rel="stylesheet" href="/css/typography.css">
 <link rel="stylesheet" href="/css/lite-yt-embed.css">
 
+@if (Model == null)
+{
+    return;
+}
+
 <div class="relative px-0 pt-6 mx-auto md:px-8 3xl:px-28 3xl:container">
     <div class="flex flex-wrap">
 
@@ -189,7 +194,7 @@
                             }
                         </ul>
 
-                        <a class="hidden pr-8 xl:block" href="https://github.com/unilakehq/docs.unilake/edit/main/src/@(Model.Doc.Path)" target="_blank">
+                        <a class="hidden pr-8 xl:block" href="https://github.com/unilakehq/docs.unilake/edit/main/src/@(Model.Doc.Path ?? "")" target="_blank">
                             <button
                                 class="flex items-center mx-auto justify-center gap-2 px-6 py-3 mt-[60px] text-sm font-semibold text-neutral rounded-lg bg-brand hover:bg-[#e03c17]">
                                 @await Html.PartialAsync("SVG/GithubSvg")
