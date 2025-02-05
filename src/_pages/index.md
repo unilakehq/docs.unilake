@@ -1,6 +1,6 @@
 ---
 title: Architecture Overview
-sidebar_label: Architecture
+sidebarlabel: Architecture
 draft: true
 feature_availability:
     self_hosted: false 
@@ -20,8 +20,6 @@ Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis ves
 ### Some Containers
 ::: info
 This is an info box. With some info inside of it.
-
-
 another p?
 :::
 
@@ -46,3 +44,8 @@ Some text here
 ```sql
 select 100 from my.table
 ```
+
+| Column 1      | Column 2      |
+| ------------- | ------------- |
+| Cell 1, Row 1 | Cell 2, Row 1 |
+| Cell 1, Row 2 | Cell 1, Row 2 |

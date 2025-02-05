@@ -111,6 +111,8 @@ public class AppConfig
 // Add additional frontmatter info to include
 public class MarkdownFileInfo : MarkdownFileBase
 {
+    public string MenuIcon { get; set; } = string.Empty;
+    public string SidebarLabel { get; set; } = string.Empty;
 }
 
 public class FeatureAvailabilityInfo

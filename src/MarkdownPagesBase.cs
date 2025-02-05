@@ -588,14 +588,7 @@ public class CustomInfoRenderer : HtmlObjectRenderer<CustomContainer>
     private static Dictionary<string, (string, string, string)> _settings = new()
     {
         {
-            "info", ("text-[#A4CD80]", "bg-[#A4CD80]", """
-                                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                                           fill="none">
-                                                       <path fill-rule="evenodd" clip-rule="evenodd"
-                                                         d="M8 1.83337C7.35812 1.83337 6.74664 1.95823 6.18761 2.18452C5.93165 2.28813 5.64015 2.16463 5.53654 1.90866C5.43292 1.65269 5.55643 1.3612 5.8124 1.25758C6.48861 0.983859 7.22735 0.833374 8 0.833374C11.2217 0.833374 13.8333 3.44505 13.8333 6.66671C13.8333 8.89963 12.1998 10.581 11.1933 11.4137C10.7637 11.7692 10.5 12.2581 10.5 12.7512C10.5 14.0853 9.41856 15.1667 8.08453 15.1667H7.92513C6.58577 15.1667 5.5 14.0809 5.5 12.7416C5.5 12.2509 5.24113 11.765 4.81768 11.4107C3.81536 10.5721 2.16667 8.87316 2.16667 6.66671C2.16667 5.28769 2.64582 4.01921 3.4463 3.02064C3.61902 2.80518 3.9337 2.77053 4.14916 2.94325C4.36462 3.11597 4.39927 3.43065 4.22655 3.64611C3.56315 4.47367 3.16667 5.5232 3.16667 6.66671C3.16667 8.39121 4.48638 9.82971 5.45937 10.6438C5.75262 10.8891 6.00735 11.193 6.19138 11.5381C6.20098 11.5421 6.21051 11.5464 6.21996 11.551C6.22075 11.5514 6.22154 11.5518 6.22233 11.5522L6.21996 11.551C6.2213 11.5516 6.22525 11.5535 6.23166 11.5563C6.24449 11.5619 6.26745 11.5715 6.30057 11.584C6.36677 11.6088 6.47366 11.6447 6.62127 11.6816C6.91617 11.7554 7.37546 11.8334 8 11.8334C8.27615 11.8334 8.5 12.0572 8.5 12.3334C8.5 12.6095 8.27615 12.8334 8 12.8334C7.36436 12.8334 6.8639 12.7621 6.49924 12.6803C6.49975 12.7007 6.5 12.7211 6.5 12.7416C6.5 13.5287 7.13806 14.1667 7.92513 14.1667H8.08453C8.86627 14.1667 9.5 13.533 9.5 12.7512C9.5 11.8987 9.94861 11.1457 10.5558 10.6433C11.5246 9.84173 12.8333 8.4198 12.8333 6.66671C12.8333 3.99733 10.6694 1.83337 8 1.83337ZM6.22327 11.5527C6.22323 11.5526 6.22331 11.5527 6.22327 11.5527V11.5527Z"
-                                                         fill="#6B9E32"/>
-                                                       </svg>
-                                                       """)
+            "info", ("text-[#619DFF]", "bg-[#619DFF]", string.Empty)
         },
         {
             "tip", ("text-[#A4CD80]", "bg-[#A4CD80]", """
@@ -1040,7 +1033,7 @@ public class HeadingsMapExtension : IMarkdownExtension
                 if (lastHeading != null)
                 {
                     lastHeading.Children ??= new();
-                    lastHeading.Children.Add(new MarkdownMenuItem
+                    lastHeading.Children.Add(new MarkdownMenu
                     {
                         Text = text,
                         Link = $"#{attrs.Id}",
@@ -1096,12 +1089,6 @@ public class MarkdownMenu
     public string? Text { get; set; }
     public string? Link { get; set; }
     public string? Id { get; set; }
-    public List<MarkdownMenuItem>? Children { get; set; }
-}
-
-public class MarkdownMenuItem
-{
-    public string Text { get; set; }
-    public string Link { get; set; }
-    public string Id { get; set; }
+    public string MenuPath { get; set; }
+    public List<MarkdownMenu>? Children { get; set; }
 }
