@@ -480,7 +480,7 @@
 
     
     const menuItems = [
-    { href: "/", text: "Getting Started" },
+    { href: "/pages/getting_started", text: "Getting Started" },
     { href: "/pages/architecture", text: "Architecture" },
     { href: "/pages/platform", text: "Platform" },
     { href: "/pages/reference", text: "Reference" },
@@ -494,7 +494,7 @@
         const link = document.createElement("a");
         link.href = item.href;
         link.classList.add("inline-flex", "items-center", "font-inter", "leading-[28px]", "text-base", "font-normal");
-        if (location.pathname === item.href) {
+        if (location.pathname.includes(item.href) || (location.pathname === "/" && item.href === "/pages/getting_started")) {
           link.classList.add("text-brand");
         } else {
           link.classList.add("text-headLines", "transition", "duration-500", "hover:text-brand");
