@@ -9,7 +9,6 @@
         var markdown = ctx.Resolve<MarkdownPages>();
         var pages = markdown.GetVisiblePages();
         return pages
-            .Where(page => page.Path != "_pages/index.md")
             .Map(page => new Page { PathInfo = page.Slug! });
     }
 }
