@@ -1,0 +1,108 @@
+name: Build Search Index
+permissions:
+  packages: write
+  contents: write
+on:
+  schedule:
+    # Run once a day
+    - cron:  '10 0 * * *'
+  workflow_dispatch:
+    inputs:
+      noop:
+        description: 'noop'
+        required: false
+        default: 'noop'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      run_update: ${{ steps.date_check.outputs.run_update }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Check commit date
+        id: date_check
+        run: |
+          chmod +x ./search-server/commit-date-check.sh
+          echo "$(./search-server/commit-date-check.sh)"
+          echo "run_update=$(./search-server/commit-date-check.sh)" >> $GITHUB_ENV
+
+      - name: GH script check
+        uses: actions/github-script@v7
+        id: check
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const update = ${{ env.run_update == 'update' }}
+            if (!update) {
+              console.log('Cancelling ...');
+              const run_id = "${{ github.run_id }}";
+              await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id });
+              return 'stop'
+            } else {
+              return 'build'
+            }
+          result-encoding: string
+
+      - name: Waiting for cancellation
+        run: sleep 60
+        if: steps.check.outputs.result == 'stop'
+
+      - name: Create search index
+        run: |
+          echo "TYPESENSE_API_KEY=${{ secrets.TYPESENSE_API_KEY }}" >> $GITHUB_ENV
+          export TYPESENSE_API_KEY=${{ secrets.TYPESENSE_API_KEY }}
+          mkdir -p ${GITHUB_WORKSPACE}/typesense-data
+          cp ./search-server/typesense-server/Dockerfile ${GITHUB_WORKSPACE}/typesense-data/Dockerfile
+          cp ./search-server/typesense-scraper/typesense-scraper-config.json typesense-scraper-config.json
+          envsubst < "./search-server/typesense-scraper/typesense-scraper.env" > "typesense-scraper-updated.env"
+          docker run -d -p 8108:8108 -v ${GITHUB_WORKSPACE}/typesense-data/data:/data typesense/typesense:0.21.0 --data-dir /data --api-key=${TYPESENSE_API_KEY} --enable-cors &
+          sleep 5
+          docker run -i --env-file typesense-scraper-updated.env -e "CONFIG=$(cat typesense-scraper-config.json | jq -r tostring)" typesense/docsearch-scraper
+          curl 'http://172.17.0.2:8108/keys' -X POST -H "X-TYPESENSE-API-KEY: ${TYPESENSE_API_KEY}" -H 'Content-Type: application/json' -d '{"value": "N4N8bF0XwyvzwCGwm3CKB0QcnwyWtygo","description": "Search only","actions": ["documents:search"],"collections":["*"]}'
+
+      - name: repository name fix and env
+        run: |
+          echo "TAG_NAME=latest" >> $GITHUB_ENV
+          if [ "${{ github.event.release.tag_name }}" != "" ]; then
+            echo "TAG_NAME=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
+          fi;
+          if [ "${{ github.event.inputs.version }}" != "" ]; then
+            echo "TAG_NAME=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+          fi;
+          echo "image_repository_name=unilakehq/docs-search" >> $GITHUB_ENV
+          echo "domain=search.docs.unilake.com" >> $GITHUB_ENV
+          echo "app_name=unilake-docs-search" >> $GITHUB_ENV
+          echo "typesense_api_key=${{ secrets.TYPESENSE_API_KEY }}" >> $GITHUB_ENV
+
+      - name: Write .env file
+        run: |
+          echo "TYPESENSE_API_KEY=${{ env.typesense_api_key }}" >> .env
+          cp search-server/typesense-server/docker-compose.yml ./
+          
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v3
+        if: ${{ github.event.inputs.version == '' || github.event.inputs.version == 'latest' }}
+        with:
+          file: ./typesense-data/Dockerfile
+          context: ./typesense-data/
+          push: true
+          tags: ghcr.io/${{ env.image_repository_name }}:${{ env.TAG_NAME }}
+          
+          
+      # Deploy Docker image using webhook
+      - name: Deploy Docker image using webhook
+        run: |
+         curl --request GET '${{ secrets.COOLIFY_WEBHOOK }}' --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}'

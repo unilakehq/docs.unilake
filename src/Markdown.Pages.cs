@@ -3,6 +3,8 @@ using ServiceStack.IO;
 
 namespace docs.unilake;
 
+public record FolderMenu(string PageName, string? Icon);
+
 public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, IVirtualFiles fs)
     : MarkdownPagesBase<MarkdownFileInfo>(log, env, fs)
 {
@@ -13,7 +15,7 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
 
     List<MarkdownFileInfo> Pages { get; set; } = new();
     public List<MarkdownFileInfo> GetVisiblePages(string? prefix=null, bool allDirectories=false) => prefix == null 
-        ? Pages.Where(x => IsVisible(x) && !x.Slug!.Contains('/')).OrderBy(x => x.Order).ThenBy(x => x.Path).ToList()
+        ? Pages.Where(IsVisible).OrderBy(x => x.Order).ThenBy(x => x.Path).ToList()
         : Pages.Where(x => IsVisible(x) && x.Slug!.StartsWith(prefix.WithTrailingSlash()))
             .Where(x => allDirectories || (x.Slug.CountOccurrencesOf('/') == prefix.CountOccurrencesOf('/') + 1))
             .OrderBy(x => x.Order).ThenBy(x => x.Path).ToList();
@@ -25,10 +27,12 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
     }
 
     public Dictionary<string, List<MarkdownMenu>> Sidebars { get; set; } = new();
+    public Dictionary<string, FolderMenu[]> FolderMenu { get; set; } = new();
 
     public void LoadFrom(string fromDirectory)
     {
         Sidebars.Clear();
+        FolderMenu.Clear();
         Pages.Clear();
         var files = VirtualFiles.GetDirectory(fromDirectory).GetAllFiles()
             .OrderBy(x => x.VirtualPath)
@@ -51,24 +55,18 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
                     if (relativePath.IndexOf('/') >= 0)
                     {
                         doc.Slug = relativePath.LastLeftPart('/') + '/' + doc.Slug;
+                        doc.Slug = doc.Slug.Split('/').Select(x => x.GenerateSlug()).Join("/");
                     }
 
                     Pages.Add(doc);
                 }
-                else if (file.Name == "sidebar.json")
+                else if (file.Name == "menu.json")
                 {
                     var virtualPath = file.VirtualPath.Substring(fromDirectory.Length);
-                    var folder = virtualPath[..^"sidebar.json".Length].Trim('/');
-                    var sidebarJson = file.ReadAllText();
-                    var sidebar = sidebarJson.FromJson<List<MarkdownMenu>>();
-
-                    // If first entry is home and icon is not provided or '' use DefaultMenuIcon 
-                    var defaultMenu = sidebar.FirstOrDefault();
-                    if (defaultMenu?.Link?.Trim('/') == folder && defaultMenu.Icon == null)
-                    {
-                        defaultMenu.Icon = DefaultMenuIcon;
-                    }
-                    Sidebars[folder] = sidebar;
+                    var folder = virtualPath[..^"menu.json".Length].Trim('/');
+                    var folderJson = file.ReadAllText();
+                    var folderMenu = folderJson.FromJson<FolderMenu[]>();
+                    FolderMenu[folder] = folderMenu;
                 }
             }
             catch (Exception e)
@@ -76,10 +74,8 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
                 log.LogError(e, "Couldn't load {VirtualPath}: {Message}", file.VirtualPath, e.Message);
             }
         }
-        if (Sidebars.Count > 0)
-        {
-            log.LogInformation("Loaded {Count} sidebars: {Sidebars}", Sidebars.Count, Sidebars.Keys.Join(", "));
-        }
+
+        log.LogInformation("Loaded {Count} pages and folder order: {Sidebars}", Pages.Count, FolderMenu.Count);
     }
 
     public override List<MarkdownFileBase> GetAll() => Pages.Where(IsVisible).Map(doc => ToMetaDoc(doc, x => x.Url = $"/{x.Slug}"));
@@ -89,49 +85,96 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
         if (Sidebars.TryGetValue(folder, out var sidebar))
             return sidebar;
 
-        var allPages = GetVisiblePages(folder);
-        var allGroups = allPages.Select(x => x.Group)
-            .Distinct()
-            .OrderBy(x => x)
-            .ToList();
-
+        var allPages = GetVisiblePages(folder, true);
         sidebar = new List<MarkdownMenu>();
-        foreach (var group in allGroups)
+        foreach (var page in allPages)
         {
-            MarkdownMenu? menuItem;
-            if (group == null)
+            MarkdownMenu? menuItem = null;
+            var lastItem = page.Path.Split('/').Last();
+            var prevPath = page.Path.Split('/')[1];
+            foreach (var pathfolder in page.Path.Split('/').Skip(2))
             {
-                menuItem = defaultMenu ?? new MarkdownMenu {
-                    Children = [],
-                };
-            }
-            else
-            {
-                menuItem = new() {
-                    Text = group
-                };
-            }
-            sidebar.Add(menuItem);
-        
-            foreach (var page in allPages.Where(x => x.Group == group).OrderBy(x => x.Order))
-            {
-                menuItem.Children ??= [];
-                var link = page.Slug!;
-                if (link.EndsWith("/index"))
+                // new menu item
+                var nMenuItem = new MarkdownMenu
                 {
-                    link = link.Substring(0, link.Length - "index".Length);
-                    // Hide /index from auto Sidebar as it's included in Docs Page Sidebar Header by default
-                    if (link.Trim('/') == folder)
-                        continue;
+                    Text = pathfolder,
+                    Icon = page.MenuIcon,
+                    MenuPath = Path.Combine(prevPath, pathfolder)
+                };
+                prevPath = nMenuItem.MenuPath;
+
+                // page
+                if (pathfolder == lastItem)
+                {
+                    nMenuItem.Text = !string.IsNullOrWhiteSpace(page.SidebarLabel) ? page.SidebarLabel : page.Title;
+                    nMenuItem.Link = page.Slug;
+                    nMenuItem.Id = page.Title?.ToLower().Replace(' ', '_');
+
+                    if(menuItem == null)
+                        sidebar.Add(nMenuItem);
+                    else if (menuItem.Children == null)
+                    {
+                        menuItem.Children =
+                        [
+                            nMenuItem
+                        ];
+                    }
+                    else
+                    {
+                        menuItem.Children.Add(nMenuItem);
+                        menuItem.Children = menuItem.Children.OrderBy(x => x.Text).ToList();
+                    }
+
+                    continue;
                 }
-                menuItem.Children.Add(new()
+
+                // folder
+                if (menuItem != null)
                 {
-                    Text = page.Title!,
-                    Link = link,
-                });
+                    menuItem.Children ??=
+                    [
+                        nMenuItem
+                    ];
+                    var childMenuItem = menuItem.Children.FirstOrDefault(x => x.Text == pathfolder);
+                    if (childMenuItem != null)
+                    {
+                        menuItem = childMenuItem;
+                        continue;
+                    }
+
+                    menuItem.Children.Add(nMenuItem);
+                    menuItem = nMenuItem;
+                    continue;
+                }
+
+                var found = sidebar.FirstOrDefault(x => x.Text == pathfolder);
+                if (found == null)
+                {
+                    sidebar.Add(nMenuItem);
+                    sidebar = sidebar.OrderBy(x => x.Text).ToList();
+                    menuItem = nMenuItem;
+                }
+                else
+                    menuItem = found;
             }
         }
 
+        sidebar = SetSideBarOrder(sidebar, folder);
+        Sidebars.Add(folder, sidebar);
         return sidebar;
+    }
+
+    private List<MarkdownMenu> SetSideBarOrder(List<MarkdownMenu> menu, string menuPath = "")
+    {
+        foreach (var item in menu.Where(x => x.Children != null))
+            item.Children = SetSideBarOrder(item.Children!, item.MenuPath);
+
+        if (string.IsNullOrWhiteSpace(menuPath) || menu.Count <= 0 || !FolderMenu.TryGetValue(menuPath, out var folderMenu))
+            // default order
+            return menu.OrderBy(x=> x.Text).ToList();
+
+        var orderIndex = folderMenu.ToList().Select((value, index) => new { value, index })
+            .ToDictionary(item => item.value.PageName, item => item.index);
+        return menu.OrderBy(x => orderIndex.TryGetValue(x.Text ?? "", out var value) ? value : 0).ToList();
     }
 }

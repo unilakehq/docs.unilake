@@ -1,0 +1,45 @@
+{
+    "index_name": "unilake_docs",
+    "allowed_domains": [
+        "172.17.0.2",
+        "docs-unilake.coolify.avd.unilake.com"
+    ],
+    "start_urls": [
+        {
+            "url": "https://docs-unilake.coolify.avd.unilake.com"
+        },
+        {
+            "url": "https://docs-unilake.coolify.avd.unilake.com/architecture"
+        },
+        {
+            "url": "https://docs-unilake.coolify.avd.unilake.com/platform"
+        },
+        {
+            "url": "https://docs-unilake.coolify.avd.unilake.com/reference"
+        },
+        {
+            "url": "https://docs-unilake.coolify.avd.unilake.com/integrations"
+        },
+        {
+            "url": "https://docs-unilake.coolify.avd.unilake.com/contribute"
+        },
+        {
+            "url": "https://docs-unilake.coolify.avd.unilake.com/integrations"
+        }
+    ],
+    "stop_urls": [
+        "https://docs-unilake.coolify.avd.unilake.com/blog"
+    ],
+    "selectors": {
+        "default": {
+            "lvl0": "h1",
+            "lvl1": ".content h2",
+            "lvl2": ".content h3",
+            "lvl3": ".content h4",
+            "lvl4": ".content h5",
+            "text": ".content p, .content ul li, .content table tbody tr"
+        }
+    },
+    "scrape_start_urls": true,
+    "strip_chars": " .,;:#"
+}

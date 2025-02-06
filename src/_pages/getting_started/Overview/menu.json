@@ -1,0 +1,22 @@
+[
+  {
+    "PageName": "What is Unilake?",
+    "Icon": "GearSvg"
+  },
+  {
+    "PageName": "Platform Tour",
+    "Icon": "GearSvg"
+  },
+  {
+    "PageName": "Architecture",
+    "Icon": "GearSvg"
+  },
+  {
+    "PageName": "Dependencies",
+    "Icon": "GearSvg"
+  },
+  {
+    "PageName": "Support",
+    "Icon": "GearSvg"
+  }
+]

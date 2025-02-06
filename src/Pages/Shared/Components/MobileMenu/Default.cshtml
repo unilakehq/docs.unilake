@@ -1,0 +1,79 @@
+@page
+@model MobileMenuViewModel
+@inject MarkdownPages Markdown
+
+@foreach (var item in Markdown.GetSidebar(Model.Folder))
+{
+    @* MENU ITEM *@
+    <li>
+        @if (!string.IsNullOrWhiteSpace(item.Link))
+        {
+            <a href="/pages/@(item.Link)" class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
+                <span
+                    class="flex-1 text-left whitespace-nowrap">@(item.Text)</span>
+            </a>
+        }
+        else
+        {
+            <button type="button"
+                    class="flex items-center w-full gap-2 px-4 py-1 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
+                    aria-controls="dropdown-l-mob-@(item.GetHashCode())"
+                    data-collapse-toggle="dropdown-l-mob-@(item.GetHashCode())">
+                @await Html.PartialAsync("SVG/GearSvg")
+                <span class="flex-1 text-left whitespace-nowrap">@(item.Text)</span>
+                @* opened chevron UP *@
+                <svg class="transition-transform rotate-180 chevron"
+                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                     viewBox="0 0 16 16" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z"
+                          fill="#252532"/>
+                </svg>
+            </button>
+        }
+        <ul id="dropdown-l-mob-@(item.GetHashCode())" class="px-2 pt-1">
+            @foreach (var subItem in item.Children ?? new List<MarkdownMenu>())
+            {
+                <li class="">
+                    @if (!string.IsNullOrWhiteSpace(subItem.Link))
+                    {
+                        <a href="/pages/@(subItem.Link)" class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded">
+                            <span
+                                class="flex-1 text-left whitespace-nowrap">@(subItem.Text)</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <button type="button"
+                                class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
+                                aria-controls="dropdown-li-mob-@(subItem.GetHashCode())"
+                                data-collapse-toggle="dropdown-li-mob-@(subItem.GetHashCode())">
+                            @await Html.PartialAsync("SVG/PagesSvg")
+                            <span
+                                class="flex-1 text-left whitespace-nowrap">@(subItem.Text)</span>
+                            @* opened chevron UP *@
+                            <svg class="transition-transform rotate-180 chevron"
+                                 xmlns="http://www.w3.org/2000/svg" width="16"
+                                 height="16" viewBox="0 0 16 16" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z"
+                                      fill="#252532"/>
+                            </svg>
+                        </button>
+                    }
+                    <ul id="dropdown-li-mob-@(subItem.GetHashCode())"
+                        class="pl-6">
+                        @foreach (var subSubItem in subItem.Children ?? new List<MarkdownMenu>())
+                        {
+                            <li
+                                class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
+                                <a href="/pages/@(subSubItem.Link)"
+                                   class="flex items-center w-full transition duration-75 rounded-lg group">@(subSubItem.Text)</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </li>
+}

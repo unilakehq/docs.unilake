@@ -1,0 +1,14 @@
+[
+  {
+    "PageName": "Overview",
+    "Icon": "GearSvg"
+  },
+  {
+    "PageName": "Cloud Platforms",
+    "Icon": "GearSvg"
+  },
+  {
+    "PageName": "Local Platforms",
+    "Icon": "GearSvg"
+  }
+]

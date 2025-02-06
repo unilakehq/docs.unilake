@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  unilake-docs-search:
+    image: ghcr.io/unilakehq/docs-search:latest
+    restart: always
+    ports:
+      - "8108"
+    environment:
+      VIRTUAL_HOST: "${HOST_DOMAIN}"
+      TYPESENSE_API_KEY: "${TYPESENSE_API_KEY}"
+    command:
+      - "--data-dir"
+      - "/data"
+      - "--api-key"
+      - "${TYPESENSE_API_KEY}"
+      - "--enable-cors"

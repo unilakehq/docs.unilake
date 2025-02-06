@@ -1,537 +1,272 @@
+@page
+@model Header
+@using docs.unilake.Pages.Shared.Components
+
 <header id="header" class="fixed top-0 z-50 w-full bg-white shadow 2xl:h-14 dark:bg-black">
-  <nav class="bg-neutral dark:border-gray-700 dark:bg-black">
-    <!-- desktop -->
-    <div class="px-4 py-1.5 lg:py-4 pr-6 mx-auto 2xl:py-6 md:px-8 3xl:px-28 border-b bg-neutral border-bgNeutarl">
-      <div class="flex items-center justify-between">
-        <div class="flex flex-shrink-0 gap-0 md:gap-6">
-          <!-- HAMBURGER BUTTON -->
-          <div class="flex items-center xl:hidden">
-            <button id="hamburgerBtn" type="button" class="inline-flex items-center justify-center p-2 pr-1 text-gray-400 rounded-md dark:bg-black" aria-controls="mobile-menu" aria-expanded="false">
-              @await Html.PartialAsync("SVG/HamburgerSvg")
-            </button>
-          </div>
-          <!-- LOGO -->
-          <a href="/" class="self-center" alt="Main Logo">
-            <svg id="mainLogo" class="w-[87px] h-[16px] md:w-[171px] md:h-[32px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171 32" fill="none">
-                <path d="M51.5706 20.8496C51.5706 25.3076 49.5008 27.8653 45.8927 27.8653C42.6237 27.8653 40.7567 25.4206 40.7567 21.1552V9.74811H36.558V21.2707C36.558 29.1827 41.4372 31.9896 45.6334 31.9896C47.9677 31.9896 49.9836 31.3424 51.5783 30.1175V31.6069H55.7795V9.74811H51.5783L51.5706 20.8496Z" fill="#252532"/>
-                <path d="M70.1269 9.36548C67.7926 9.36548 65.7613 10.0126 64.1794 11.2376V9.74811H59.9808V31.6069H64.1794V20.5055C64.1794 16.0448 66.2493 13.4871 69.8573 13.4871C73.1264 13.4871 74.9933 15.9344 74.9933 20.1999V31.6069H79.1945V20.0843C79.1945 12.1723 74.3153 9.36548 70.1192 9.36548" fill="#252532"/>
-                <path d="M87.3043 9.74811H83.1056V31.6069H87.3043V9.74811Z" fill="#252532"/>
-                <path d="M85.2242 3.36408C84.5634 3.36248 83.928 3.61903 83.4536 4.07906C82.9792 4.53909 82.7032 5.16623 82.6844 5.8268C82.6858 6.49997 82.9538 7.14517 83.4298 7.62117C83.9058 8.09717 84.551 8.36518 85.2242 8.36654C85.8924 8.36043 86.5308 8.08968 86.9997 7.6136C87.4686 7.13752 87.7295 6.49498 87.7254 5.8268C87.712 5.17118 87.443 4.54674 86.9758 4.08666C86.5085 3.62659 85.8799 3.36729 85.2242 3.36408Z" fill="#252532"/>
-                <path d="M99.5125 27.6393C99.1378 27.7868 98.739 27.8634 98.3364 27.8653C97.8998 27.8653 97.1679 27.8653 97.1679 26.2013V0.0076828H92.9667V26.286C92.9667 29.8119 94.9517 31.9998 98.1438 31.9998C99.127 32.0074 100.099 31.7942 100.989 31.3758L101.932 30.9033L101.354 26.7226L99.5125 27.6393Z" fill="#252532"/>
-                <path d="M120.249 11.8128C118.308 10.2094 115.864 9.34264 113.346 9.36548C107.25 9.36548 102.476 14.3423 102.476 20.6955C102.476 27.0487 107.25 31.9947 113.346 31.9947C115.869 32.0001 118.312 31.1174 120.249 29.5012V31.6069H124.448V9.74811H120.249V11.8128ZM113.462 27.8654C109.656 27.8654 106.675 24.717 106.675 20.6955C106.675 16.674 109.656 13.4871 113.462 13.4871C117.332 13.4871 120.249 16.5867 120.249 20.6955C120.249 24.717 117.268 27.8654 113.462 27.8654Z" fill="#252532"/>
-                <path d="M150.631 9.74811H145.007L137.057 18.4639H134.319V0H130.12V31.6069H134.319V22.6241H136.972L144.999 31.6069H150.569L140.752 20.5568L150.631 9.74811Z" fill="#252532"/>
-                <path d="M160.181 9.36547C153.898 9.36547 149.157 14.2447 149.157 20.6955C149.157 27.0282 154.082 31.9947 160.374 31.9947C163.985 31.9947 167.195 30.5155 169.419 27.8294L170.269 26.8022L167.341 23.8747L166.314 25.1201C165.597 25.9996 164.69 26.7044 163.661 27.1814C162.632 27.6583 161.508 27.8949 160.374 27.873C158.831 27.881 157.33 27.3764 156.105 26.4384C154.88 25.5005 154.002 24.1822 153.607 22.6908H170.446L170.682 21.5095C170.762 21.1003 170.797 20.6835 170.787 20.2666C170.787 14.1471 166.129 9.3552 160.181 9.3552M153.613 18.6C154.439 15.5518 157.007 13.464 160.181 13.464C163.237 13.464 165.715 15.5826 166.427 18.6H153.613Z" fill="#252532"/>
-                <path d="M0.00769746 16.5867V31.6069H4.43235V29.8093C1.60756 27.2182 0.00512695 21.5532 0.00512695 16.5764" fill="#FF6849"/>
-                <path d="M26.9383 16.5867V31.6069H22.5111V29.8093C25.3359 27.2182 26.9383 21.5532 26.9383 16.5764" fill="#FF6849"/>
-                <path d="M22.5111 5.56997V17.1414C22.5111 20.8059 21.4531 23.6435 19.5322 25.436V13.9956H14.9612V27.5007C14.4653 27.5721 13.965 27.609 13.464 27.6111C12.9639 27.609 12.4645 27.5721 11.9694 27.5007V1.49199H7.40611V25.436C5.48525 23.6384 4.42723 20.8136 4.42723 17.1414V9.73526H0V17.1414C0 26.1602 5.28494 31.9895 13.464 31.9895C21.6431 31.9895 26.9306 26.1602 26.9306 17.1414V5.56997H22.5111Z" fill="#FF6849"/>
-            </svg>
-          </a>
-        </div>
-        <!-- LINKS -->
-        <div class="hidden xl:flex md:space-x-4 lg:space-x-8" id="navLinks">
-          <!-- Rendered navigation links will go here -->
-        </div>
-        <!-- CTA -->
-        <div class="flex items-center gap-6 md:gap-8">
-          <div id="searchForm" class="flex items-center max-w-md gap-6 mx-auto xl:flex md:gap-8 font-inter hover:cursor-pointer">
-            <typesense></typesense>
-            <!-- Buttons -->
-            <div id="ctaBtns" class="hidden gap-3 md:flex flex-start text-headLines">
-                <a href="/">
-                <div class="p-2 border rounded-full cursor-pointer hover:bg-backgroundFaded border-bgNeutarl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M7.32473 7.10357L3.34554 10.6568C2.93564 10.9793 2.66669 11.5117 2.66669 12.1105C2.66669 13.0884 3.38408 13.8887 4.26089 13.8887H11.7391C12.616 13.8887 13.3334 13.0884 13.3334 12.1105C13.3334 11.1324 12.616 10.3324 11.7391 10.3324H6.07787C5.99393 10.3324 5.94088 10.2318 5.98179 10.15L7.44139 7.22763C7.4947 7.14237 7.39863 7.04023 7.32473 7.10357ZM11.7391 2H4.26089C3.38408 2 2.66669 2.80001 2.66669 3.77817C2.66669 4.75608 3.38408 5.55635 4.26089 5.55635H9.92217C10.0061 5.55635 10.0592 5.65691 10.0182 5.73873L8.55865 8.66109C8.50534 8.74634 8.60141 8.84849 8.67531 8.78514L12.6545 5.23144C13.0644 4.90864 13.3334 4.37653 13.3334 3.77765C13.3334 2.79974 12.616 1.99947 11.7391 2Z" fill="#252532"/>
-                    </svg>
+    <nav class="bg-neutral dark:border-gray-700 dark:bg-black">
+        <!-- desktop -->
+        <div class="px-4 py-1.5 lg:py-4 pr-6 mx-auto 2xl:py-6 md:px-8 3xl:px-28 border-b bg-neutral border-bgNeutarl">
+            <div class="flex items-center justify-between">
+                <div class="flex flex-shrink-0 gap-0 md:gap-6">
+                    <!-- HAMBURGER BUTTON -->
+                    <div class="flex items-center xl:hidden">
+                        <button id="hamburgerBtn" type="button"
+                                class="inline-flex items-center justify-center p-2 pr-1 text-gray-400 rounded-md dark:bg-black"
+                                aria-controls="mobile-menu" aria-expanded="false">
+                            @await Html.PartialAsync("SVG/HamburgerSvg")
+                        </button>
+                    </div>
+                    <!-- LOGO -->
+                    <a href="/" class="self-center" alt="Main Logo">
+                        <svg id="mainLogo" class="w-[87px] h-[16px] md:w-[171px] md:h-[32px]"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171 32" fill="none">
+                            <path
+                                d="M51.5706 20.8496C51.5706 25.3076 49.5008 27.8653 45.8927 27.8653C42.6237 27.8653 40.7567 25.4206 40.7567 21.1552V9.74811H36.558V21.2707C36.558 29.1827 41.4372 31.9896 45.6334 31.9896C47.9677 31.9896 49.9836 31.3424 51.5783 30.1175V31.6069H55.7795V9.74811H51.5783L51.5706 20.8496Z"
+                                fill="#252532"/>
+                            <path
+                                d="M70.1269 9.36548C67.7926 9.36548 65.7613 10.0126 64.1794 11.2376V9.74811H59.9808V31.6069H64.1794V20.5055C64.1794 16.0448 66.2493 13.4871 69.8573 13.4871C73.1264 13.4871 74.9933 15.9344 74.9933 20.1999V31.6069H79.1945V20.0843C79.1945 12.1723 74.3153 9.36548 70.1192 9.36548"
+                                fill="#252532"/>
+                            <path d="M87.3043 9.74811H83.1056V31.6069H87.3043V9.74811Z" fill="#252532"/>
+                            <path
+                                d="M85.2242 3.36408C84.5634 3.36248 83.928 3.61903 83.4536 4.07906C82.9792 4.53909 82.7032 5.16623 82.6844 5.8268C82.6858 6.49997 82.9538 7.14517 83.4298 7.62117C83.9058 8.09717 84.551 8.36518 85.2242 8.36654C85.8924 8.36043 86.5308 8.08968 86.9997 7.6136C87.4686 7.13752 87.7295 6.49498 87.7254 5.8268C87.712 5.17118 87.443 4.54674 86.9758 4.08666C86.5085 3.62659 85.8799 3.36729 85.2242 3.36408Z"
+                                fill="#252532"/>
+                            <path
+                                d="M99.5125 27.6393C99.1378 27.7868 98.739 27.8634 98.3364 27.8653C97.8998 27.8653 97.1679 27.8653 97.1679 26.2013V0.0076828H92.9667V26.286C92.9667 29.8119 94.9517 31.9998 98.1438 31.9998C99.127 32.0074 100.099 31.7942 100.989 31.3758L101.932 30.9033L101.354 26.7226L99.5125 27.6393Z"
+                                fill="#252532"/>
+                            <path
+                                d="M120.249 11.8128C118.308 10.2094 115.864 9.34264 113.346 9.36548C107.25 9.36548 102.476 14.3423 102.476 20.6955C102.476 27.0487 107.25 31.9947 113.346 31.9947C115.869 32.0001 118.312 31.1174 120.249 29.5012V31.6069H124.448V9.74811H120.249V11.8128ZM113.462 27.8654C109.656 27.8654 106.675 24.717 106.675 20.6955C106.675 16.674 109.656 13.4871 113.462 13.4871C117.332 13.4871 120.249 16.5867 120.249 20.6955C120.249 24.717 117.268 27.8654 113.462 27.8654Z"
+                                fill="#252532"/>
+                            <path
+                                d="M150.631 9.74811H145.007L137.057 18.4639H134.319V0H130.12V31.6069H134.319V22.6241H136.972L144.999 31.6069H150.569L140.752 20.5568L150.631 9.74811Z"
+                                fill="#252532"/>
+                            <path
+                                d="M160.181 9.36547C153.898 9.36547 149.157 14.2447 149.157 20.6955C149.157 27.0282 154.082 31.9947 160.374 31.9947C163.985 31.9947 167.195 30.5155 169.419 27.8294L170.269 26.8022L167.341 23.8747L166.314 25.1201C165.597 25.9996 164.69 26.7044 163.661 27.1814C162.632 27.6583 161.508 27.8949 160.374 27.873C158.831 27.881 157.33 27.3764 156.105 26.4384C154.88 25.5005 154.002 24.1822 153.607 22.6908H170.446L170.682 21.5095C170.762 21.1003 170.797 20.6835 170.787 20.2666C170.787 14.1471 166.129 9.3552 160.181 9.3552M153.613 18.6C154.439 15.5518 157.007 13.464 160.181 13.464C163.237 13.464 165.715 15.5826 166.427 18.6H153.613Z"
+                                fill="#252532"/>
+                            <path
+                                d="M0.00769746 16.5867V31.6069H4.43235V29.8093C1.60756 27.2182 0.00512695 21.5532 0.00512695 16.5764"
+                                fill="#FF6849"/>
+                            <path
+                                d="M26.9383 16.5867V31.6069H22.5111V29.8093C25.3359 27.2182 26.9383 21.5532 26.9383 16.5764"
+                                fill="#FF6849"/>
+                            <path
+                                d="M22.5111 5.56997V17.1414C22.5111 20.8059 21.4531 23.6435 19.5322 25.436V13.9956H14.9612V27.5007C14.4653 27.5721 13.965 27.609 13.464 27.6111C12.9639 27.609 12.4645 27.5721 11.9694 27.5007V1.49199H7.40611V25.436C5.48525 23.6384 4.42723 20.8136 4.42723 17.1414V9.73526H0V17.1414C0 26.1602 5.28494 31.9895 13.464 31.9895C21.6431 31.9895 26.9306 26.1602 26.9306 17.1414V5.56997H22.5111Z"
+                                fill="#FF6849"/>
+                        </svg>
+                    </a>
                 </div>
-                </a>
-                <a href="/">
-                <div class="p-2 border rounded-full cursor-pointer hover:bg-backgroundFaded border-bgNeutarl">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M8.00065 1.33334C4.31732 1.33334 1.33399 4.31667 1.33399 8C1.33318 9.39944 1.77305 10.7636 2.59119 11.899C3.40933 13.0343 4.56421 13.8833 5.89199 14.3253C6.22532 14.3833 6.35065 14.1833 6.35065 14.008C6.35065 13.85 6.34199 13.3253 6.34199 12.7667C4.66732 13.0753 4.23399 12.3587 4.10065 11.9833C4.02532 11.7913 3.70065 11.2 3.41732 11.0413C3.18399 10.9167 2.85065 10.608 3.40865 10.6C3.93399 10.5913 4.30865 11.0833 4.43399 11.2833C5.03399 12.2913 5.99199 12.008 6.37532 11.8333C6.43399 11.4 6.60865 11.1087 6.80065 10.942C5.31732 10.7753 3.76732 10.2 3.76732 7.65C3.76732 6.92467 4.02532 6.32534 4.45065 5.85867C4.38399 5.692 4.15065 5.00867 4.51732 4.092C4.51732 4.092 5.07532 3.91667 6.35065 4.77467C6.89339 4.62427 7.45413 4.54868 8.01732 4.55C8.58399 4.55 9.15065 4.62467 9.68399 4.77467C10.9593 3.908 11.5173 4.092 11.5173 4.092C11.884 5.00867 11.6507 5.692 11.584 5.85867C12.0087 6.32534 12.2673 6.91667 12.2673 7.65C12.2673 10.2087 10.7093 10.7753 9.22599 10.942C9.46732 11.15 9.67599 11.55 9.67599 12.1753C9.67599 13.0667 9.66732 13.7833 9.66732 14.0087C9.66732 14.1833 9.79265 14.3913 10.126 14.3247C11.4492 13.8778 12.599 13.0272 13.4135 11.8926C14.2281 10.7581 14.6663 9.39666 14.6667 8C14.6667 4.31667 11.6833 1.33334 7.99999 1.33334" fill="#252532"/>
-                    </svg>
+                <!-- LINKS -->
+                <div class="hidden xl:flex md:space-x-4 lg:space-x-8" id="navLinks">
+                    <!-- Rendered navigation links will go here -->
                 </div>
-                </a>
+                <!-- CTA -->
+                <div class="flex items-center gap-6 md:gap-8">
+                    <div id="searchForm"
+                         class="flex items-center max-w-md gap-6 mx-auto xl:flex md:gap-8 font-inter hover:cursor-pointer">
+                        <typesense></typesense>
+                        <!-- Buttons -->
+                        <div id="ctaBtns" class="hidden gap-3 md:flex flex-start text-headLines">
+                            <a href="https://chat.unilake.com" target="_blank">
+                                <div
+                                    class="p-2 border rounded-full cursor-pointer hover:bg-backgroundFaded border-bgNeutarl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                         fill="none">
+                                        <path
+                                            d="M7.32473 7.10357L3.34554 10.6568C2.93564 10.9793 2.66669 11.5117 2.66669 12.1105C2.66669 13.0884 3.38408 13.8887 4.26089 13.8887H11.7391C12.616 13.8887 13.3334 13.0884 13.3334 12.1105C13.3334 11.1324 12.616 10.3324 11.7391 10.3324H6.07787C5.99393 10.3324 5.94088 10.2318 5.98179 10.15L7.44139 7.22763C7.4947 7.14237 7.39863 7.04023 7.32473 7.10357ZM11.7391 2H4.26089C3.38408 2 2.66669 2.80001 2.66669 3.77817C2.66669 4.75608 3.38408 5.55635 4.26089 5.55635H9.92217C10.0061 5.55635 10.0592 5.65691 10.0182 5.73873L8.55865 8.66109C8.50534 8.74634 8.60141 8.84849 8.67531 8.78514L12.6545 5.23144C13.0644 4.90864 13.3334 4.37653 13.3334 3.77765C13.3334 2.79974 12.616 1.99947 11.7391 2Z"
+                                            fill="#252532"/>
+                                    </svg>
+                                </div>
+                            </a>
+                            <a href="https://github.com/unilakehq/unilake" target="_blank">
+                                <div
+                                    class="p-2 border rounded-full cursor-pointer hover:bg-backgroundFaded border-bgNeutarl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                         fill="none">
+                                        <path
+                                            d="M8.00065 1.33334C4.31732 1.33334 1.33399 4.31667 1.33399 8C1.33318 9.39944 1.77305 10.7636 2.59119 11.899C3.40933 13.0343 4.56421 13.8833 5.89199 14.3253C6.22532 14.3833 6.35065 14.1833 6.35065 14.008C6.35065 13.85 6.34199 13.3253 6.34199 12.7667C4.66732 13.0753 4.23399 12.3587 4.10065 11.9833C4.02532 11.7913 3.70065 11.2 3.41732 11.0413C3.18399 10.9167 2.85065 10.608 3.40865 10.6C3.93399 10.5913 4.30865 11.0833 4.43399 11.2833C5.03399 12.2913 5.99199 12.008 6.37532 11.8333C6.43399 11.4 6.60865 11.1087 6.80065 10.942C5.31732 10.7753 3.76732 10.2 3.76732 7.65C3.76732 6.92467 4.02532 6.32534 4.45065 5.85867C4.38399 5.692 4.15065 5.00867 4.51732 4.092C4.51732 4.092 5.07532 3.91667 6.35065 4.77467C6.89339 4.62427 7.45413 4.54868 8.01732 4.55C8.58399 4.55 9.15065 4.62467 9.68399 4.77467C10.9593 3.908 11.5173 4.092 11.5173 4.092C11.884 5.00867 11.6507 5.692 11.584 5.85867C12.0087 6.32534 12.2673 6.91667 12.2673 7.65C12.2673 10.2087 10.7093 10.7753 9.22599 10.942C9.46732 11.15 9.67599 11.55 9.67599 12.1753C9.67599 13.0667 9.66732 13.7833 9.66732 14.0087C9.66732 14.1833 9.79265 14.3913 10.126 14.3247C11.4492 13.8778 12.599 13.0272 13.4135 11.8926C14.2281 10.7581 14.6663 9.39666 14.6667 8C14.6667 4.31667 11.6833 1.33334 7.99999 1.33334"
+                                            fill="#252532"/>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Close menu button -->
+                    <button id="closeMenuBtn" type="button"
+                            class="items-center justify-center hidden p-2 pr-1 text-gray-400 rounded-md xl:hidden dark:bg-black"
+                            aria-controls="mobile-menu" aria-expanded="false">
+                        @await Html.PartialAsync("SVG/CloseMenuSvg")
+                    </button>
+                </div>
             </div>
-          </div>
-          <!-- Close menu button -->
-          <button id="closeMenuBtn" type="button" class="items-center justify-center hidden p-2 pr-1 text-gray-400 rounded-md xl:hidden dark:bg-black" aria-controls="mobile-menu" aria-expanded="false">
-            @await Html.PartialAsync("SVG/CloseMenuSvg")
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div id="mobileMenu" class="hidden xl:hidden">
-      <div class="pb-3 space-y-1">
-        <!-- Rendered mobile navigation links will go here -->
-          <div class="flex flex-col z-[100] items-start flex-none h-full gap-2 overflow-hidden">
-          
-          <div id="left-menu-in" class="w-full h-screen overflow-y-auto md:w-3/5 lg:w-2/5 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
-              <div class="px-2 overflow-y-hidden md:px-16 md:py-3 ">
-                  @* MENU ITEMS *@
-                  <ul class="mt-4 space-y-1">
-                      <!-- MAIN MENU ITEM 1 -->
-                      <li>
-                          <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700" aria-controls="main-dropdown" data-collapse-toggle="main-dropdown">
-                              <span class="flex-1 text-left whitespace-nowrap">Getting Started</span>
-                              @await Html.PartialAsync("SVG/ChevronSvg")
-                          </button>
-                          
-                        <ul id="main-dropdown" class="px-4 my-4 mr-16 space-y-3">
-                        @* MENU ITEM *@
-                        <li>
-                            <button type="button"
-                                class="flex items-center w-full gap-2 px-4 py-1 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
-                                aria-controls="dropdown-l-mob-1" data-collapse-toggle="dropdown-l-mob-1">
-                                @await Html.PartialAsync("SVG/GearSvg")
-                                <span class="flex-1 text-left whitespace-nowrap">Overview</span>
-                                @* opened chevron UP *@
-                                <svg class="transition-transform rotate-180 chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
-                                </svg>
-                            </button>
-                            <ul id="dropdown-l-mob-1" class="px-2 pt-1">
-                                <li class="">
-                                    <button type="button"
-                                        class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
-                                        aria-controls="dropdown-li-mob-1" data-collapse-toggle="dropdown-li-mob-1">
-                                        @await Html.PartialAsync("SVG/PagesSvg")
-                                        <span class="flex-1 text-left whitespace-nowrap">AWS</span>
-                                        @* opened chevron UP *@
-                                        <svg class="transition-transform rotate-180 chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
-                                        </svg>
-                                    </button>
-                                    <ul id="dropdown-li-mob-1" class="pl-6">
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText text-brand group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/UserSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/CanbanSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/HistorySvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/HomeSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        @* MENU ITEM *@
-                        <li>
-                            <button type="button"
-                                class="flex items-center w-full gap-2 px-4 py-1 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
-                                aria-controls="dropdown-l-mob-2" data-collapse-toggle="dropdown-l-mob-2">
-                                @await Html.PartialAsync("SVG/DashboardSvg")
-                                <span class="flex-1 text-left whitespace-nowrap">Overview</span>
-                                <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
-                                </svg>
-                            </button>
-                            <ul id="dropdown-l-mob-2" class="hidden px-2 pt-1">
-                                <li class="">
-                                    <button type="button"
-                                        class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
-                                        aria-controls="dropdown-li-mob-2" data-collapse-toggle="dropdown-li-mob-2">
-                                        @await Html.PartialAsync("SVG/PagesSvg")
-                                        <span class="flex-1 text-left whitespace-nowrap">AWS</span>
-                                        <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
-                                        </svg>
-                                    </button>
-                                    <ul id="dropdown-li-mob-2" class="hidden pl-6">
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/UserSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/CanbanSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/HistorySvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/HomeSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        @* MENU ITEM *@
-                        <li class="mt-1">
-                            <button type="button"
-                                class="flex items-center w-full gap-2 px-4 py-1 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
-                                aria-controls="dropdown-l-mob-3" data-collapse-toggle="dropdown-l-mob-3">
-                                @await Html.PartialAsync("SVG/FireSvg")
-                                <span class="flex-1 text-left whitespace-nowrap">Overview</span>
-                                <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
-                                </svg>
-                            </button>
-                            <ul id="dropdown-l-mob-3" class="hidden px-2 pt-1">
-                                <li class="">
-                                    <button type="button"
-                                        class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
-                                        aria-controls="dropdown-li-mob-3" data-collapse-toggle="dropdown-li-mob-3">
-                                        @await Html.PartialAsync("SVG/PagesSvg")
-                                        <span class="flex-1 text-left whitespace-nowrap">AWS</span>
-                                        <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
-                                        </svg>
-                                    </button>
-                                    <ul id="dropdown-li-mob-3" class="hidden pl-6">
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/UserSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/CanbanSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/HistorySvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/HomeSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        @* MENU ITEM *@
-                        <li class="mt-1">
-                            <button type="button"
-                                class="flex items-center w-full gap-2 px-4 py-1 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
-                                aria-controls="dropdown-l-mob-4" data-collapse-toggle="dropdown-l-mob-4">
-                                @await Html.PartialAsync("SVG/GlobeSvg")
-                                <span class="flex-1 text-left whitespace-nowrap">Overview</span>
-                                <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
-                                </svg>
-                            </button>
-                            <ul id="dropdown-l-mob-4" class="hidden px-2 pt-1">
-                                <li class="">
-                                    <button type="button"
-                                        class="flex items-center justify-between w-full gap-2 py-2 pl-4 pr-2 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded"
-                                        aria-controls="dropdown-li-mob-4" data-collapse-toggle="dropdown-li-mob-4">
-                                        @await Html.PartialAsync("SVG/PagesSvg")
-                                        <span class="flex-1 text-left whitespace-nowrap">AWS</span>
-                                        <svg class="transition-transform chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z" fill="#252532"/>
-                                        </svg>
-                                    </button>
-                                    <ul id="dropdown-li-mob-4" class="hidden pl-6">
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                        <li
-                                            class="flex items-center justify-between w-full gap-2 p-3 pl-4 text-xs transition duration-75 rounded-lg menu-link text-bodyText group hover:bg-backgroundFaded">
-                                            <a href="#"
-                                                class="flex items-center w-full transition duration-75 rounded-lg group">Overview</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/UserSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/CanbanSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/HistorySvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                                <li
-                                    class="flex items-center justify-between w-full p-3 pl-4 text-xs transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded menu-link">
-                                    @await Html.PartialAsync("SVG/HomeSvg")
-                                    <a href="#"
-                                        class="flex items-center w-full pl-2 transition duration-75 rounded-lg group">Community
-                                        Deployment</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                    </ul>
-                      </li>
-                      <!-- MAIN MENU ITEM 2 -->
-                      <li>
-                          <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700" aria-controls="main-dropdown-2" data-collapse-toggle="main-dropdown-2">
-                              <span class="flex-1 text-left whitespace-nowrap">Architecture</span>
-                              @await Html.PartialAsync("SVG/ChevronSvg")
-                          </button>
-                          <ul id="main-dropdown-2" class="hidden p-2 py-2 space-y-2 "> 
-                            <li class="px-4">Nested items...</li>
-                          </ul>
-                      </li>
-                      <!-- MAIN MENU ITEM 3 -->
-                      <li>
-                          <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700" aria-controls="main-dropdown-3" data-collapse-toggle="main-dropdown-3">
-                              <span class="flex-1 text-left whitespace-nowrap">Platform</span>
-                              @await Html.PartialAsync("SVG/ChevronSvg")
-                          </button>
-                          <ul id="main-dropdown-3" class="hidden p-2 py-2 space-y-2 "> 
-                            <li class="px-4">Nested items...</li>
-                          </ul>
-
-                      </li>
-
-                      <!-- MAIN MENU ITEM 4 -->
-                      <li>
-                          <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700" aria-controls="main-dropdown-4" data-collapse-toggle="main-dropdown-4">
-                              <span class="flex-1 text-left whitespace-nowrap">Reference</span>
-                              @await Html.PartialAsync("SVG/ChevronSvg")
-                          </button>
-                          <ul id="main-dropdown-4" class="hidden p-2 py-2 space-y-2 "> 
-                            <li class="px-4">Nested items...</li>
-                          </ul>                        
-                      </li>
-
-                      <!-- MAIN MENU ITEM 5 -->
-                      <li>
-                          <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700" aria-controls="main-dropdown-5" data-collapse-toggle="main-dropdown-5">
-                              <span class="flex-1 text-left whitespace-nowrap">Integrations</span>
-                              @await Html.PartialAsync("SVG/ChevronSvg")
-                          </button>
-                          <ul id="main-dropdown-5" class="hidden p-2 py-2 space-y-2 "> 
-                            <li class="px-4">Nested items...</li>
-                          </ul>
-                      </li>
-
-                      <!-- MAIN MENU ITEM 6 -->
-                      <li>
-                          <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700" aria-controls="main-dropdown-6" data-collapse-toggle="main-dropdown-6">
-                              <span class="flex-1 text-left whitespace-nowrap">Contribute</span>
-                              @await Html.PartialAsync("SVG/ChevronSvg")
-                          </button>
-                          <ul id="main-dropdown-6" class="hidden p-2 py-2 space-y-2 "> 
-                            <li class="px-4">Nested items...</li>
-                          </ul>
-                      </li>
-
-                      <!-- MAIN MENU ITEM 7 -->
-                      <li>
-                        <a href="blog">
-                            <button type="button" class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700">
-                            <span class="flex-1 text-left whitespace-nowrap">Blog</span>
-                          </button>
-                        </a>
-                      </li>
-
-                      <!-- MAIN MENU ITEM 8 (GH BUTTON) -->
-                      <li class="mx-16 md:mx-4">
-                          <a href="http://github.com"  target="_blank">
-                              <button class="flex items-center justify-center w-full md:w-auto gap-2 px-6 py-3 mt-6 my-20 text-sm font-semibold text-neutral rounded-lg bg-brand hover:bg-[#e03c17]">
-                                  @await Html.PartialAsync("SVG/GithubSvg")
-                                  <span>Edit this page</span>
-                              </button>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
         </div>
 
-      </div>
-    </div>
-  </nav>
-</header> 
+        <div id="mobileMenu" class="hidden xl:hidden">
+            <div class="pb-3 space-y-1">
+                <!-- Rendered mobile navigation links will go here -->
+                <div class="flex flex-col z-[100] items-start flex-none h-full gap-2 overflow-hidden">
+
+                    <div id="left-menu-in" class="w-full h-screen overflow-y-auto md:w-3/5 lg:w-2/5 dark:bg-gray-800"
+                         tabindex="-1" aria-labelledby="drawer-navigation-label">
+                        <div class="px-2 overflow-y-hidden md:px-16 md:py-3 ">
+                            @* MENU ITEMS *@
+                            <ul class="mt-4 space-y-1">
+                                <!-- MAIN MENU ITEM 1 -->
+                                <li>
+                                    <button type="button"
+                                            class="flex items-center w-full gap-2 px-4 py-2 text-base text-medium transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
+                                            aria-controls="main-dropdown" data-collapse-toggle="main-dropdown">
+                                        <span class="flex-1 text-left whitespace-nowrap">Getting Started</span>
+                                        @await Html.PartialAsync("SVG/ChevronSvg")
+                                    </button>
+                                    <ul id="main-dropdown" class="@(Model.HiddenClass("getting_started")) px-4 my-4 mr-16 space-y-3">
+                                        @await Component.InvokeAsync("MobileMenu", new MobileMenuViewModel { Folder = "getting_started" })
+                                    </ul>
+                                </li>
+                            <!-- MAIN MENU ITEM 2 -->
+                            <li>
+                                <button type="button"
+                                        class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
+                                        aria-controls="main-dropdown-2" data-collapse-toggle="main-dropdown-2">
+                                    <span class="flex-1 text-left whitespace-nowrap">Architecture</span>
+                                    @await Html.PartialAsync("SVG/ChevronSvg")
+                                </button>
+                                <ul id="main-dropdown-2" class="@(Model.HiddenClass("architecure")) p-2 py-2 space-y-2 ">
+                                    @await Component.InvokeAsync("MobileMenu", new MobileMenuViewModel { Folder = "architecture" })
+                                </ul>
+                            </li>
+                            <!-- MAIN MENU ITEM 3 -->
+                            <li>
+                                <button type="button"
+                                        class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
+                                        aria-controls="main-dropdown-3" data-collapse-toggle="main-dropdown-3">
+                                    <span class="flex-1 text-left whitespace-nowrap">Platform</span>
+                                    @await Html.PartialAsync("SVG/ChevronSvg")
+                                </button>
+                                <ul id="main-dropdown-3" class="@(Model.HiddenClass("platform")) p-2 py-2 space-y-2 ">
+                                    @await Component.InvokeAsync("MobileMenu", new MobileMenuViewModel { Folder = "platform" })
+                                </ul>
+
+                            </li>
+
+                            <!-- MAIN MENU ITEM 4 -->
+                            <li>
+                                <button type="button"
+                                        class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
+                                        aria-controls="main-dropdown-4" data-collapse-toggle="main-dropdown-4">
+                                    <span class="flex-1 text-left whitespace-nowrap">Reference</span>
+                                    @await Html.PartialAsync("SVG/ChevronSvg")
+                                </button>
+                                <ul id="main-dropdown-4" class="@(Model.HiddenClass("reference")) p-2 py-2 space-y-2 ">
+                                    @await Component.InvokeAsync("MobileMenu", new MobileMenuViewModel { Folder = "reference" })
+                                </ul>
+                            </li>
+
+                            <!-- MAIN MENU ITEM 5 -->
+                            <li>
+                                <button type="button"
+                                        class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
+                                        aria-controls="main-dropdown-5" data-collapse-toggle="main-dropdown-5">
+                                    <span class="flex-1 text-left whitespace-nowrap">Integrations</span>
+                                    @await Html.PartialAsync("SVG/ChevronSvg")
+                                </button>
+                                <ul id="main-dropdown-5" class="@(Model.HiddenClass("integration")) p-2 py-2 space-y-2 ">
+                                    @await Component.InvokeAsync("MobileMenu", new MobileMenuViewModel { Folder = "integrations" })
+                                </ul>
+                            </li>
+
+                            <!-- MAIN MENU ITEM 6 -->
+                            <li>
+                                <button type="button"
+                                        class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700"
+                                        aria-controls="main-dropdown-6" data-collapse-toggle="main-dropdown-6">
+                                    <span class="flex-1 text-left whitespace-nowrap">Contribute</span>
+                                    @await Html.PartialAsync("SVG/ChevronSvg")
+                                </button>
+                                <ul id="main-dropdown-6" class="@(Model.HiddenClass("contribute")) p-2 py-2 space-y-2 ">
+                                    @await Component.InvokeAsync("MobileMenu", new MobileMenuViewModel { Folder = "contribute" })
+                                </ul>
+                            </li>
+
+                            <!-- MAIN MENU ITEM 7 -->
+                            <li>
+                                <a href="/blog">
+                                    <button type="button"
+                                            class="flex items-center w-full gap-2 px-4 py-2 text-base transition duration-75 rounded-lg text-bodyText group hover:bg-backgroundFaded dark:text-white dark:hover:bg-gray-700">
+                                        <span class="flex-1 text-left whitespace-nowrap">Blog</span>
+                                    </button>
+                                </a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const closeMenuBtn = document.getElementById("closeMenuBtn");
-    const mobileMenuContainer = document.getElementById("mobileMenu");
-    const searchForm = document.getElementById('searchForm')
-    const navLinksContainer = document.getElementById("navLinks");
-    const mainLogo = document.getElementById('mainLogo');
+    document.addEventListener("DOMContentLoaded", function () {
+        const hamburgerBtn = document.getElementById("hamburgerBtn");
+        const closeMenuBtn = document.getElementById("closeMenuBtn");
+        const mobileMenuContainer = document.getElementById("mobileMenu");
+        const searchForm = document.getElementById('searchForm')
+        const navLinksContainer = document.getElementById("navLinks");
+        const mainLogo = document.getElementById('mainLogo');
 
-    
-    const menuItems = [
-    { href: "/", text: "Getting Started" },
-    { href: "/architecture", text: "Architecture" },
-    { href: "/platform", text: "Platform" },
-    { href: "/reference", text: "Reference" },
-    { href: "/integrations", text: "Integrations" },
-    { href: "/contribute", text: "Contribute" },
-    { href: "/blog", text: "Blog" }
-    ];
 
-    function renderNavLinks() {
-      menuItems.forEach(item => {
-        const link = document.createElement("a");
-        link.href = item.href;
-        link.classList.add("inline-flex", "items-center", "font-inter", "leading-[28px]", "text-base", "font-normal");
-        if (location.pathname === item.href) {
-          link.classList.add("text-brand");
-        } else {
-          link.classList.add("text-headLines", "transition", "duration-500", "hover:text-brand");
+        const menuItems = [
+            {href: "/pages/getting_started", text: "Getting Started"},
+            {href: "/pages/architecture", text: "Architecture"},
+            {href: "/pages/platform", text: "Platform"},
+            {href: "/pages/reference", text: "Reference"},
+            {href: "/pages/integrations", text: "Integrations"},
+            {href: "/pages/contribute", text: "Contribute"},
+            {href: "/blog", text: "Blog"}
+        ];
+
+        function renderNavLinks() {
+            menuItems.forEach(item => {
+                const link = document.createElement("a");
+                link.href = item.href;
+                link.classList.add("inline-flex", "items-center", "font-inter", "leading-[28px]", "text-base", "font-normal");
+                if (location.pathname.includes(item.href) || (location.pathname === "/" && item.href === "/pages/getting_started")) {
+                    link.classList.add("text-brand");
+                } else {
+                    link.classList.add("text-headLines", "transition", "duration-500", "hover:text-brand");
+                }
+                link.textContent = item.text;
+                navLinksContainer.appendChild(link);
+            });
         }
-        link.textContent = item.text;
-        navLinksContainer.appendChild(link);
-      });
-    }
 
-    renderNavLinks();
+        renderNavLinks();
 
-    let open = false;
+        let open = false;
 
-    function updateLogoClasses() {
-        if (open) {
-          mainLogo.setAttribute('class', 'w-[171px] h-[32px] ml-2 md:ml-0');
-        } else {
-          mainLogo.setAttribute('class', 'w-[87px] h-[16px] md:w-[171px] md:h-[32px] md:ml-0');
+        function updateLogoClasses() {
+            if (open) {
+                mainLogo.setAttribute('class', 'w-[171px] h-[32px] ml-2 md:ml-0');
+            } else {
+                mainLogo.setAttribute('class', 'w-[87px] h-[16px] md:w-[171px] md:h-[32px] md:ml-0');
+            }
         }
-      }
 
-    function toggleMobileMenu() {
-      open = !open;
-      mobileMenuContainer.classList.toggle("hidden", !open);
-      hamburgerBtn.classList.toggle("hidden", open);
-      closeMenuBtn.classList.toggle("hidden", !open);
-      searchForm.classList.toggle('hidden', open) 
-      document.body.classList.toggle('overflow-hidden', open);
+        function toggleMobileMenu() {
+            open = !open;
+            mobileMenuContainer.classList.toggle("hidden", !open);
+            hamburgerBtn.classList.toggle("hidden", open);
+            closeMenuBtn.classList.toggle("hidden", !open);
+            searchForm.classList.toggle('hidden', open)
+            document.body.classList.toggle('overflow-hidden', open);
 
-      updateLogoClasses()
-    }
+            updateLogoClasses()
+        }
 
-    hamburgerBtn.addEventListener('click', toggleMobileMenu);
-    closeMenuBtn.addEventListener('click', toggleMobileMenu);
+        hamburgerBtn.addEventListener('click', toggleMobileMenu);
+        closeMenuBtn.addEventListener('click', toggleMobileMenu);
 
-    // To change link color and close menu
+        // To change link color and close menu
         const menuLinks = document.querySelectorAll('.menu-link');
 
         menuLinks.forEach(link => {
@@ -541,45 +276,45 @@
                 toggleMobileMenu();
             });
         });
-  });
+    });
 </script>
 
 @* Script to rotate chevron icon *@
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('[data-collapse-toggle]').forEach(button => {
-        const target = document.getElementById(button.getAttribute('aria-controls'));
-        const chevron = button.querySelector('.chevron');
-        
-        // Set initial state
-        if (target && !target.classList.contains('hidden')) {
-            chevron.classList.add('rotate-180');
-        }
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('[data-collapse-toggle]').forEach(button => {
+            const target = document.getElementById(button.getAttribute('aria-controls'));
+            const chevron = button.querySelector('.chevron');
 
-        button.addEventListener('click', () => {
-            if (target) {
-                const isHidden = target.classList.toggle('hidden');
-                if (isHidden) {
-                    chevron.classList.remove('rotate-180');
-                } else {
-                    chevron.classList.add('rotate-180');
-                }
+            // Set initial state
+            if (target && !target.classList.contains('hidden')) {
+                chevron.classList.add('rotate-180');
             }
+
+            button.addEventListener('click', () => {
+                if (target) {
+                    const isHidden = target.classList.toggle('hidden');
+                    if (isHidden) {
+                        chevron.classList.remove('rotate-180');
+                    } else {
+                        chevron.classList.add('rotate-180');
+                    }
+                }
+            });
         });
     });
-});
 </script>
 
 <script type="module">
-import { ref } from "vue"
-import { mount } from "app.mjs"
+    import {ref} from "vue"
+    import {mount} from "app.mjs"
 
-const Header = {
-    setup() {
-        const open = ref(false)
-        return { open }
+    const Header = {
+        setup() {
+            const open = ref(false)
+            return {open}
+        }
     }
-}
-mount('#header', Header)
+    mount('#header', Header)
 </script>
 

@@ -29,4 +29,15 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\CreatorKit\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\CreatorKit\Page.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Vue\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Vue\Page.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\pages\" />
+  </ItemGroup>
+
 </Project>

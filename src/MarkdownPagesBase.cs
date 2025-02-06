@@ -65,6 +65,8 @@ public class MarkdownFileBase
     public int? Order { get; set; }
     public DocumentMap? DocumentMap { get; set; }
 
+    public FeatureAvailabilityInfo? FeatureAvailabilityInfo { get; set; }
+
     /// <summary>
     /// Update Markdown File to latest version
     /// </summary>
@@ -110,6 +112,7 @@ public abstract class MarkdownPagesBase<T>(ILogger log, IWebHostEnvironment env,
         var builder = new MarkdownPipelineBuilder()
             .UseYamlFrontMatter()
             .UseAdvancedExtensions()
+            .UseCustomParagraph()
             .UseAutoLinkHeadings()
             .UseHeadingsMap()
             .UseCustomContainers(MarkdigConfig.Instance.ConfigureContainers);
@@ -156,16 +159,27 @@ public abstract class MarkdownPagesBase<T>(ILogger log, IWebHostEnvironment env,
             .FirstOrDefault();
 
         var doc = block?
-            .Lines // StringLineGroup[]
-            .Lines // StringLine[]
-            .Select(x => $"{x}\n")
-            .ToList()
-            .Select(x => x.Replace("---", string.Empty))
-            .Where(x => !string.IsNullOrWhiteSpace(x))
+                      .Lines // StringLineGroup[]
+                      .Lines // StringLine[]
+                      .Select(x => $"{x}\n")
+                      .ToList()
+                      .Select(x => x.Replace("---", string.Empty))
+                      .Where(x => !string.IsNullOrWhiteSpace(x))
+                      .Select(x => KeyValuePairs.Create(x.LeftPart(':').Trim(), x.RightPart(':').Trim()))
+                      .ToObjectDictionary()
+                      .ConvertTo<T>()
+                  ?? typeof(T).CreateInstance<T>();
+
+        var featureAvailability = block?.Lines.Lines
+            .Select(x => x.ToString().Trim())
+            .SkipWhile(x => !x.StartsWith("feature_availability"))
+            .Skip(1)
+            .Where(x => new[] { "self_hosted", "cloud_hosted", "notes" }.Any(x.StartsWith))
             .Select(x => KeyValuePairs.Create(x.LeftPart(':').Trim(), x.RightPart(':').Trim()))
-            .ToObjectDictionary()
-            .ConvertTo<T>()
-            ?? typeof(T).CreateInstance<T>();
+            .ToObjectDictionary();
+
+        if (featureAvailability is { Count: > 0 })
+            doc.FeatureAvailabilityInfo = new FeatureAvailabilityInfo(featureAvailability);
 
         doc.Tags = doc.Tags.Map(x => x.Trim());
         doc.Content = content;
@@ -198,7 +212,8 @@ public abstract class MarkdownPagesBase<T>(ILogger log, IWebHostEnvironment env,
         return doc;
     }
 
-    public virtual bool IsVisible(T doc) => env.IsDevelopment() || !doc.Draft && (doc.Date == null || doc.Date.Value <= DateTime.UtcNow);
+    public virtual bool IsVisible(T doc) =>
+        env.IsDevelopment() || !doc.Draft && (doc.Date == null || doc.Date.Value <= DateTime.UtcNow);
 
     public int WordsPerMin { get; set; } = 225;
     public char[] WordBoundaries { get; set; } = { ' ', '.', '?', '!', '(', ')', '[', ']' };
@@ -243,7 +258,7 @@ public abstract class MarkdownPagesBase<T>(ILogger log, IWebHostEnvironment env,
     }
 
     /// <summary>
-    /// Need to escape '{{' and '}}' template literals when using content inside a Vue template 
+    /// Need to escape '{{' and '}}' template literals when using content inside a Vue template
     /// </summary>
     public virtual string? SanitizeVueTemplate(string? content)
     {
@@ -298,7 +313,8 @@ public class MarkdownIncludes(ILogger<MarkdownIncludes> log, IWebHostEnvironment
         }
     }
 
-    public override List<MarkdownFileBase> GetAll() => Pages.Where(IsVisible).Map(doc => ToMetaDoc(doc, x => x.Url = $"/{x.Slug}"));
+    public override List<MarkdownFileBase> GetAll() =>
+        Pages.Where(IsVisible).Map(doc => ToMetaDoc(doc, x => x.Url = $"/{x.Slug}"));
 }
 
 public struct HeadingInfo(int level, string id, string content)
@@ -308,13 +324,26 @@ public struct HeadingInfo(int level, string id, string content)
     public string Content { get; } = content;
 }
 
+public class ParagraphRenderer : HtmlObjectRenderer<ParagraphBlock>
+{
+    protected override void Write(HtmlRenderer renderer, ParagraphBlock obj)
+    {
+        renderer.Write("<p class='text-xs leading-6 text-bodyText md:text-base lg:leading-7'");
+        renderer.WriteAttributes(obj.GetAttributes());
+        renderer.Write('>');
+        renderer.WriteLeafInline(obj);
+        renderer.Write("</p>");
+    }
+}
+
 /// <summary>
 /// An HTML renderer for a <see cref="HeadingBlock"/>.
 /// </summary>
 /// <seealso cref="HtmlObjectRenderer{TObject}" />
 public class AutoLinkHeadingRenderer : HtmlObjectRenderer<HeadingBlock>
 {
-    private static readonly string[] HeadingTexts = [
+    private static readonly string[] HeadingTexts =
+    [
         "h1",
         "h2",
         "h3",
@@ -333,6 +362,14 @@ public class AutoLinkHeadingRenderer : HtmlObjectRenderer<HeadingBlock>
             ? headings[index]
             : $"h{obj.Level}";
 
+        var att = obj.GetAttributes();
+        var sizes = index == 1 ? ("2xl:text-[32px]", "text-[24px]") :
+            index == 2 ? ("2xl:text-[26px]", "text-[18px]") : ("2xl:text-[24px]", "text-[16px]");
+        string classNames = $"{sizes.Item1} {sizes.Item2} text-headLines leading-9 tracking-[-0.96px] font-bold";
+        att.Classes ??= new List<string>();
+        att.Classes.Add(classNames);
+        obj.SetAttributes(att);
+
         if (renderer.EnableHtmlForBlock)
         {
             renderer.Write('<');
@@ -340,15 +377,16 @@ public class AutoLinkHeadingRenderer : HtmlObjectRenderer<HeadingBlock>
             renderer.WriteAttributes(obj);
             renderer.Write('>');
         }
+
         renderer.WriteLeafInline(obj);
 
-        var attrs = obj.TryGetAttributes();
-        if (attrs?.Id != null && obj.Level <= 4)
-        {
-            renderer.Write("<a class=\"header-anchor\" href=\"javascript:;\" onclick=\"location.hash='#");
-            renderer.Write(attrs.Id);
-            renderer.Write("'\" aria-label=\"Permalink\">&ZeroWidthSpace;</a>");
-        }
+        // var attrs = obj.TryGetAttributes();
+        // if (attrs?.Id != null && obj.Level <= 4)
+        // {
+        //     renderer.Write("<a class=\"header-anchor\" onclick=\"location.hash='#");
+        //     renderer.Write(attrs.Id);
+        //     renderer.Write("'\" aria-label=\"Permalink\">&ZeroWidthSpace;</a>");
+        // }
 
         if (renderer.EnableHtmlForBlock)
         {
@@ -371,6 +409,18 @@ public class AutoLinkHeadingsExtension : IMarkdownExtension
     public void Setup(MarkdownPipeline pipeline, IMarkdownRenderer renderer)
     {
         renderer.ObjectRenderers.Replace<HeadingRenderer>(new AutoLinkHeadingRenderer());
+    }
+}
+
+public class ParagraphRendererExtension : IMarkdownExtension
+{
+    public void Setup(MarkdownPipelineBuilder pipeline)
+    {
+    }
+
+    public void Setup(MarkdownPipeline pipeline, IMarkdownRenderer renderer)
+    {
+        renderer.ObjectRenderers.Replace<Markdig.Renderers.Html.ParagraphRenderer>(new ParagraphRenderer());
     }
 }
 
@@ -434,8 +484,10 @@ public class FilesCodeBlockRenderer(CodeBlockRenderer? underlyingRenderer = null
         {
             html.WriteLine("<div class=\"ml-6\">");
             html.WriteLine("  <div class=\"flex items-center text-base leading-8\">");
-            html.WriteLine("    <svg class=\"mr-1 text-slate-600 inline-block select-none align-text-bottom overflow-visible\" aria-hidden=\"true\" focusable=\"false\" role=\"img\" viewBox=\"0 0 12 12\" width=\"12\" height=\"12\" fill=\"currentColor\"><path d=\"M6 8.825c-.2 0-.4-.1-.5-.2l-3.3-3.3c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l2.7 2.7 2.7-2.7c.3-.3.8-.3 1.1 0 .3.3.3.8 0 1.1l-3.2 3.2c-.2.2-.4.3-.6.3Z\"></path></svg>");
-            html.WriteLine("    <svg class=\"mr-1 text-sky-500\" aria-hidden=\"true\" focusable=\"false\" role=\"img\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\"><path d=\"M.513 1.513A1.75 1.75 0 0 1 1.75 1h3.5c.55 0 1.07.26 1.4.7l.9 1.2a.25.25 0 0 0 .2.1H13a1 1 0 0 1 1 1v.5H2.75a.75.75 0 0 0 0 1.5h11.978a1 1 0 0 1 .994 1.117L15 13.25A1.75 1.75 0 0 1 13.25 15H1.75A1.75 1.75 0 0 1 0 13.25V2.75c0-.464.184-.91.513-1.237Z\"></path></svg>");
+            html.WriteLine(
+                "    <svg class=\"mr-1 text-slate-600 inline-block select-none align-text-bottom overflow-visible\" aria-hidden=\"true\" focusable=\"false\" role=\"img\" viewBox=\"0 0 12 12\" width=\"12\" height=\"12\" fill=\"currentColor\"><path d=\"M6 8.825c-.2 0-.4-.1-.5-.2l-3.3-3.3c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l2.7 2.7 2.7-2.7c.3-.3.8-.3 1.1 0 .3.3.3.8 0 1.1l-3.2 3.2c-.2.2-.4.3-.6.3Z\"></path></svg>");
+            html.WriteLine(
+                "    <svg class=\"mr-1 text-sky-500\" aria-hidden=\"true\" focusable=\"false\" role=\"img\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\"><path d=\"M.513 1.513A1.75 1.75 0 0 1 1.75 1h3.5c.55 0 1.07.26 1.4.7l.9 1.2a.25.25 0 0 0 .2.1H13a1 1 0 0 1 1 1v.5H2.75a.75.75 0 0 0 0 1.5h11.978a1 1 0 0 1 .994 1.117L15 13.25A1.75 1.75 0 0 1 13.25 15H1.75A1.75 1.75 0 0 1 0 13.25V2.75c0-.464.184-.91.513-1.237Z\"></path></svg>");
             html.WriteLine("    <span>" + dirName + "</span>");
             html.WriteLine("  </div>");
             RenderNode(html, childNode);
@@ -448,10 +500,12 @@ public class FilesCodeBlockRenderer(CodeBlockRenderer? underlyingRenderer = null
             foreach (var file in model.Files)
             {
                 html.WriteLine("<div class=\"ml-6 flex items-center text-base leading-8\">");
-                html.WriteLine("  <svg class=\"mr-1 text-slate-600 inline-block select-none align-text-bottom overflow-visible\" aria-hidden=\"true\" focusable=\"false\" role=\"img\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\"><path d=\"M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z\"></path></svg>");
+                html.WriteLine(
+                    "  <svg class=\"mr-1 text-slate-600 inline-block select-none align-text-bottom overflow-visible\" aria-hidden=\"true\" focusable=\"false\" role=\"img\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\"><path d=\"M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z\"></path></svg>");
                 html.WriteLine("  <span>" + file + "</span>");
                 html.WriteLine("</div>");
             }
+
             html.WriteLine("</div>");
         }
     }
@@ -485,6 +539,7 @@ public class FilesCodeBlockRenderer(CodeBlockRenderer? underlyingRenderer = null
                 parent.Files.Add(name);
             }
         }
+
         return root;
     }
 }
@@ -530,6 +585,55 @@ public class CustomInfoRenderer : HtmlObjectRenderer<CustomContainer>
     public string Title { get; set; } = "TIP";
     public string Class { get; set; } = "tip";
 
+    private static Dictionary<string, (string, string, string)> _settings = new()
+    {
+        {
+            "info", ("text-[#619DFF]", "bg-[#619DFF]", string.Empty)
+        },
+        {
+            "tip", ("text-[#A4CD80]", "bg-[#A4CD80]", """
+                                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                                          fill="none">
+                                                      <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M8 1.83337C7.35812 1.83337 6.74664 1.95823 6.18761 2.18452C5.93165 2.28813 5.64015 2.16463 5.53654 1.90866C5.43292 1.65269 5.55643 1.3612 5.8124 1.25758C6.48861 0.983859 7.22735 0.833374 8 0.833374C11.2217 0.833374 13.8333 3.44505 13.8333 6.66671C13.8333 8.89963 12.1998 10.581 11.1933 11.4137C10.7637 11.7692 10.5 12.2581 10.5 12.7512C10.5 14.0853 9.41856 15.1667 8.08453 15.1667H7.92513C6.58577 15.1667 5.5 14.0809 5.5 12.7416C5.5 12.2509 5.24113 11.765 4.81768 11.4107C3.81536 10.5721 2.16667 8.87316 2.16667 6.66671C2.16667 5.28769 2.64582 4.01921 3.4463 3.02064C3.61902 2.80518 3.9337 2.77053 4.14916 2.94325C4.36462 3.11597 4.39927 3.43065 4.22655 3.64611C3.56315 4.47367 3.16667 5.5232 3.16667 6.66671C3.16667 8.39121 4.48638 9.82971 5.45937 10.6438C5.75262 10.8891 6.00735 11.193 6.19138 11.5381C6.20098 11.5421 6.21051 11.5464 6.21996 11.551C6.22075 11.5514 6.22154 11.5518 6.22233 11.5522L6.21996 11.551C6.2213 11.5516 6.22525 11.5535 6.23166 11.5563C6.24449 11.5619 6.26745 11.5715 6.30057 11.584C6.36677 11.6088 6.47366 11.6447 6.62127 11.6816C6.91617 11.7554 7.37546 11.8334 8 11.8334C8.27615 11.8334 8.5 12.0572 8.5 12.3334C8.5 12.6095 8.27615 12.8334 8 12.8334C7.36436 12.8334 6.8639 12.7621 6.49924 12.6803C6.49975 12.7007 6.5 12.7211 6.5 12.7416C6.5 13.5287 7.13806 14.1667 7.92513 14.1667H8.08453C8.86627 14.1667 9.5 13.533 9.5 12.7512C9.5 11.8987 9.94861 11.1457 10.5558 10.6433C11.5246 9.84173 12.8333 8.4198 12.8333 6.66671C12.8333 3.99733 10.6694 1.83337 8 1.83337ZM6.22327 11.5527C6.22323 11.5526 6.22331 11.5527 6.22327 11.5527V11.5527Z"
+                                                        fill="#6B9E32"/>
+                                                      </svg>
+                                                      """)
+        },
+        {
+            "warning", ("text-[#F79009]", "bg-[#F79009]", """
+                                                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                                               fill="none">
+                                                              <g clip-path="url(#clip0_536_1825)">
+                                                                  <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                        d="M9.1705 2.15142C8.42921 1.81671 7.57983 1.81671 6.83854 2.15142C6.46645 2.31944 6.09047 2.67757 5.59928 3.39251C5.1101 4.10453 4.55267 5.0989 3.78741 6.46545L3.5534 6.88331C2.81764 8.19718 2.28317 9.15262 1.94451 9.91295C1.60498 10.6753 1.49766 11.168 1.54329 11.5669C1.63397 12.3596 2.05462 13.0772 2.70191 13.5436C3.02768 13.7784 3.51001 13.9255 4.34103 14.0017C5.16989 14.0777 6.26466 14.0782 7.77052 14.0782H8.23853C9.74439 14.0782 10.8392 14.0777 11.668 14.0017C12.499 13.9255 12.9814 13.7784 13.3071 13.5436C13.9544 13.0772 14.3751 12.3596 14.4658 11.5669C14.5114 11.168 14.4041 10.6753 14.0645 9.91295C13.7259 9.15262 13.1914 8.19718 12.4556 6.8833L12.2216 6.46544C11.4564 5.0989 10.8989 4.10452 10.4098 3.39251C9.91858 2.67757 9.5426 2.31944 9.1705 2.15142ZM6.42702 1.24002C7.42994 0.787179 8.5791 0.787179 9.58202 1.24002C10.2103 1.52369 10.7147 2.07035 11.234 2.82624C11.7522 3.58056 12.3316 4.61521 13.0807 5.95288L13.3414 6.41843C14.0612 7.70365 14.6185 8.69887 14.978 9.50608C15.3389 10.3163 15.5359 11.0106 15.4593 11.6806C15.3366 12.753 14.7675 13.7239 13.8917 14.355C13.3447 14.7491 12.6426 14.9165 11.7594 14.9975C10.8794 15.0782 9.73877 15.0782 8.26577 15.0782H7.74328C6.27028 15.0782 5.12965 15.0782 4.24969 14.9975C3.36647 14.9165 2.66437 14.7491 2.11731 14.355C1.24157 13.7239 0.672448 12.753 0.549773 11.6806C0.47314 11.0106 0.670165 10.3163 1.03103 9.50608C1.39056 8.69888 1.94788 7.70367 2.66759 6.41846L2.92829 5.95294C3.6774 4.61524 4.2568 3.58058 4.77506 2.82624C5.29438 2.07035 5.79879 1.52369 6.42702 1.24002ZM8.00452 5.41156C8.28066 5.41156 8.50452 5.63542 8.50452 5.91156V8.57823C8.50452 8.85437 8.28066 9.07823 8.00452 9.07823C7.72838 9.07823 7.50452 8.85437 7.50452 8.57823V5.91156C7.50452 5.63542 7.72838 5.41156 8.00452 5.41156ZM7.17119 10.9116C7.17119 10.4513 7.54428 10.0782 8.00452 10.0782C8.46476 10.0782 8.83786 10.4513 8.83786 10.9116C8.83786 11.3718 8.46476 11.7449 8.00452 11.7449C7.54428 11.7449 7.17119 11.3718 7.17119 10.9116Z"
+                                                                        fill="#F79009"/>
+                                                              </g>
+                                                              <defs>
+                                                                  <clipPath id="clip0_536_1825">
+                                                                      <rect width="16" height="16" fill="white"/>
+                                                                  </clipPath>
+                                                              </defs>
+                                                          </svg>
+                                                          """)
+        },
+        {
+            "danger", ("text-[#FF7D87]", "bg-[#FF7D87]", """
+                                                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                                  <g clip-path="url(#clip0_536_1272)">
+                                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.99998 1.83398C4.59422 1.83398 1.83331 4.5949 1.83331 8.00065C1.83331 11.4064 4.59422 14.1673 7.99998 14.1673C11.4057 14.1673 14.1666 11.4064 14.1666 8.00065C14.1666 4.5949 11.4057 1.83398 7.99998 1.83398ZM0.833313 8.00065C0.833313 4.04261 4.04194 0.833984 7.99998 0.833984C11.958 0.833984 15.1666 4.04261 15.1666 8.00065C15.1666 11.9587 11.958 15.1673 7.99998 15.1673C4.04194 15.1673 0.833313 11.9587 0.833313 8.00065ZM5.64643 5.6471C5.84169 5.45184 6.15827 5.45184 6.35353 5.6471L7.99998 7.29354L9.64643 5.6471C9.84169 5.45184 10.1583 5.45184 10.3535 5.6471C10.5488 5.84236 10.5488 6.15894 10.3535 6.35421L8.70709 8.00065L10.3535 9.6471C10.5488 9.84236 10.5488 10.1589 10.3535 10.3542C10.1583 10.5495 9.84169 10.5495 9.64643 10.3542L7.99998 8.70776L6.35353 10.3542C6.15827 10.5495 5.84169 10.5495 5.64643 10.3542C5.45116 10.1589 5.45116 9.84236 5.64643 9.6471L7.29287 8.00065L5.64643 6.35421C5.45116 6.15894 5.45116 5.84236 5.64643 5.6471Z" fill="#EA0044"></path>
+                                                                  </g>
+                                                                  <defs>
+                                                                      <clipPath id="clip0_536_1272">
+                                                                          <rect width="16" height="16" fill="white"></rect>
+                                                                      </clipPath>
+                                                                  </defs>
+                                                              </svg>
+                                                         """)
+        },
+        { "quote", ("text-bodyText", "bg-brand", string.Empty) }
+    };
+
     protected override void Write(HtmlRenderer renderer, CustomContainer obj)
     {
         renderer.EnsureLine();
@@ -538,14 +642,24 @@ public class CustomInfoRenderer : HtmlObjectRenderer<CustomContainer>
             var title = obj.Arguments ?? obj.Info;
             if (string.IsNullOrEmpty(title))
                 title = Title;
-            renderer.Write(@$"<div class=""{Class} custom-block"">
-            <p class=""custom-block-title"">{title}</p>");
+
+            var settings = _settings[Class];
+            renderer.Write($"""
+                            <div class="flex items-start gap-4 py-2 pr-6 mt-4 rounded-lg ">
+                                 <div class="w-1 2xl:mr-11 mr-5 shrink-0 self-stretch {settings.Item2}"></div>
+                                 <div class="w-full text-base leading-7 text-bodyText">
+                                     <div class="flex items-center gap-2 mb-3">
+                                     {settings.Item3}
+                                         <span class="{settings.Item1}">{title}</span>
+                                     </div>
+                            """);
         }
 
         // We don't escape a CustomContainer
         renderer.WriteChildren(obj);
         if (renderer.EnableHtmlForBlock)
         {
+            renderer.WriteLine("</div>");
             renderer.WriteLine("</div>");
         }
     }
@@ -910,6 +1024,7 @@ public class HeadingsMapExtension : IMarkdownExtension
                 {
                     Text = text,
                     Link = $"#{attrs.Id}",
+                    Id = attrs.Id
                 });
             }
             else if (headingBlock.Level == 3)
@@ -918,10 +1033,11 @@ public class HeadingsMapExtension : IMarkdownExtension
                 if (lastHeading != null)
                 {
                     lastHeading.Children ??= new();
-                    lastHeading.Children.Add(new MarkdownMenuItem
+                    lastHeading.Children.Add(new MarkdownMenu
                     {
                         Text = text,
                         Link = $"#{attrs.Id}",
+                        Id = attrs.Id
                     });
                 }
             }
@@ -937,6 +1053,12 @@ public static class MarkdigExtensions
     public static MarkdownPipelineBuilder UseAutoLinkHeadings(this MarkdownPipelineBuilder pipeline)
     {
         pipeline.Extensions.AddIfNotAlready(new AutoLinkHeadingsExtension());
+        return pipeline;
+    }
+
+    public static MarkdownPipelineBuilder UseCustomParagraph(this MarkdownPipelineBuilder pipeline)
+    {
+        pipeline.Extensions.AddIfNotAlready(new ParagraphRendererExtension());
         return pipeline;
     }
 
@@ -966,11 +1088,7 @@ public class MarkdownMenu
     public string? Icon { get; set; }
     public string? Text { get; set; }
     public string? Link { get; set; }
-    public List<MarkdownMenuItem>? Children { get; set; }
-}
-
-public class MarkdownMenuItem
-{
-    public string Text { get; set; }
-    public string Link { get; set; }
+    public string? Id { get; set; }
+    public string MenuPath { get; set; }
+    public List<MarkdownMenu>? Children { get; set; }
 }
