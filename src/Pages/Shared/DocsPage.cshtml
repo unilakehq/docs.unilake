@@ -572,7 +572,7 @@
 <script>
     function getCurrentPageSlug() {
         const path = window.location.pathname;
-        return path.split('/').filter(Boolean).pop();
+        return path.replaceAll('/', '_');
     }
 
     function toggleModal() {
@@ -581,7 +581,8 @@
 
         if (modal.classList.contains("hidden")) {
             const slug = getCurrentPageSlug();
-            const baseUrl = "https://formbricks.coolify.avd.unilake.com//s/clye3gdzk000eu6hbvs2mwtif?embed=true";
+            // const baseUrl = "https://formbricks.coolify.avd.unilake.com//s/clye3gdzk000eu6hbvs2mwtif?embed=true";
+            const baseUrl = "https://app.formbricks.com/s/cm6tfx5oz0012l703cnq09knv?embed=true";
             iframe.src = `${baseUrl}&docspage=${slug}`;
         }
 
