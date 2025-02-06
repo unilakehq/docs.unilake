@@ -1,4 +1,5 @@
 @page "/404"
+@using docs.unilake.Pages.Shared
 @attribute [RenderStatic]
 @{
     Layout = "";
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-@await Html.PartialAsync("Header")
+@await Html.PartialAsync("Header", new Header())
 
 <div class="">
     <main role="main" class="h-screen px-4 text-black bg-white text-center flex flex-col items-center justify-center">
