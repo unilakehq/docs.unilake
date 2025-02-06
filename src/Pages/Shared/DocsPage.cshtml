@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/css/typography.css">
 <link rel="stylesheet" href="/css/lite-yt-embed.css">
 
-@if (Model == null || Model.SidebarMenu == null)
+@if (Model == null || Model.SidebarMenu.Count == 0)
 {
     return;
 }
