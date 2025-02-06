@@ -108,7 +108,7 @@
                 <nav class="flex" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-3 md:space-x-3 rtl:space-x-reverse">
                         <li class="inline-flex items-center">
-                            <a href="#"
+                            <a href="/pages/@(Model.BreadCrumbRootUrl)"
                                class="items-center text-sm font-medium text-gray-700 inli menu-linkne-flex hover:text-brand dark:text-gray-400 dark:hover:text-white">
                                 <svg class="icon-footer" xmlns="http://www.w3.org/2000/svg" width="12" height="13"
                                      viewBox="0 0 12 13" fill="none">
@@ -125,20 +125,38 @@
                                 </svg>
                             </a>
                         </li>
-                        <li>
-                            <div class="flex items-center">
-                                @await Html.PartialAsync("SVG/ChevronRightSvg")
-                                <a href="#"
-                                   class="text menu-link-sm font-medium text-gray-700 ms-2 hover:text-brand md:ms-[9px]">Getting
-                                    Started</a>
-                            </div>
-                        </li>
-                        <li aria-current="page">
-                            <div class="flex items-center">
-                                @await Html.PartialAsync("SVG/ChevronRightSvg")
-                                <span class="text menu-link-sm font-medium text-brand ms-2">Some test</span>
-                            </div>
-                        </li>
+                        @foreach (var item in Model.BreadCrumbs().Skip(1))
+                        {
+                            if (item.Item3)
+                            {
+                                <li aria-current="page">
+                                    <div class="flex items-center">
+                                        @await Html.PartialAsync("SVG/ChevronRightSvg")
+                                        <a href="/pages/@(item.Item1)" class="text menu-link-sm font-medium text-brand ms-2">@(item.Item2)</a>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <div class="flex items-center">
+                                        @await Html.PartialAsync("SVG/ChevronRightSvg")
+                                        @if (string.IsNullOrWhiteSpace(item.Item1))
+                                        {
+                                            <span class="text menu-link-sm font-medium text-gray-700 ms-2 md:ms-[9px]">@(item.Item2)</span>
+                                        }
+                                        else
+                                        {
+                                            <a href="/pages/@(item.Item1)"
+                                               class="text menu-link-sm font-medium text-gray-700 ms-2 hover:text-brand md:ms-[9px]">@(item.Item2)</a>
+                                        }
+                                    </div>
+                                </li>
+                            }
+
+                        }
+
+
                     </ol>
                 </nav>
 

@@ -40,22 +40,47 @@ public class DocsPage : PageModel
     }
 
     public bool InPath(string path) => Doc?.Path.Contains(path) ?? true;
-    public string ActiveItemClass(string title) => IsActiveItem(title) ? "text-brand bg-backgroundFaded" : "text-bodyText hover:bg-backgroundFaded hover:cursor-pointer";
-    public bool IsActiveItem(string title) => Doc?.Title?.ToLower() == title.ToLower();
-    public MarkdownMenu? NextPage => GetMenuLinks(SidebarMenu).Where(x => !string.IsNullOrWhiteSpace(x.Link)).SkipWhile(x => !IsActiveItem(x.Text ?? "")).Skip(1).FirstOrDefault();
-    public MarkdownMenu? PrevPage => GetMenuLinks(SidebarMenu).Where(x => !string.IsNullOrWhiteSpace(x.Link)).TakeWhile(x => !IsActiveItem(x.Text ?? "")).LastOrDefault();
 
-    private List<MarkdownMenu> GetMenuLinks(List<MarkdownMenu> menus)
+    public string ActiveItemClass(string title) => IsActiveItem(title)
+        ? "text-brand bg-backgroundFaded"
+        : "text-bodyText hover:bg-backgroundFaded hover:cursor-pointer";
+
+    public bool IsActiveItem(string title) => Doc?.Title?.ToLower() == title.ToLower();
+
+    public MarkdownMenu? NextPage => GetMenuItems(SidebarMenu).Where(x => !string.IsNullOrWhiteSpace(x.Link))
+        .SkipWhile(x => !IsActiveItem(x.Text ?? "")).Skip(1).FirstOrDefault();
+
+    public MarkdownMenu? PrevPage => GetMenuItems(SidebarMenu).Where(x => !string.IsNullOrWhiteSpace(x.Link))
+        .TakeWhile(x => !IsActiveItem(x.Text ?? "")).LastOrDefault();
+
+    private List<MarkdownMenu> GetMenuItems(List<MarkdownMenu> menus, bool includeEmptyLinks = false)
     {
         List<MarkdownMenu> items = new List<MarkdownMenu>();
         foreach (var menu in menus)
         {
-            if(!menu.Link.IsNullOrEmpty())
+            if (!menu.Link.IsNullOrEmpty() || includeEmptyLinks)
                 items.Add(menu);
-            if(menu.Children!= null)
-                items.AddRange(GetMenuLinks(menu.Children));
+            if (menu.Children != null)
+                items.AddRange(GetMenuItems(menu.Children, includeEmptyLinks));
         }
 
         return items;
+    }
+
+    public string BreadCrumbRootUrl => BreadCrumbs().First().Item1;
+
+    public List<(string, string, bool)> BreadCrumbs()
+    {
+        string currentPath = string.Empty;
+        var menuitems = GetMenuItems(SidebarMenu, true);
+        return
+            Doc?.Path.Split('/').Skip(1).Select(x =>
+                {
+                    currentPath = Path.Combine(currentPath, x);
+                    return menuitems.FirstOrDefault(n => n.MenuPath == currentPath || n.Id == currentPath);
+                })
+                .Where(x => x != null)
+                .Select(x => (x.Link ?? "", x.Text ?? "", IsActiveItem(x.Text ?? "")))
+                .ToList();
     }
 }
