@@ -6,25 +6,25 @@
     ],
     "start_urls": [
         {
-            "url": "https://docs-unilake.coolify.avd.unilake.com"
+            "url": "https://docs-unilake.coolify.avd.unilake.com/pages/getting_started"
         },
         {
-            "url": "https://docs-unilake.coolify.avd.unilake.com/architecture"
+            "url": "https://docs-unilake.coolify.avd.unilake.com/pages/architecture"
         },
         {
-            "url": "https://docs-unilake.coolify.avd.unilake.com/platform"
+            "url": "https://docs-unilake.coolify.avd.unilake.com/pages/platform"
         },
         {
-            "url": "https://docs-unilake.coolify.avd.unilake.com/reference"
+            "url": "https://docs-unilake.coolify.avd.unilake.com/pages/reference"
         },
         {
-            "url": "https://docs-unilake.coolify.avd.unilake.com/integrations"
+            "url": "https://docs-unilake.coolify.avd.unilake.com/pages/integrations"
         },
         {
-            "url": "https://docs-unilake.coolify.avd.unilake.com/contribute"
+            "url": "https://docs-unilake.coolify.avd.unilake.com/pages/contribute"
         },
         {
-            "url": "https://docs-unilake.coolify.avd.unilake.com/integrations"
+            "url": "https://docs-unilake.coolify.avd.unilake.com/pages/integrations"
         }
     ],
     "stop_urls": [
