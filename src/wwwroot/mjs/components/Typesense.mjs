@@ -70,7 +70,6 @@ const TypesenseDialog = {
               let idx = 0
               const groups = {}
               const meta = { groups: [], allItems: [] }
-              //console.log(data)
 
               data.grouped_hits.forEach((gh) => {
                 let groupName = gh.group_key[0]
