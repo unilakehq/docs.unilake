@@ -55,7 +55,7 @@ const TypesenseDialog = {
           clearTimeout(timeout)
           // typesense API reference: https://typesense.org/docs/0.21.0/api/documents.html#search
           fetch(
-            'https://search-docs-unilake.coolify.avd.unilake.com/collections/unilake_docs/documents/search?q=' +
+            'https://search.docs.unilake.com/collections/unilake_docs/documents/search?q=' +
             encodeURIComponent(query.value) +
             '&query_by=hierarchy.lvl0,hierarchy.lvl1,content,hierarchy.lvl2,hierarchy.lvl3&group_by=hierarchy.lvl0',
             {
