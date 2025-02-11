@@ -165,23 +165,25 @@
                      class="xl:fixed 2xl:pl-0 3xl:mr-[60px] 2xl:mr-0 xl:mr-[30px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80"
                      tabindex="-1" aria-labelledby="drawer-right-label">
                     <div class="">
-                        <button type="button"
-                                class="flex items-center border-b xl:border-b-0 border-offset-[12px] border-bgNeutarl justify-between w-full gap-2 2xl:px-4 py-2 text-base text-bodyText transition duration-75 group"
-                                aria-controls="dropdown-r" data-collapse-toggle="dropdown-r">
-                            <div class="flex w-[266px] items-center gap-2">
-                                @await Html.PartialAsync("SVG/PagesSvg")
-                                <h5 id="drawer-right-label"
-                                    class="text-xs font-extrabold text-bodyText tracking-[1.44px] uppercase dark:text-gray-400">
-                                    On this page</h5>
-                            </div>
-                            <svg class="transition-transform xl:hidden chevron" xmlns="http://www.w3.org/2000/svg"
-                                 width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z"
-                                      fill="#252532"/>
-                            </svg>
-                        </button>
-
+                        @if ((Model?.Doc?.DocumentMap?.Headings ?? new List<MarkdownMenu>()).Count > 0)
+                        {
+                            <button type="button"
+                                    class="flex items-center border-b xl:border-b-0 border-offset-[12px] border-bgNeutarl justify-between w-full gap-2 2xl:px-4 py-2 text-base text-bodyText transition duration-75 group"
+                                    aria-controls="dropdown-r" data-collapse-toggle="dropdown-r">
+                                <div class="flex w-[266px] items-center gap-2">
+                                    @await Html.PartialAsync("SVG/PagesSvg")
+                                    <h5 id="drawer-right-label"
+                                        class="text-xs font-extrabold text-bodyText tracking-[1.44px] uppercase dark:text-gray-400">
+                                        On this page</h5>
+                                </div>
+                                <svg class="transition-transform xl:hidden chevron" xmlns="http://www.w3.org/2000/svg"
+                                     width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M3.64645 5.64645C3.84171 5.45118 4.15829 5.45118 4.35355 5.64645L8 9.29289L11.6464 5.64645C11.8417 5.45118 12.1583 5.45118 12.3536 5.64645C12.5488 5.84171 12.5488 6.15829 12.3536 6.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L3.64645 6.35355C3.45118 6.15829 3.45118 5.84171 3.64645 5.64645Z"
+                                          fill="#252532"/>
+                                </svg>
+                            </button>
+                        }
                         @* Menu items *@
                         <ul id="dropdown-r" class="flex-col hidden gap-2 p-2 py-3 pl-6 xl:flex ">
                             @foreach (var item in Model?.Doc?.DocumentMap?.Headings ?? new List<MarkdownMenu>())
