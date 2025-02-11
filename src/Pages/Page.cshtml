@@ -14,8 +14,21 @@
     }
 }
 
-@await Html.PartialAsync("DocsPage", new Shared.DocsPage {
-   Brand = "ServiceStack Documentation",
-   Slug = Model.Slug,
-   Folder = Model.Folder,
-}.Init(this, Markdown))
+@{
+    var docsPage = new Shared.DocsPage
+    {
+        Slug = Model.Slug,
+        Folder = Model.Folder,
+    }.Init(this, Markdown);
+}
+
+@section HeadArea
+{
+    <meta property="og:title" content="@docsPage.Doc?.Title | Unilake Docs">
+    <meta property="og:description" content="@docsPage.Doc?.Summary">
+    <meta property="og:url" content="@(new Uri($"{Request.Scheme}://{Request.Host}{Request.Path}").AbsoluteUri)">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="@docsPage.Doc?.Image">
+}
+
+@await Html.PartialAsync("DocsPage", docsPage)

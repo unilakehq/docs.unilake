@@ -32,6 +32,8 @@
         ["@servicestack/client"] = ("/lib/mjs/servicestack-client.mjs", "/lib/mjs/servicestack-client.min.mjs"),
         ["@servicestack/vue"]    = ("/lib/mjs/servicestack-vue.mjs",    "/lib/mjs/servicestack-vue.min.mjs"),
     })
+
+    @await RenderSectionAsync("HeadArea", required: false)
 </head>
 <body class="bg-white xl:overflow-auto font-inter dark:bg-black dark:text-white">
 @await Html.PartialAsync("Header", new Header())

@@ -10,6 +10,18 @@ Date: 2025-01-01
 
 ![Alt text](https://www.digitalocean.com/api/static-content/v1/images?src=%2F_next%2Fstatic%2Fmedia%2Fintro-to-cloud.d49bc5f7.jpeg&width=828 "a title") 
 
+:::copy
+Copy Me!
+:::
+
+:::sh
+npm run prerender
+:::
+
+:::YouTube MRQMBrXi5Sc
+Using Razor SSG to Create Websites in GitHub Codespaces
+:::
+
 Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis. Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
 
 ## Headin title goes here
