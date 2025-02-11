@@ -25,10 +25,12 @@
 @section HeadArea
 {
     <meta property="og:title" content="@docsPage.Doc?.Title | Unilake Docs">
+    <meta name="description" content="@docsPage.Doc?.Summary">
     <meta property="og:description" content="@docsPage.Doc?.Summary">
     @* <meta property="og:url" content="@(new Uri($"{Request.Scheme}://{Request.Host}{Request.Path}").AbsoluteUri)"> *@
     <meta property="og:type" content="article">
     <meta property="og:image" content="@docsPage.Doc?.Image">
+    <meta property="twitter:image" content="@docsPage.Doc?.Image">
 }
 
 @await Html.PartialAsync("DocsPage", docsPage)
