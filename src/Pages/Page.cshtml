@@ -26,7 +26,7 @@
 {
     <meta property="og:title" content="@docsPage.Doc?.Title | Unilake Docs">
     <meta property="og:description" content="@docsPage.Doc?.Summary">
-    <meta property="og:url" content="@(new Uri($"{Request.Scheme}://{Request.Host}{Request.Path}").AbsoluteUri)">
+    @* <meta property="og:url" content="@(new Uri($"{Request.Scheme}://{Request.Host}{Request.Path}").AbsoluteUri)"> *@
     <meta property="og:type" content="article">
     <meta property="og:image" content="@docsPage.Doc?.Image">
 }

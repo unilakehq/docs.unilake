@@ -24,7 +24,7 @@
 {
     <meta property="og:title" content="@articlePage.Doc?.Title | Unilake">
     <meta property="og:description" content="@articlePage.Doc?.Summary">
-    <meta property="og:url" content="@(new Uri($"{Request.Scheme}://{Request.Host}{Request.Path}").AbsoluteUri)">
+    @* <meta property="og:url" content="@(new Uri($"{Request.Scheme}://{Request.Host}{Request.Path}").AbsoluteUri)"> *@
     <meta property="og:type" content="article">
     <meta property="og:image" content="@articlePage.Doc?.Image">
 }
