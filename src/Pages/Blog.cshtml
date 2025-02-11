@@ -16,11 +16,6 @@
         <div class="flex flex-col gap-XL xl:gap-XXL">
             <div class="flex items-center justify-between">
                  <span class="xl:text-5xl text-[24px] tracking-[-0.72px] md:text-[40px] leading-[32px] md:leading-[48px] xl:leading-[52px] font-bold md:tracking-[-1.2px] xl:tracking-[-1.44px] text-brand">Articles</span>
-                <span class="block md:hidden">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 6C2.25 5.58579 2.58579 5.25 3 5.25H21C21.4142 5.25 21.75 5.58579 21.75 6C21.75 6.41421 21.4142 6.75 21 6.75H3C2.58579 6.75 2.25 6.41421 2.25 6ZM5.25 12C5.25 11.5858 5.58579 11.25 6 11.25H18C18.4142 11.25 18.75 11.5858 18.75 12C18.75 12.4142 18.4142 12.75 18 12.75H6C5.58579 12.75 5.25 12.4142 5.25 12ZM9.25 18C9.25 17.5858 9.58579 17.25 10 17.25H14C14.4142 17.25 14.75 17.5858 14.75 18C14.75 18.4142 14.4142 18.75 14 18.75H10C9.58579 18.75 9.25 18.4142 9.25 18Z" fill="#252532" />
-                    </svg>
-                </span>
             </div>
             <div class="grid grid-cols-1 md:gap-L gap-y-L md:gap-y-XL gap-L md:grid-cols-2 lg:grid-cols-3">
                 @foreach (var item in Markdown.GetVisiblePages("blog").OrderByDescending(x => x.Date))
