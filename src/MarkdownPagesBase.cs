@@ -328,7 +328,13 @@ public class ParagraphRenderer : HtmlObjectRenderer<ParagraphBlock>
 {
     protected override void Write(HtmlRenderer renderer, ParagraphBlock obj)
     {
-        renderer.Write("<p class='text-xs leading-6 text-bodyText md:text-base lg:leading-7'");
+        var classNames = new StringBuilder("<p class='text-xs leading-6 text-bodyText md:text-base lg:leading-7");
+        bool isImage = obj.Inline?.Where(x => x is LinkInline).Cast<LinkInline>().Any(x => x.IsImage) ?? false;
+        if (isImage)
+            classNames.Append(" mx-auto");
+
+        classNames.Append('\'');
+        renderer.Write(classNames.ToString());
         renderer.WriteAttributes(obj.GetAttributes());
         renderer.Write('>');
         renderer.WriteLeafInline(obj);
@@ -647,12 +653,15 @@ public class CustomInfoRenderer : HtmlObjectRenderer<CustomContainer>
             renderer.Write($"""
                             <div class="flex items-start gap-4 py-2 pr-6 mt-4 rounded-lg ">
                                  <div class="w-1 2xl:mr-11 mr-5 shrink-0 self-stretch {settings.Item2}"></div>
-                                 <div class="w-full text-base leading-7 text-bodyText">
-                                     <div class="flex items-center gap-2 mb-3">
+                                 <div class="w-full text-base leading-7 text-bodyText flex flex-col gap-2">
+                                     <div class="flex items-center gap-2">
                                      {settings.Item3}
-                                         <span class="{settings.Item1}">{title}</span>
-                                     </div>
                             """);
+            if (!string.IsNullOrEmpty(title) && Class != "quote")
+                renderer.Write($"""
+                                <span class="{settings.Item1}">{title}</span>
+                                """);
+            renderer.WriteLine("</div>");
         }
 
         // We don't escape a CustomContainer
@@ -908,6 +917,10 @@ public class ContainerExtensions : IMarkdownExtension
             {
                 Class = "danger",
                 Title = "DANGER",
+            },
+            ["quote"] = new CustomInfoRenderer
+            {
+                Class = "quote",
             },
             ["pre"] = new PreContainerRenderer(),
             ["youtube"] = new YouTubeContainerRenderer(),

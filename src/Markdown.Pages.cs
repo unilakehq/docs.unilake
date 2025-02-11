@@ -9,26 +9,19 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
     : MarkdownPagesBase<MarkdownFileInfo>(log, env, fs)
 {
     public override string Id => "pages";
-
-    public virtual string? DefaultMenuIcon { get; set; } =
-        "<svg class='h-6 w-6 shrink-0 text-sky-500' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true'><path stroke-linecap='round' stroke-linejoin='round' d='M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25'></path></svg>";
-
     List<MarkdownFileInfo> Pages { get; set; } = new();
     public List<MarkdownFileInfo> GetVisiblePages(string? prefix=null, bool allDirectories=false) => prefix == null 
         ? Pages.Where(IsVisible).OrderBy(x => x.Order).ThenBy(x => x.Path).ToList()
         : Pages.Where(x => IsVisible(x) && x.Slug!.StartsWith(prefix.WithTrailingSlash()))
             .Where(x => allDirectories || (x.Slug.CountOccurrencesOf('/') == prefix.CountOccurrencesOf('/') + 1))
             .OrderBy(x => x.Order).ThenBy(x => x.Path).ToList();
-
     public MarkdownFileInfo? GetBySlug(string slug)
     {
         slug = slug.Trim('/');
         return Fresh(Pages.Where(IsVisible).FirstOrDefault(x => x.Slug == slug));
     }
-
     public Dictionary<string, List<MarkdownMenu>> Sidebars { get; set; } = new();
     public Dictionary<string, FolderMenu[]> FolderMenu { get; set; } = new();
-
     public void LoadFrom(string fromDirectory)
     {
         Sidebars.Clear();
@@ -77,9 +70,7 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
 
         log.LogInformation("Loaded {Count} pages and folder order: {Sidebars}", Pages.Count, FolderMenu.Count);
     }
-
     public override List<MarkdownFileBase> GetAll() => Pages.Where(IsVisible).Map(doc => ToMetaDoc(doc, x => x.Url = $"/{x.Slug}"));
-
     public virtual List<MarkdownMenu> GetSidebar(string folder, MarkdownMenu? defaultMenu=null)
     {
         if (Sidebars.TryGetValue(folder, out var sidebar))
@@ -163,7 +154,6 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
         Sidebars.Add(folder, sidebar);
         return sidebar;
     }
-
     private List<MarkdownMenu> SetSideBarOrder(List<MarkdownMenu> menu, string menuPath = "")
     {
         foreach (var item in menu.Where(x => x.Children != null))

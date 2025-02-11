@@ -113,6 +113,8 @@ public class MarkdownFileInfo : MarkdownFileBase
 {
     public string MenuIcon { get; set; } = string.Empty;
     public string SidebarLabel { get; set; } = string.Empty;
+    public bool IsFeatured { get; set; } = false;
+    public string AuthorImage { get; set; } = string.Empty;
 }
 
 public class FeatureAvailabilityInfo

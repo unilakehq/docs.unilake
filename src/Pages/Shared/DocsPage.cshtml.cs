@@ -5,16 +5,10 @@ namespace docs.unilake.Pages.Shared;
 public class DocsPage : PageModel
 {
     public string? Brand { get; set; }
-    public string Slug { get; set; }
-    public string Folder { get; set; }
-    public MarkdownMenu? DefaultMenu { get; set; }
+    public string Slug { get; set; } = string.Empty;
+    public string Folder { get; set; } = string.Empty;
     public MarkdownFileInfo? Doc { get; set; }
-    public Func<dynamic?, object>? Header { get; set; }
-    public Func<dynamic?, object>? Footer { get; set; }
-    public bool HideTitle { get; set; }
-    public bool HideDocumentMap { get; set; }
-    public Action<List<MarkdownMenu>>? SidebarFilter { get; set; }
-    public List<MarkdownMenu> SidebarMenu { get; set; }
+    public List<MarkdownMenu> SidebarMenu { get; set; } = new();
 
     public DocsPage Init(Microsoft.AspNetCore.Mvc.RazorPages.Page page, MarkdownPages markdown)
     {
@@ -80,7 +74,7 @@ public class DocsPage : PageModel
                     return menuitems.FirstOrDefault(n => n.MenuPath == currentPath || n.Id == currentPath);
                 })
                 .Where(x => x != null)
-                .Select(x => (x.Link ?? "", x.Text ?? "", IsActiveItem(x.Text ?? "")))
-                .ToList();
+                .Select(x => (x!.Link ?? "", x.Text ?? "", IsActiveItem(x.Text ?? "")))
+                .ToList()!;
     }
 }
