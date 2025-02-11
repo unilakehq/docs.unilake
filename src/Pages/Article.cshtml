@@ -9,7 +9,7 @@
         var pages = markdown.GetVisiblePages();
         return pages
             .Where(x => x.Path.StartsWith("_pages/blog"))
-            .Map(page => new Page { PathInfo = page.Slug! });
+            .Map(page => new Page { PathInfo = page.FileName!.Replace(".md", "") });
     }
 }
 

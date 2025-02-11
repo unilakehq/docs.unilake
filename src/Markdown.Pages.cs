@@ -151,7 +151,7 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
         }
 
         sidebar = SetSideBarOrder(sidebar, folder);
-        Sidebars.Add(folder, sidebar);
+        Sidebars.TryAdd(folder, sidebar);
         return sidebar;
     }
     private List<MarkdownMenu> SetSideBarOrder(List<MarkdownMenu> menu, string menuPath = "")
