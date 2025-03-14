@@ -6478,6 +6478,10 @@ button:hover .icon-footer path {
     width: 886px;
   }
 
+  .\33xl\:max-w-screen-3xl {
+    max-width: 1920px;
+  }
+
   .\33xl\:px-28 {
     padding-left: 7rem;
     padding-right: 7rem;
