@@ -11,8 +11,8 @@
     return;
 }
 
-<div class="relative px-0 pt-6 mx-auto md:px-8 3xl:px-28 3xl:container">
-    <div class="flex flex-wrap">
+<div class="relative px-0 pt-6 mx-auto max-w-screen-3xl md:px-8 3xl:pl-60">
+    <div class="relative flex flex-wrap max-w-screen-3xl">
 
         @* LEFT MENU *@
         <div class="items-start flex-col hidden xl:inline-flex flex-none my-8 pr-[143px] pl-0 gap-2">
@@ -103,7 +103,7 @@
         <div id="doc" class="flex flex-start">
             @* CONTENT SECTION *@
             <div
-                class="px-6 py-6 xl:py-8 flex flex-col gap-8 mx-auto xl:w-[700px] min-[1590px]:w-[886px] 2xl:w-[750px] 3xl:w-[886px] xl:ml-[100px] 2xl:ml-[150px] min-[1590px]:ml-[263px] 3xl:ml-[263px] ">
+                class="px-6 py-6 xl:py-8 flex flex-col gap-8 mx-auto xl:w-[700px] min-[1590px]:w-[886px] 2xl:w-[750px] 3xl:w-[886px] xl:ml-[100px] 2xl:ml-[150px] min-[1590px]:ml-[263px] 3xl:ml-[150px] ">
                 @* BREADCRUMB *@
                 <nav class="flex" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-3 md:space-x-3 rtl:space-x-reverse">
@@ -132,7 +132,7 @@
                                 <li aria-current="page">
                                     <div class="flex items-center">
                                         @await Html.PartialAsync("SVG/ChevronRightSvg")
-                                        <a href="/pages/@(item.Item1)" class="text menu-link-sm font-medium text-brand ms-2">@(item.Item2)</a>
+                                        <a href="/pages/@(item.Item1)" class="font-medium text menu-link-sm text-brand ms-2">@(item.Item2)</a>
                                     </div>
                                 </li>
                             }
@@ -161,9 +161,9 @@
                 </nav>
 
                 @* RIGHT MENU *@
-                <div id="drawer-right"
-                     class="xl:fixed 2xl:pl-0 3xl:mr-[60px] 2xl:mr-0 xl:mr-[30px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80"
-                     tabindex="-1" aria-labelledby="drawer-right-label">
+                    <div id="drawer-right"
+                     class="xl:fixed 2xl:pl-0 3xl:mr-[200px] 2xl:mr-0 xl:mr-[30px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80"
+                    tabindex="-1" aria-labelledby="drawer-right-label">
                     <div class="">
                         @if ((Model?.Doc?.DocumentMap?.Headings ?? new List<MarkdownMenu>()).Count > 0)
                         {
@@ -225,7 +225,7 @@
 
                 </div>
 
-                <div class="content flex flex-col gap-8">
+                <div class="flex flex-col gap-8 content">
                     @* TITLE *@
                     <h1 class="text-headLines 2xl:text-[56px] text-[32px] tracking-[-0.96px] font-bold leading-[64px] 2xl:-tracking-[1.68px]"> @Model.Doc.Title </h1>
 
