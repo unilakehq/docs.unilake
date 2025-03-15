@@ -2262,20 +2262,16 @@ button:hover .icon-footer path {
   max-width: none;
 }
 
+.max-w-screen-3xl {
+  max-width: 1920px;
+}
+
 .max-w-xl {
   max-width: 36rem;
 }
 
 .max-w-xs {
   max-width: 20rem;
-}
-
-.max-w-\[1920px\] {
-  max-width: 1920px;
-}
-
-.max-w-screen-3xl {
-  max-width: 1920px;
 }
 
 .flex-1 {
@@ -6140,10 +6136,6 @@ button:hover .icon-footer path {
     top: 108px;
   }
 
-  .xl\:right-0 {
-    right: 0px;
-  }
-
   .xl\:col-span-6 {
     grid-column: span 6 / span 6;
   }
@@ -6300,10 +6292,6 @@ button:hover .icon-footer path {
 }
 
 @media (min-width: 1440px) {
-  .\32xl\:right-\[calc\(50\%-960px\+886px\)\] {
-    right: calc(50% - 960px + 886px);
-  }
-
   .\32xl\:ml-\[150px\] {
     margin-left: 150px;
   }
@@ -6336,10 +6324,6 @@ button:hover .icon-footer path {
     max-width: 1280px;
   }
 
-  .\32xl\:max-w-screen-2xl {
-    max-width: 1440px;
-  }
-
   .\32xl\:px-28 {
     padding-left: 7rem;
     padding-right: 7rem;
@@ -6353,16 +6337,6 @@ button:hover .icon-footer path {
   .\32xl\:px-XXXL {
     padding-left: 112px;
     padding-right: 112px;
-  }
-
-  .\32xl\:py-6 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-
-  .\32xl\:px-60 {
-    padding-left: 15rem;
-    padding-right: 15rem;
   }
 
   .\32xl\:py-4 {
@@ -6406,60 +6380,64 @@ button:hover .icon-footer path {
 }
 
 @media (min-width: 1920px) {
-  .\33xl\:right-\[calc\(50\%-960px\+886px\)\] {
-    right: calc(50% - 960px + 886px);
-  }
-
-  .\33xl\:right-\[calc\(100vw-1920px\)\] {
-    right: calc(100vw - 1920px);
-  }
-
-  .\33xl\:right-\[calc\(100vw-1920px-200px\)\] {
-    right: calc(100vw - 1920px - 200px);
+  .\33xl\:right-\[calc\(100vw-1920px\+150px\)\] {
+    right: calc(100vw - 1920px + 150px);
   }
 
   .\33xl\:right-\[calc\(100vw-1920px\+200px\)\] {
     right: calc(100vw - 1920px + 200px);
   }
 
-  .\33xl\:right-\[calc\(100vw-1920px\+100px\)\] {
-    right: calc(100vw - 1920px + 100px);
+  .\33xl\:right-\[calc\(100vw\+200px\)\] {
+    right: calc(100vw + 200px);
   }
 
-  .\33xl\:right-\[calc\(100vw-1920px\+150px\)\] {
-    right: calc(100vw - 1920px + 150px);
+  .\33xl\:right-\[calc\(100vw-200px\)\] {
+    right: calc(100vw - 200px);
   }
 
-  .\33xl\:ml-\[263px\] {
-    margin-left: 263px;
+  .\33xl\:right-\[calc\(100vw-1920px\)\] {
+    right: calc(100vw - 1920px);
   }
 
-  .\33xl\:mr-\[60px\] {
-    margin-right: 60px;
+  .\33xl\:right-\[calc\(\(100vw-1920px\)\/2\)\] {
+    right: calc((100vw - 1920px) / 2);
   }
 
-  .\33xl\:mr-\[200px\] {
-    margin-right: 200px;
+  .\33xl\:right-\[calc\(\(100vw-1920px\+200px\)\/2\)\] {
+    right: calc((100vw - 1920px + 200px) / 2);
   }
 
-  .\33xl\:ml-\[160px\] {
-    margin-left: 160px;
+  .\33xl\:right-\[calc\(\(100vw-1920px\+300px\)\/2\)\] {
+    right: calc((100vw - 1920px + 300px) / 2);
+  }
+
+  .\33xl\:right-\[calc\(\(100vw-1920px\+350px\)\/2\)\] {
+    right: calc((100vw - 1920px + 350px) / 2);
+  }
+
+  .\33xl\:right-\[calc\(\(100vw-1920px\+400px\)\/2\)\] {
+    right: calc((100vw - 1920px + 400px) / 2);
   }
 
   .\33xl\:ml-\[150px\] {
     margin-left: 150px;
   }
 
-  .\33xl\:ml-\[200px\] {
-    margin-left: 200px;
-  }
-
-  .\33xl\:mr-\[calc\(50\%-960px\+886px\)\] {
-    margin-right: calc(50% - 960px + 886px);
-  }
-
   .\33xl\:mr-0 {
     margin-right: 0px;
+  }
+
+  .\33xl\:mr-\[200px\] {
+    margin-right: 200px;
+  }
+
+  .\33xl\:mr-\[20vw\] {
+    margin-right: 20vw;
+  }
+
+  .\33xl\:mr-\[10vw\] {
+    margin-right: 10vw;
   }
 
   .\33xl\:aspect-\[859\/525\] {
@@ -6478,20 +6456,6 @@ button:hover .icon-footer path {
     width: 886px;
   }
 
-  .\33xl\:max-w-screen-3xl {
-    max-width: 1920px;
-  }
-
-  .\33xl\:px-28 {
-    padding-left: 7rem;
-    padding-right: 7rem;
-  }
-
-  .\33xl\:px-\[15rem\] {
-    padding-left: 15rem;
-    padding-right: 15rem;
-  }
-
   .\33xl\:px-60 {
     padding-left: 15rem;
     padding-right: 15rem;
@@ -6502,6 +6466,12 @@ button:hover .icon-footer path {
   }
 }
 
+@media (min-width: 2000px) {
+  .min-\[2000px\]\:right-\[calc\(100vw-1920px\)\] {
+    right: calc(100vw - 1920px);
+  }
+}
+
 @media (min-width: 2100px) {
   .min-\[2100px\]\:right-\[calc\(100vw-1920px\)\] {
     right: calc(100vw - 1920px);
@@ -6509,32 +6479,14 @@ button:hover .icon-footer path {
 }
 
 @media (min-width: 2200px) {
-  .min-\[2200px\]\:right-\[calc\(100vw-1920px\+100px\)\] {
-    right: calc(100vw - 1920px + 100px);
+  .min-\[2200px\]\:right-\[calc\(100vw-1920px-150px\)\] {
+    right: calc(100vw - 1920px - 150px);
   }
 }
 
 @media (min-width: 2300px) {
-  .min-\[2300px\]\:right-\[calc\(100vw-1920px-200px\)\] {
-    right: calc(100vw - 1920px - 200px);
-  }
-
   .min-\[2300px\]\:right-\[calc\(100vw-1920px-150px\)\] {
     right: calc(100vw - 1920px - 150px);
-  }
-
-  .min-\[2300px\]\:right-\[calc\(100vw-1920px-250px\)\] {
-    right: calc(100vw - 1920px - 250px);
-  }
-
-  .min-\[2300px\]\:right-\[calc\(100vw-1920px-50px\)\] {
-    right: calc(100vw - 1920px - 50px);
-  }
-}
-
-@media (min-width: 2500px) {
-  .min-\[2500px\]\:right-\[calc\(100vw-1920px\+100px\)\] {
-    right: calc(100vw - 1920px + 100px);
   }
 }
 

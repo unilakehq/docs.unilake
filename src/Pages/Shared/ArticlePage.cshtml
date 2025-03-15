@@ -109,7 +109,7 @@
         @* RIGHT MENU *@
         <div class="bg-transparent px-M rounded-S h-fit lg:min-w-[327px]">
             <div id="drawer-right"
-                class="xl:fixed 2xl:pl-0 3xl:mr-[200px] 2xl:mr-0 xl:mr-[75px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80 dark:bg-gray-800"
+                class="xl:fixed 2xl:pl-0 3xl:right-[calc((100vw-1920px+350px)/2)] 2xl:mr-0 xl:mr-[75px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80 dark:bg-gray-800"
                 tabindex="-1" aria-labelledby="drawer-right-label">
                 <div class="">
                     <button type="button"
@@ -137,7 +137,7 @@
 
                     <ul id="dropdown-article" class="flex-col hidden gap-2 p-2 py-3 pl-6 xl:flex ">
                         @foreach (var item in Model?.Doc?.DocumentMap?.Headings ?? new List<MarkdownMenu>())
-                        {
+                                                {
                             <li id="link-@item.Id"
                                 class="relative flex items-center w-full justify-between text-xs text-bodyText transition duration-75 rounded-lg group hover:bg-[#f0eeeb] dark:text-white dark:hover:bg-gray-700">
                                 <button class="w-full text-left">

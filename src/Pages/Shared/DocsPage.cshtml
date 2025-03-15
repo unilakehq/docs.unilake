@@ -162,7 +162,7 @@
 
                 @* RIGHT MENU *@
                     <div id="drawer-right"
-                     class="xl:fixed 2xl:pl-0 3xl:mr-[200px] 2xl:mr-0 xl:mr-[30px] right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80"
+                    class="xl:fixed 2xl:pl-0 xl:mr-[30px] 2xl:mr-0 right-0 z-40 xl:h-screen xl:top-[108px] xl:p-4 overflow-y-auto bg-transparent xl:w-80 3xl:right-[calc((100vw-1920px+350px)/2)]"
                     tabindex="-1" aria-labelledby="drawer-right-label">
                     <div class="">
                         @if ((Model?.Doc?.DocumentMap?.Headings ?? new List<MarkdownMenu>()).Count > 0)
