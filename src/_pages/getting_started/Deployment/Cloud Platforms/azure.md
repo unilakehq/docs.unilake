@@ -2,15 +2,6 @@
 title: Azure 
 ---
 
-## Some information
-
-Hello World!
-
-
-## Some other info
-
-Hello Second World!
-
-
-### Sub-sub
-y'all
+::: info
+This section is a placeholder. We will be adding more content here soon.
+:::

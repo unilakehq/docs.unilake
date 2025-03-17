@@ -369,64 +369,6 @@
 
                 </div>
 
-                @* Code Card *@
-                <div
-                    class="flex w-[327px] mx-auto md:mx-0 md:w-auto flex-col mt-[13.5px] bg-headLines rounded-lg shadow">
-                    <h5
-                        class="px-8 py-6 text-xs font-extrabold  border-b border-[#3F4952] tracking-[1.44px] text-neutral uppercase ">
-                        Card Title</h5>
-                    <div class="font-normal w-full py-6 text-xs text-[#1A76FF] font-fira">
-                        @* clipboard *@
-                        <div class="w-full">
-                            <div class="relative w-full dark:bg-gray-700">
-                                <div class="overflow-scroll md:overflow-hidden ">
-                                    <pre id="code-block" class="text-xs text-[#1A76FF] bg-headLines whitespace-pre">
-                                                USING org.apache.spark.sql.jdbc
-                                                    OPTIONS (
-                                                            url "jdbc:mysql://iomet-tutorial.cetmtjnompsh.eu-
-                                                central-1.rds.amazonaws.com:3306/employees",
-                                                            dbtable "employees.employees",
-                                                            driver 'com.mysql.cj.jdbc.Driver',
-                                                            user 'tutorial_user',
-                                                            password '9tVDVEKp'
-                                                );
-                                                            </pre>
-                                </div>
-                                <div class="absolute top-2 end-10 dark:bg-gray-700">
-                                    <button id="copyBtn" onclick="copyCode()" data-copy-to-clipboard-target="code-block"
-                                            data-copy-to-clipboard-content-type="innerHTML"
-                                            data-copy-to-clipboard-html-entities="true"
-                                            class="m-0.5 hover:border-white dark:border-gray-600 rounded-lg py-2 px-2.5 inline-flex items-center justify-center border-gray-500 border">
-                                        <span id="default-message" class="inline-flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
-                                                 viewBox="0 0 19 19" fill="none">
-                                                <g clip-path="url(#clip0_490_821)">
-                                                    <path
-                                                        d="M12.35 18.0101H10.9487C10.0183 18.0888 9.08135 18.0085 8.17791 17.7726C7.67701 17.581 7.22212 17.286 6.8429 16.9068C6.46369 16.5276 6.16867 16.0727 5.97708 15.5718C5.76003 14.8217 5.67958 14.0387 5.73958 13.2601C4.8212 13.3392 3.897 13.2037 3.03999 12.8643C2.33111 12.5018 1.75684 11.922 1.40124 11.2097C0.989578 10.4022 0.989578 9.46801 0.989578 7.59968V6.64967C0.989578 4.78134 0.989578 3.84717 1.40124 3.03967C1.75956 2.33323 2.33355 1.75924 3.03999 1.40092C3.84749 0.989258 4.78166 0.989258 6.65 0.989258H7.6C9.46833 0.989258 10.4025 0.989258 11.21 1.40092C11.9223 1.75652 12.5021 2.33079 12.8646 3.03967C13.204 3.89668 13.3395 4.82088 13.2604 5.73926C14.039 5.67926 14.822 5.75971 15.5721 5.97676C16.073 6.16835 16.5279 6.46337 16.9071 6.84258C17.2863 7.2218 17.5813 7.67669 17.7729 8.17759C18.0088 9.08103 18.0891 10.018 18.0104 10.9484V12.3497C18.0104 14.218 18.0104 15.1522 17.5987 15.9597C17.2431 16.672 16.6689 17.2518 15.96 17.6143C15.1525 18.0101 14.2183 18.0101 12.35 18.0101ZM6.92708 13.2601C6.88099 13.8982 6.93711 14.5396 7.09333 15.1601C7.22284 15.5011 7.42315 15.8107 7.68106 16.0686C7.93897 16.3265 8.24861 16.5268 8.58958 16.6563C9.36809 16.8329 10.1691 16.8889 10.9646 16.8226H12.3658C14.0442 16.8226 14.8833 16.8226 15.4375 16.5455C15.9184 16.2946 16.3107 15.9022 16.5617 15.4213C16.8387 14.8672 16.8387 14.028 16.8387 12.3497V10.9484C16.9051 10.1529 16.849 9.35193 16.6725 8.57342C16.5426 8.23142 16.3412 7.92106 16.0818 7.66304C15.8224 7.40503 15.511 7.2053 15.1683 7.07717C14.5447 6.92378 13.9003 6.87297 13.2604 6.92676V7.59968C13.2604 9.46801 13.2604 10.4022 12.8487 11.2097C12.4931 11.922 11.9189 12.5018 11.21 12.8643C10.4183 13.2759 9.46833 13.2759 7.6 13.2759L6.92708 13.2601ZM6.65 2.17676C4.94791 2.17676 4.15624 2.17676 3.57833 2.45384C3.09747 2.70479 2.70511 3.09714 2.45416 3.57801C2.17708 4.15592 2.17708 4.94759 2.17708 6.64967V7.59968C2.17708 9.27801 2.17708 10.1172 2.45416 10.6713C2.70511 11.1522 3.09747 11.5446 3.57833 11.7955C4.15624 12.0726 4.94791 12.0726 6.65 12.0726H7.6C9.27833 12.0726 10.1175 12.0726 10.6717 11.7955C11.1525 11.5446 11.5449 11.1522 11.7958 10.6713C12.0729 10.1172 12.0729 9.27801 12.0729 7.59968V6.64967C12.0729 4.94759 12.0729 4.15592 11.7958 3.57801C11.5449 3.09714 11.1525 2.70479 10.6717 2.45384C10.1175 2.17676 9.27833 2.17676 7.6 2.17676H6.65Z"
-                                                        fill="#F9F8F6"/>
-                                                </g>
-                                                <defs>
-                                                    <clipPath id="clip0_490_821">
-                                                        <rect width="19" height="19" fill="white"/>
-                                                    </clipPath>
-                                                </defs>
-                                            </svg>
-                                        </span>
-                                        <span id="success-message" class="inline-flex items-center hidden">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
-                                                 viewBox="0 0 19 19" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                      d="M16.2346 4.31232C16.4764 4.5339 16.4927 4.90949 16.2711 5.15122L7.56277 14.6512C7.45333 14.7706 7.29989 14.8401 7.13798 14.8436C6.97607 14.8471 6.81975 14.7844 6.70524 14.6698L2.7469 10.7115C2.51503 10.4796 2.51503 10.1037 2.7469 9.87183C2.97878 9.63995 3.35472 9.63995 3.58659 9.87183L7.10643 13.3917L15.3957 4.34879C15.6173 4.10707 15.9929 4.09074 16.2346 4.31232Z"
-                                                      fill="#6B9E32"/>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 @* CONTENT FOOTER *@
                 <div
                     class="flex flex-col mx-auto h-[264px] w-[327px] md:w-full not-prose items-end self-stretch gap-8 md:gap-16">

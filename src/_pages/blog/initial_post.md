@@ -1,99 +1,37 @@
 ---
-Title: Initial Post
+Title: Introducing Unilake, the open source unified data and AI platform
 IsFeatured: true
 Author: Menno Hamburg
 AuthorImage: https://media.licdn.com/dms/image/v2/C4D03AQFT8BhVHXf2Jg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1516585764563?e=1744848000&v=beta&t=E4ENHWY8J3_wS_DCwYc16LuqT5SSC6N4vSNAzwaiBxY
 Image: https://images.pexels.com/photos/29633209/pexels-photo-29633209/free-photo-of-moody-volcanic-landscape-of-thingeyjarsveit.jpeg
-Summary: Hello this is a summary of this initial post and some additional information
-Date: 2025-01-01
+Summary: Unilake is the open source data and AI platform, run it wherever you want under your own terms and conditions. Welcome to the freedom of choice
+Date: 2025-03-13
 ---
 
-![Alt text](https://www.digitalocean.com/api/static-content/v1/images?src=%2F_next%2Fstatic%2Fmedia%2Fintro-to-cloud.d49bc5f7.jpeg&width=828 "a title") 
+Building your data and AI platform can be a significant endeavor. Beyond the business challenges such as formulating compelling business  cases and securing buy-in from all stakeholders, there are also technical hurdles related to designing, implementing, and managing your future data ecosystem. Numerous decisions must be made, including selecting appropriate technologies, determining where to deploy your  platform, and ensuring robust security measures are in place. Despite  recent advancements, we observe a concerning trend towards proprietary  solutions, leading to reduced inclusivity, flexibility, and sometimes even compromised security.
 
-:::copy
-Copy Me!
-:::
+## Introducing Unilake
+Introducing Unilake, a comprehensive, fully open-source data and AI  platform designed to address every aspect of your organization's  data-driven projects in an integrated and holistic manner. Our platform features an opinionated architecture that simplifies adoption and enables rapid deployment. With cutting-edge technologies and best  practices in areas such as data integration, analysis, productization, sharing, and governance, Unilake empowers businesses to unlock valuable insights from their data estates. Our commitment is to become the go-to open-source data and AI platform accessible to business and governments of all sizes and budgets.
 
-:::sh
-npm run prerender
-:::
+## For whom?
+Unilake is available for any data project, big and small. The technology that Unilake is based on is already in use by large corporations and has proven itself to analyze and manage petabytes of data. Run Unilake on a single machine, multiple machines, on refurbished hardware, new hardware or in the cloud. Whether you are a startup, just starting your data and AI journey or a large corporate that requires strict security rules, we cater to the needs of both.
 
-:::YouTube MRQMBrXi5Sc
-Using Razor SSG to Create Websites in GitHub Codespaces
-:::
+## Why open source?
+While 15 years ago the technologies that introduced the "Big Data" era were open source, most data platforms offered today are either entirely closed-source or offer limited open-source  components within a predominantly closed-source framework (often referred to as open core, distinct from fully open-source software). While this is the case for today's largest data platform providers, there is a new wave of open source solutions making its introduction which is fueling the next phase of the data and AI transformation. By embracing open source from day one and striving to make Unilake universally accessible, we aspire to realize several key objectives and  beliefs:
 
-Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis. Lorem ipsum dolor sit amet consectetur. Sit ipsum in aenean sed diam. Et pretium nec elementum enim viverra nunc risus ac facilisis.
+### Hosting at your terms
+In the ever-growing world of data proliferation both the gathering of data and its use are becoming more and more strategically important. In line of this importance so is the need for data security and its governance. Using an open source platform you can host your data and its compute either locally, in the cloud of your choosing or in a private cloud. There can be numerous reasons to have this freedom, be it compliance (ever-increasing complexity of rules and regulations), sovereignty ambitions (run Unilake in a fully sovereign data center without risks of foreign interventions), performance reasons (tailor your dataplatform to your needs such as streaming applications) or because there is no cloud available for your use case (maritime or edge applications).
 
-## Headin title goes here
+### Adjust, tweak and expand
+An open source platform allows for anyone to adjust, tweak and expand its functionalities. Perhaps you have a generic capability in mind which can benefit the masses or a specific feature that can better serve your data ambitions, with an open platform you have the freedom of choice and the freedom to tailor it to your needs. Since data is becoming of strategic importance, why take a wholesale solution for granted? In a world where data and AI platforms are commoditized, what will remain of your edge?
 
-Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
+### Transparent auditing and governance
+For those seeking assurances that the data platform in use does what it says it does when it comes to security, one can take Unilake's source code and its dependencies to fully analyze its inner workings. We believe that increased transparency also increases security, at a minimum you have the possibility to evaluate the level security when you can read the source code, trust but verify. Can you confidently validate the security claims of your current data platform provider?
 
-Nibh vitae mi tristique elit cum. Ultricies tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum. Tristique fringilla donec massa enim posuere. Volutpat feugiat feugiat nisl eu in lectus. Cras scelerisque nisi quis ante eget ut luctus facilisis euismod. Vel in mauris tellus arcu nunc. Leo platea gravida accumsan lorem scelerisque. Mattis et neque tincidunt nunc et condimentum lacus in eget. Ullamcorper fames interdum turpis quis. Consectetur mattis mus sed mattis mauris. Scelerisque a bibendum volutpat amet magnis. Egestas gravida sed integer porttitor feugiat.
+### Democratizing data and AI
+With growing interest in data and AI solutions, the financial divide separating those capable of harnessing these tools and those unable to match required investments widens. We firmly believe that our data and AI platform should be available for all budgets, fostering greater  opportunities to generate actionable insights. In our view, data platforms shouldn't necessitate exorbitant expenditure; they ought to be readily available for any business to innovate and thrive using their data. 
 
-Nibh vitae mi tristique elit cum. Ultricies tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum. Tristique fringilla donec massa enim posuere. Volutpat feugiat feugiat nisl eu in lectus. Cras scelerisque nisi quis ante eget ut luctus facilisis euismod. Vel in mauris tellus arcu nunc. Leo platea gravida accumsan lorem scelerisque. Mattis et neque tincidunt nunc et condimentum lacus in eget. Ullamcorper fames interdum turpis quis. Consectetur mattis mus sed mattis mauris. Scelerisque a bibendum volutpat amet magnis. Egestas gravida sed integer porttitor feugiat.
+## The ambition
+It is our ambition that Unilake becomes the number one open source data and AI platform, allowing everyone to benefit from their data and enabling AI initiatives that otherwise would have been out of reach. By open sourcing Unilake it is in our believes that we are not only lowering barriers to entry, but also allowing for an acceleration of innovation when it comes to data platform development, design, operation and security.
+So check out Unilake, fork it, expand it, and tell us where it contributes and where it falls short. Join us on GitHub, chat (chat.unilake.com), or wherever you like to hang out online. Let's build this future together, one line of code at a time.
 
-::: warning
-Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-
-Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis.
-:::
-
-::: quote 
-**“Ultricies tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum.”**
-Kristin Watson
-:::
-
-
-Picture caption goes here
-Picture caption goes here
-
-## Heading title goes here number
-
-Enim urna eget sagittis nisl nullam magnis hac. Nunc lacus nulla eget egestas auctor nisl et consequat ipsum. Non cursus imperdiet aliquet nisi amet enim. Lacus massa sit convallis purus nulla tristique. Nec odio sed condimentum quam in gravida ac. Nisl vitae sit pulvinar mollis faucibus interdum dui at pellentesque. Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis. Cras scelerisque nisi quis ante eget ut luctus facilisis euismod. Vel in mauris tellus arcu nunc. Leo platea gravida accumsan lorem scelerisque. Mattis et neque tincidunt nunc et condimentum lacus in eget. Ullamcorper fames interdum turpis quis. Consectetur mattis mus sed mattis mauris. Scelerisque a bibendum volutpat amet magnis. Egestas gravida sed integer porttitor feugiat.
-
-Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non.
-
-Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat. Nibh vitae mi tristique elit cum. Ultricies tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum. Tristique fringilla donec massa enim posuere. Volutpat feugiat feugiat nisl eu in lectus.
-
-## Heading title goes here number
-
-Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat. Nibh vitae mi tristique elit cum. Ultricies tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum. Tristique fringilla donec massa enim posuere. Volutpat feugiat feugiat nisl eu in lectus.
-Picture caption goes here
-Tip
-
-Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-
-Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis.
-
-```csharp
-class A<T>
-{
-    public string? B { get; set; }
-}
-```
-
-### Heading title goes here
-
-Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-
-Nibh vitae mi tristique elit cum. Ultricies tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum. Tristique fringilla donec massa enim posuere. Volutpat feugiat feugiat nisl eu in lectus. Cras scelerisque nisi quis ante eget ut luctus facilisis euismod. Vel in mauris tellus arcu nunc. Leo platea gravida accumsan lorem scelerisque. Mattis et neque tincidunt nunc et condimentum lacus in eget. Ullamcorper fames interdum turpis quis. Consectetur mattis mus sed mattis mauris. Scelerisque a bibendum volutpat amet magnis. Egestas gravida sed integer porttitor feugiat.
-
-Enim urna eget sagittis nisl nullam magnis hac. Nunc lacus nulla eget egestas auctor nisl et consequat ipsum. Non cursus imperdiet aliquet nisi amet enim. Lacus massa sit convallis purus nulla tristique. Nec odio sed condimentum quam in gravida ac. Nisl vitae sit pulvinar mollis faucibus interdum dui at pellentesque. Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis.
-
-“Ultricies tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum.”
-
-Kristin Watson
-### Heading title goes here
-
-Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non. Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat.
-
-Nibh vitae mi tristique elit cum. Ultricies tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum. Tristique fringilla donec massa enim posuere. Volutpat feugiat feugiat nisl eu in lectus. Cras scelerisque nisi quis ante eget ut luctus facilisis euismod. Vel in mauris tellus arcu nunc. Leo platea gravida accumsan lorem scelerisque. Mattis et neque tincidunt nunc et condimentum lacus in eget. Ullamcorper fames interdum turpis quis. Consectetur mattis mus sed mattis mauris. Scelerisque a bibendum volutpat amet magnis. Egestas gravida sed integer porttitor feugiat.
-
-Enim urna eget sagittis nisl nullam magnis hac. Nunc lacus nulla eget egestas auctor nisl et consequat ipsum. Non cursus imperdiet aliquet nisi amet enim. Lacus massa sit convallis purus nulla tristique. Nec odio sed condimentum quam in gravida ac. Nisl vitae sit pulvinar mollis faucibus interdum dui at pellentesque. Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis.
-### Heading title goes here
-
-Enim urna eget sagittis nisl nullam magnis hac. Nunc lacus nulla eget egestas auctor nisl et consequat ipsum. Non cursus imperdiet aliquet nisi amet enim. Lacus massa sit convallis purus nulla tristique. Nec odio sed condimentum quam in gravida ac. Nisl vitae sit pulvinar mollis faucibus interdum dui at pellentesque. Leo sapien nibh leo sagittis cras nam felis ornare. Habitant eget ornare turpis. Cras scelerisque nisi quis ante eget ut luctus facilisis euismod. Vel in mauris tellus arcu nunc. Leo platea gravida accumsan lorem scelerisque. Mattis et neque tincidunt nunc et condimentum lacus in eget. Ullamcorper fames interdum turpis quis. Consectetur mattis mus sed mattis mauris. Scelerisque a bibendum volutpat amet magnis. Egestas gravida sed integer porttitor feugiat.
-
-Lorem ipsum dolor sit amet consectetur. Magna cras eu mi tincidunt eget quis vestibulum. Urna ultrices aenean elementum consequat vestibulum. In quam ultricies lacus rutrum id integer nisl. Est mi nunc urna morbi. Quis semper ultricies eget egestas dignissim non.
-
-Morbi accumsan est augue tempor tortor accumsan etiam mattis. Arcu consectetur rutrum mi volutpat. Nibh vitae mi tristique elit cum. Ultricies tincidunt mi senectus morbi donec amet nunc sed. Feugiat et consectetur aenean lacinia ac rhoncus. Et dui volutpat ullamcorper enim. Porttitor sodales in et condimentum. Tristique fringilla donec massa enim posuere. Volutpat feugiat feugiat nisl eu in lectus.

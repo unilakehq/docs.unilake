@@ -36,14 +36,8 @@
                         </div>
                         @* content *@
                         <div class="flex flex-col col-span-3 md:gap-L sm:gap-M gap-XS">
-                            <a href="/@item.Slug">
-                                <h1
-                                    class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">
-                                    @item.Title</h1>
-                            </a>
-                            <h5
-                                class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px]  md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">
-                                @item.Summary</h5>
+                            <a href="/@item.Slug"><h1 class="md:text-H3 md:tracking-[-0.96px] text-Regular text-headLines blog-heading font-bold">@item.Title</h1></a>
+                            <h5 class="md:text-Medium text-Small 2xl:w-[380px] 3xl:w-[400px]  md:leading-[28px] text-bodyText md:line-clamp-none line-clamp-2">@item.Summary</h5>
                             <a class="" href="/@item.Slug">
                                 @await Html.PartialAsync("Logos/ReadArticleLogo")
                             </a>
@@ -54,15 +48,11 @@
                                     <div class="flex items-end justify-between">
                                         <span class="text-Small text-textSecondary">@($"{item.Date:dd MMMM yyyy}")</span>
                                         <div class="flex items-center h-full">
-                                            <svg width="4" height="5" viewBox="0 0 4 5" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z"
-                                                    fill="#252532" />
+                                            <svg width="4" height="5" viewBox="0 0 4 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0.22168 3.06641V2.70605C0.22168 2.20215 0.379883 1.78613 0.696289 1.45801C1.01855 1.12988 1.45508 0.96582 2.00586 0.96582C2.5625 0.96582 3.00195 1.12988 3.32422 1.45801C3.64648 1.78613 3.80762 2.20215 3.80762 2.70605V3.06641C3.80762 3.56445 3.64648 3.97754 3.32422 4.30566C3.00781 4.62793 2.57129 4.78906 2.01465 4.78906C1.46387 4.78906 1.02734 4.62793 0.705078 4.30566C0.382812 3.97754 0.22168 3.56445 0.22168 3.06641Z" fill="#252532" />
                                             </svg>
                                         </div>
-                                        <span class="text-Small text-textSecondary">@(Math.Max(item.WordCount / 238 ?? 0,
-                                        1)) min read</span>
+                                        <span class="text-Small text-textSecondary">@(Math.Max(item.WordCount / 238 ?? 0, 1)) min read</span>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +65,7 @@
 </div>
 @await Html.PartialAsync("BlogFooter")
 <script>
-    function showMore(event) {
+    function showMore(event){
         event.currentTarget.classList.toggle('show-more-focused')
         event.currentTarget.classList.toggle('show-more')
         event.currentTarget.children[1].classList.toggle('rotate-180')
