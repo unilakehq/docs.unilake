@@ -3,7 +3,7 @@ Title: Introducing Unilake, the open source unified data and AI platform
 IsFeatured: true
 Author: Menno Hamburg
 AuthorImage: https://media.licdn.com/dms/image/v2/C4D03AQFT8BhVHXf2Jg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1516585764563?e=1744848000&v=beta&t=E4ENHWY8J3_wS_DCwYc16LuqT5SSC6N4vSNAzwaiBxY
-Image: https://images.pexels.com/photos/29633209/pexels-photo-29633209/free-photo-of-moody-volcanic-landscape-of-thingeyjarsveit.jpeg
+Image: https://unilake.com/img/changelog/julien-tromeur-2t0F_vmRDpU-unsplash.jpg
 Summary: Unilake is the open source data and AI platform, run it wherever you want under your own terms and conditions. Welcome to the freedom of choice
 Date: 2025-03-17
 ---
