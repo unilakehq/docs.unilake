@@ -150,6 +150,7 @@ public class MarkdownPages(ILogger<MarkdownPages> log, IWebHostEnvironment env, 
             }
         }
 
+        // check for empty folders
         sidebar = SetSideBarOrder(sidebar, folder);
         Sidebars.TryAdd(folder, sidebar);
         return sidebar;

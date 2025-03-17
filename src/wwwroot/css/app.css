@@ -2072,6 +2072,24 @@ button:hover .icon-footer path {
   min-height: 100%;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.min-h-max {
+  min-height: -moz-max-content;
+  min-height: max-content;
+}
+
+.min-h-fit {
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+
+.min-h-\[95\%\] {
+  min-height: 95%;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -5701,6 +5719,10 @@ button:hover .icon-footer path {
     display: table-cell;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:aspect-\[412\/368\] {
     aspect-ratio: 412/368;
   }
@@ -6344,6 +6366,11 @@ button:hover .icon-footer path {
     padding-bottom: 1rem;
   }
 
+  .\32xl\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
   .\32xl\:pl-0 {
     padding-left: 0px;
   }
@@ -6380,64 +6407,20 @@ button:hover .icon-footer path {
 }
 
 @media (min-width: 1920px) {
-  .\33xl\:right-\[calc\(100vw-1920px\+150px\)\] {
-    right: calc(100vw - 1920px + 150px);
-  }
-
-  .\33xl\:right-\[calc\(100vw-1920px\+200px\)\] {
-    right: calc(100vw - 1920px + 200px);
-  }
-
-  .\33xl\:right-\[calc\(100vw\+200px\)\] {
-    right: calc(100vw + 200px);
-  }
-
-  .\33xl\:right-\[calc\(100vw-200px\)\] {
-    right: calc(100vw - 200px);
-  }
-
-  .\33xl\:right-\[calc\(100vw-1920px\)\] {
-    right: calc(100vw - 1920px);
-  }
-
-  .\33xl\:right-\[calc\(\(100vw-1920px\)\/2\)\] {
-    right: calc((100vw - 1920px) / 2);
-  }
-
-  .\33xl\:right-\[calc\(\(100vw-1920px\+200px\)\/2\)\] {
-    right: calc((100vw - 1920px + 200px) / 2);
-  }
-
-  .\33xl\:right-\[calc\(\(100vw-1920px\+300px\)\/2\)\] {
-    right: calc((100vw - 1920px + 300px) / 2);
-  }
-
   .\33xl\:right-\[calc\(\(100vw-1920px\+350px\)\/2\)\] {
     right: calc((100vw - 1920px + 350px) / 2);
-  }
-
-  .\33xl\:right-\[calc\(\(100vw-1920px\+400px\)\/2\)\] {
-    right: calc((100vw - 1920px + 400px) / 2);
   }
 
   .\33xl\:ml-\[150px\] {
     margin-left: 150px;
   }
 
-  .\33xl\:mr-0 {
-    margin-right: 0px;
+  .\33xl\:ml-\[263px\] {
+    margin-left: 263px;
   }
 
-  .\33xl\:mr-\[200px\] {
-    margin-right: 200px;
-  }
-
-  .\33xl\:mr-\[20vw\] {
-    margin-right: 20vw;
-  }
-
-  .\33xl\:mr-\[10vw\] {
-    margin-right: 10vw;
+  .\33xl\:mr-\[60px\] {
+    margin-right: 60px;
   }
 
   .\33xl\:aspect-\[859\/525\] {
@@ -6456,6 +6439,11 @@ button:hover .icon-footer path {
     width: 886px;
   }
 
+  .\33xl\:px-28 {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+
   .\33xl\:px-60 {
     padding-left: 15rem;
     padding-right: 15rem;
@@ -6463,30 +6451,6 @@ button:hover .icon-footer path {
 
   .\33xl\:pl-60 {
     padding-left: 15rem;
-  }
-}
-
-@media (min-width: 2000px) {
-  .min-\[2000px\]\:right-\[calc\(100vw-1920px\)\] {
-    right: calc(100vw - 1920px);
-  }
-}
-
-@media (min-width: 2100px) {
-  .min-\[2100px\]\:right-\[calc\(100vw-1920px\)\] {
-    right: calc(100vw - 1920px);
-  }
-}
-
-@media (min-width: 2200px) {
-  .min-\[2200px\]\:right-\[calc\(100vw-1920px-150px\)\] {
-    right: calc(100vw - 1920px - 150px);
-  }
-}
-
-@media (min-width: 2300px) {
-  .min-\[2300px\]\:right-\[calc\(100vw-1920px-150px\)\] {
-    right: calc(100vw - 1920px - 150px);
   }
 }
 
